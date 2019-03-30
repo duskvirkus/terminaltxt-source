@@ -1,0 +1,19 @@
+{
+  "name": "picturesque",
+  "version": "0.0.0",
+  "description": "Text based game engine for the browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/figraham/picturesque.git"
+  },
+  "author": "Fi Graham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/figraham/picturesque/issues"
+  },
+  "homepage": "https://github.com/figraham/picturesque#readme"
+}
