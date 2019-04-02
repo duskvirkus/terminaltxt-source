@@ -21,6 +21,19 @@ module.exports = (grunt) => {
 
     clean: {
       prebuild: ['./build'],
+      development: ['./build/dist-dev'],
+    },
+
+    // -------------------------------------------------------------------------
+    // Typescript
+
+    ts: {
+      // production: {
+      //   tsconfig: './production.tsconfig.json',
+      // },
+      development: {
+        tsconfig: './development.tsconfig.json',
+      },
     },
 
   });
@@ -30,6 +43,7 @@ module.exports = (grunt) => {
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-ts');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -59,7 +73,8 @@ module.exports = (grunt) => {
   // Development Build
   grunt.registerTask('build:dev', ['build:common', 'build:development']);
   grunt.registerTask('build:development', [
-    'notask',
+    'clean:development',
+    'ts:development',
   ]);
 
   // ---------------------------------------------------------------------------
@@ -70,7 +85,7 @@ module.exports = (grunt) => {
 
   // All
   grunt.registerTask('test:all', [
-    '',
+    'notask',
   ]);
 
   // ---------------------------------------------------------------------------
