@@ -1,4 +1,42 @@
 const path = require('path');
+const package = require('./package');
+
+// -----------------------------------------------------------------------------
+// Webpack Config
+// Shared between development and production.
+const webpackConfigCommon = {
+  context: path.resolve(__dirname, 'src/picturesque'),
+  entry: './index.ts',
+  output: {
+    library: package.name,
+    libraryTarget: 'umd'
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+      }
+    ],
+  },
+};
+
+const webpackConfigProduction = Object.assign({}, webpackConfigCommon, {
+  mode: 'production',
+  // TODO Finish
+});
+
+const webpackConfigDevelopment = Object.assign({}, webpackConfigCommon, {
+  mode: 'development',
+  //watch: true,
+  output: {
+    path: path.resolve(__dirname, 'build/dist'),
+    filename: package.name + '.js',
+  },
+});
 
 module.exports = (grunt) => {
 
@@ -28,12 +66,22 @@ module.exports = (grunt) => {
     // Typescript
 
     ts: {
+      // TODO Production
       // production: {
       //   tsconfig: './production.tsconfig.json',
       // },
       development: {
         tsconfig: './development.tsconfig.json',
       },
+    },
+
+    // -------------------------------------------------------------------------
+    // Webpack
+
+    webpack: {
+      // See config objects near the top of the file.
+      production: webpackConfigProduction,
+      development: webpackConfigDevelopment,
     },
 
   });
@@ -44,6 +92,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-ts');
+  grunt.loadNpmTasks('grunt-webpack');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -67,14 +116,15 @@ module.exports = (grunt) => {
   // Production Build
   grunt.registerTask('build:prod', ['build:common', 'build:production']);
   grunt.registerTask('build:production', [
-    'notask',
+    'notask', // TODO
   ]);
 
   // Development Build
   grunt.registerTask('build:dev', ['build:common', 'build:development']);
   grunt.registerTask('build:development', [
     'clean:development',
-    'ts:development',
+    //'ts:development',
+    'webpack:development',
   ]);
 
   // ---------------------------------------------------------------------------
@@ -89,9 +139,17 @@ module.exports = (grunt) => {
   ]);
 
   // ---------------------------------------------------------------------------
+  // Log Webpack Config
+
+  grunt.registerTask('log:developmentConfig', () => {
+    grunt.log.writeln("Development Webpack Config:");
+    grunt.log.write(JSON.stringify(webpackConfigDevelopment, null, 2));
+  });
+
+  // ---------------------------------------------------------------------------
   // Helper Tasks
 
-  grunt.registerTask('notask', function() {
+  grunt.registerTask('notask', () => {
     grunt.log.writeln("No Task Implemented Yet!")
   });
 
