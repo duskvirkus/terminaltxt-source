@@ -2,13 +2,25 @@ const path = require('path');
 const package = require('./package');
 
 // -----------------------------------------------------------------------------
+// Library Config
+
+const libraryConfig = {
+  // change the following in package.json.
+  name: package.name,
+  version: package.version,
+
+  // change the following here.
+  nameSpace: "picturesque",
+};
+
+// -----------------------------------------------------------------------------
 // Webpack Config
 // Shared between development and production.
 const webpackConfigCommon = {
-  context: path.resolve(__dirname, 'src/picturesque'),
+  context: path.resolve(__dirname, 'src/' + libraryConfig.name + '/'),
   entry: './index.ts',
   output: {
-    library: package.name,
+    library: libraryConfig.name,
     libraryTarget: 'umd'
   },
   resolve: {
@@ -34,7 +46,7 @@ const webpackConfigDevelopment = Object.assign({}, webpackConfigCommon, {
   //watch: true,
   output: {
     path: path.resolve(__dirname, 'build/dist'),
-    filename: package.name + '.js',
+    filename: libraryConfig.name + '.js',
   },
 });
 
@@ -59,7 +71,6 @@ module.exports = (grunt) => {
 
     clean: {
       prebuild: ['./build'],
-      development: ['./build/dist-dev'],
     },
 
     // -------------------------------------------------------------------------
@@ -84,6 +95,23 @@ module.exports = (grunt) => {
       development: webpackConfigDevelopment,
     },
 
+    // -------------------------------------------------------------------------
+    // Template
+
+    template: {
+      typings: {
+        options: {
+          data: {
+            nameSpace: libraryConfig.nameSpace,
+          }
+        },
+        files: [{
+          dest: './build/dist/' + libraryConfig.name + '.d.ts',
+          src: './src/' + libraryConfig.name + '/typings.d.ts.template',
+        }],
+      },
+    },
+
   });
 
   // ---------------------------------------------------------------------------
@@ -93,6 +121,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-webpack');
+  grunt.loadNpmTasks('grunt-template');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -111,6 +140,7 @@ module.exports = (grunt) => {
   grunt.registerTask('build:common', [
     'clean:prebuild',
     'shell:cloneDist',
+    'template:typings',
   ]);
 
   // Production Build
@@ -122,7 +152,6 @@ module.exports = (grunt) => {
   // Development Build
   grunt.registerTask('build:dev', ['build:common', 'build:development']);
   grunt.registerTask('build:development', [
-    'clean:development',
     //'ts:development',
     'webpack:development',
   ]);
@@ -139,11 +168,16 @@ module.exports = (grunt) => {
   ]);
 
   // ---------------------------------------------------------------------------
-  // Log Webpack Config
+  // Log Configs
 
   grunt.registerTask('log:developmentConfig', () => {
     grunt.log.writeln("Development Webpack Config:");
     grunt.log.write(JSON.stringify(webpackConfigDevelopment, null, 2));
+  });
+
+  grunt.registerTask('log:libraryConfig', () => {
+    grunt.log.writeln("Library Config:");
+    grunt.log.write(JSON.stringify(libraryConfig, null, 2));
   });
 
   // ---------------------------------------------------------------------------
