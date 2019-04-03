@@ -4,8 +4,9 @@
   "description": "Text based game engine for the browser.",
   "main": "index.js",
   "scripts": {
-    "build": "grunt build",
-    "test": "grunt test"
+    "build": "grunt build --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
+    "build:dev": "grunt build:dev --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
+    "test": "grunt test --base ./ --gruntfile ./buildsystem/GruntFile.js -v"
   },
   "repository": {
     "type": "git",

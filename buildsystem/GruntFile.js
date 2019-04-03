@@ -1,54 +1,8 @@
 const path = require('path');
-const package = require('./package');
+const libraryConfig = require('./library.config.js')();
 
-// -----------------------------------------------------------------------------
-// Library Config
-
-const libraryConfig = {
-  // change the following in package.json.
-  name: package.name,
-  version: package.version,
-
-  // change the following here.
-  nameSpace: "picturesque",
-};
-
-// -----------------------------------------------------------------------------
-// Webpack Config
-// Shared between development and production.
-const webpackConfigCommon = {
-  context: path.resolve(__dirname, 'src/' + libraryConfig.name + '/'),
-  entry: './index.ts',
-  output: {
-    library: libraryConfig.name,
-    libraryTarget: 'umd'
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-      }
-    ],
-  },
-};
-
-const webpackConfigProduction = Object.assign({}, webpackConfigCommon, {
-  mode: 'production',
-  // TODO Finish
-});
-
-const webpackConfigDevelopment = Object.assign({}, webpackConfigCommon, {
-  mode: 'development',
-  //watch: true,
-  output: {
-    path: path.resolve(__dirname, 'build/dist'),
-    filename: libraryConfig.name + '.js',
-  },
-});
+const webpackConfigDevelopment = require('./webpack.config.js')(libraryConfig, 'development');
+const webpackConfigProduction = require('./webpack.config.js')(libraryConfig, 'production');
 
 module.exports = (grunt) => {
 
@@ -57,26 +11,19 @@ module.exports = (grunt) => {
 
   grunt.initConfig({
 
-    // -------------------------------------------------------------------------
-    // Shell
-
     shell: {
       cloneDist: {
-        command: 'git clone https://github.com/figraham/picturesque-dist build',
+        command: 'git clone ' + libraryConfig.buildRespository + ' ' + libraryConfig.buildDir,
       },
     },
 
-    // -------------------------------------------------------------------------
-    // Clean
-
     clean: {
-      prebuild: ['./build'],
+      prebuild: {
+        src: ['./' + libraryConfig.buildDir],
+      },
     },
 
-    // -------------------------------------------------------------------------
-    // Typescript
-
-    ts: {
+    ts: { // TODO remove
       // TODO Production
       // production: {
       //   tsconfig: './production.tsconfig.json',
@@ -86,17 +33,11 @@ module.exports = (grunt) => {
       },
     },
 
-    // -------------------------------------------------------------------------
-    // Webpack
-
     webpack: {
-      // See config objects near the top of the file.
+      // See webpack.config.js file.
       production: webpackConfigProduction,
       development: webpackConfigDevelopment,
     },
-
-    // -------------------------------------------------------------------------
-    // Template
 
     template: {
       typings: {
@@ -106,8 +47,8 @@ module.exports = (grunt) => {
           }
         },
         files: [{
-          dest: './build/dist/' + libraryConfig.name + '.d.ts',
-          src: './src/' + libraryConfig.name + '/typings.d.ts.template',
+          dest: './' + libraryConfig.distDir + '/' + libraryConfig.name + '.d.ts',
+          src: './' + libraryConfig.templateDir + '/typings.d.ts.template',
         }],
       },
     },
@@ -144,7 +85,6 @@ module.exports = (grunt) => {
   ]);
 
   // Production Build
-  grunt.registerTask('build:prod', ['build:common', 'build:production']);
   grunt.registerTask('build:production', [
     'notask', // TODO
   ]);
@@ -164,7 +104,7 @@ module.exports = (grunt) => {
 
   // All
   grunt.registerTask('test:all', [
-    'notask',
+    'notask', // TODO
   ]);
 
   // ---------------------------------------------------------------------------
@@ -178,6 +118,11 @@ module.exports = (grunt) => {
   grunt.registerTask('log:libraryConfig', () => {
     grunt.log.writeln("Library Config:");
     grunt.log.write(JSON.stringify(libraryConfig, null, 2));
+  });
+
+  grunt.registerTask('log:gruntConfig', () => {
+    grunt.log.writeln("Grunt Config:");
+    grunt.log.write(JSON.stringify(grunt.config(), null, 2));
   });
 
   // ---------------------------------------------------------------------------
