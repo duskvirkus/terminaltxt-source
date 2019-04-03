@@ -1,5 +1,6 @@
 const path = require('path');
 const libraryConfig = require('./library.config.js')();
+const examplesConfig = require('./examples.config.js')(libraryConfig);
 
 const webpackConfigDevelopment = require('./webpack.config.js')(libraryConfig, 'development');
 const webpackConfigProduction = require('./webpack.config.js')(libraryConfig, 'production');
@@ -11,11 +12,11 @@ module.exports = (grunt) => {
 
   grunt.initConfig({
 
-    shell: {
+    shell: Object.assign({}, {
       cloneDist: {
-        command: 'git clone ' + libraryConfig.buildRespository + ' ' + libraryConfig.buildDir,
+        command: 'git clone ' + libraryConfig.buildRepository + ' ' + libraryConfig.buildDir,
       },
-    },
+    }, examplesConfig.shellCommands),
 
     clean: {
       prebuild: {
@@ -24,10 +25,6 @@ module.exports = (grunt) => {
     },
 
     ts: { // TODO remove
-      // TODO Production
-      // production: {
-      //   tsconfig: './production.tsconfig.json',
-      // },
       development: {
         tsconfig: './development.tsconfig.json',
       },
@@ -52,6 +49,8 @@ module.exports = (grunt) => {
         }],
       },
     },
+
+    examples: examplesConfig.exampleTaskLists,
 
   });
 
@@ -106,6 +105,15 @@ module.exports = (grunt) => {
   grunt.registerTask('test:all', [
     'notask', // TODO
   ]);
+
+  // ---------------------------------------------------------------------------
+  // Examples
+
+  grunt.registerMultiTask('examples', function() {
+    for (let i = 0; i < this.data.tasks.length; i++) {
+      grunt.task.run(this.data.tasks[i] + ':' + this.target);
+    }
+  });
 
   // ---------------------------------------------------------------------------
   // Log Configs

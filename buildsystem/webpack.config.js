@@ -32,23 +32,9 @@ module.exports = (libraryConfig, buildType) => {
   } else if (buildType === 'production') {
     // TODO
   } else {
-    const errorMessage = "Invalid input in " + __filename + ". Expected 'development' or 'production' as buildType but recived '" + buildType + "'.";
+    const errorMessage = "Invalid input in " + __filename + ". Expected 'development' or 'production' as buildType but received '" + buildType + "'.";
     eventEmitter.emit('error', new Error(errorMessage));
   }
 
   return webpackBuildConfig;
 }
-
-// const webpackConfigProduction = Object.assign({}, webpackConfigCommon, {
-//   mode: 'production',
-//   // TODO Finish
-// });
-
-// const webpackConfigDevelopment = Object.assign({}, webpackConfigCommon, {
-//   mode: 'development',
-//   //watch: true,
-//   output: {
-//     path: path.resolve(__dirname, '../build/dist'),
-//     filename: libraryConfig.name + '.js',
-//   },
-// });
