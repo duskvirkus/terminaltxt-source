@@ -52,6 +52,18 @@ module.exports = (grunt) => {
 
     examples: examplesConfig.exampleTaskLists,
 
+    typedoc: {
+      docs: {
+        options: {
+          out: './' + libraryConfig.docsDir,
+          target: 'es5', // TODO use library config after to do in tsconfig
+          module: "es2015", // TODO save as target to do
+          name: libraryConfig.name,
+        },
+        src: ['./' + libraryConfig.srcDir + '/*/**.ts']
+      },
+    },
+
   });
 
   // ---------------------------------------------------------------------------
@@ -62,6 +74,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-template');
+  grunt.loadNpmTasks('grunt-typedoc');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -85,7 +98,8 @@ module.exports = (grunt) => {
 
   // Production Build
   grunt.registerTask('build:production', [
-    'notask', // TODO
+    // TODO add min version
+    'docs'
   ]);
 
   // Development Build
@@ -94,6 +108,11 @@ module.exports = (grunt) => {
     //'ts:development',
     'webpack:development',
   ]);
+
+  // ---------------------------------------------------------------------------
+  // Documentation
+
+  grunt.registerTask('docs', 'typedoc:docs');
 
   // ---------------------------------------------------------------------------
   // Testing

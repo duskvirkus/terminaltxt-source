@@ -6,7 +6,7 @@ const eventEmitter = new EventEmitter();
 module.exports = (libraryConfig, buildType) => {
 
   const webpackBuildConfig = {
-    context: path.resolve(__dirname, '../src/' + libraryConfig.name + '/'),
+    context: path.resolve(__dirname, '../' + libraryConfig.srcDir + '/' + libraryConfig.name + '/'),
     entry: './index.ts',
     output: {
       library: libraryConfig.name,
