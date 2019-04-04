@@ -1,2 +1,1 @@
-import * as core from './core/index';
-export {core as Core};
+export * from './core/index';
