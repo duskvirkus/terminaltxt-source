@@ -9,9 +9,11 @@ module.exports = () => {
 
     // File Locations
     // Relative to root of project. Just dir names.
+    srcDir: 'src',
     templateDir: 'buildsystem/templates',
     buildDir: 'build',
     distDir: 'build/dist',
+    docsDir: 'docs',
     examplesDir: 'examples',
 
     buildRepository: 'https://github.com/figraham/picturesque-dist',
