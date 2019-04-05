@@ -1,7 +1,6 @@
 const path = require('path');
 const libraryConfig = require('./library.config.js')();
 const examplesConfig = require('./examples.config.js')(libraryConfig);
-
 const webpackConfigDevelopment = require('./webpack.config.js')(libraryConfig, 'development');
 const webpackConfigProduction = require('./webpack.config.js')(libraryConfig, 'production');
 
@@ -52,7 +51,7 @@ module.exports = (grunt) => {
 
     examples: examplesConfig.exampleTaskLists,
 
-    typedoc: {
+    typedoc: { // TODO remove this
       docs: {
         options: {
           out: './' + libraryConfig.docsDir,
@@ -61,6 +60,46 @@ module.exports = (grunt) => {
           name: libraryConfig.name,
         },
         src: ['./' + libraryConfig.srcDir + '/*/**.ts']
+      },
+    },
+
+    tslint: {
+      options: {
+        configuration: {
+          extends: [
+            'tslint:latest'
+          ],
+          rules: {
+            "adjacent-overload-signatures": true,
+            "member-access": true,
+            "ban-comma-operator": true,
+            "function-constructor": true,
+            "label-position": true,
+            "no-arg": true,
+            "no-conditional-assignment": true,
+            "no-construct": true,
+            "no-duplicate-switch-case": true,
+            "no-any": true,
+            "curly": true,
+            "no-sparse-arrays": true,
+            "no-var-keyword": true,
+            "prefer-const": true,
+            "array-type": [true, "array"],
+            "one-variable-per-declaration": true,
+            "variable-name": [
+              true,
+              "ban-keywords",
+              "check-format",
+              "require-const-for-all-caps",
+              "allow-leading-underscore",
+            ]
+          },
+        },
+        project: path.resolve(__dirname, '../' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json'),
+        fix: true,
+      },
+      src: {
+        src: './' + libraryConfig.srcDir + '/' + libraryConfig.name + '/**/*.ts',
       },
     },
 
@@ -75,6 +114,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-typedoc');
+  grunt.loadNpmTasks('grunt-tslint');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -122,7 +162,7 @@ module.exports = (grunt) => {
 
   // All
   grunt.registerTask('test:all', [
-    'notask', // TODO
+    'tslint:src', // TODO
   ]);
 
   // ---------------------------------------------------------------------------
