@@ -103,6 +103,12 @@ module.exports = (grunt) => {
       },
     },
 
+    karma: {
+      src: {
+        configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
+      },
+    },
+
   });
 
   // ---------------------------------------------------------------------------
@@ -115,6 +121,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-typedoc');
   grunt.loadNpmTasks('grunt-tslint');
+  grunt.loadNpmTasks('grunt-karma');
 
   // ---------------------------------------------------------------------------
   // Builds
