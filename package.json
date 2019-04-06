@@ -7,7 +7,6 @@
     "build": "grunt build --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
     "build:dev": "grunt build:dev --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
     "test": "grunt test --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
-    "karma": "grunt karma --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
     "docs": "grunt docs --base ./ --gruntfile ./buildsystem/GruntFile.js -v"
   },
   "repository": {

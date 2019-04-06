@@ -132,8 +132,8 @@ module.exports = (grunt) => {
   // Both
   grunt.registerTask('build:both', [
     'build:common',
-    'build:development',
     'build:production',
+    'build:development',
   ]);
 
   // Common
@@ -146,7 +146,8 @@ module.exports = (grunt) => {
   // Production Build
   grunt.registerTask('build:production', [
     // TODO add min version
-    'docs'
+    'test',
+    'docs',
   ]);
 
   // Development Build
@@ -164,12 +165,9 @@ module.exports = (grunt) => {
   // ---------------------------------------------------------------------------
   // Testing
 
-  // Default
-  grunt.registerTask('test', ['test:all']);
-
-  // All
-  grunt.registerTask('test:all', [
-    'tslint:src', // TODO
+  grunt.registerTask('test', [
+    'tslint',
+    'karma',
   ]);
 
   // ---------------------------------------------------------------------------
