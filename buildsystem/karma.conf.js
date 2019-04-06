@@ -9,14 +9,23 @@ module.exports = (config) => {
     frameworks: ['jasmine', 'karma-typescript'],
 
     preprocessors: {
-      '**/*.ts': ['karma-typescript'],
+      '**/*.ts': ['karma-typescript', 'coverage'],
     },
 
     files: [
       './src/**/*.ts',
     ],
 
-    reporters: ['progress', 'karma-typescript'],
+    reporters: [
+      'coverage',
+      'progress',
+      'karma-typescript'
+    ],
+
+    coverageReporter: {
+      type: 'text',
+      dir: './coverage',
+    },
 
     browsers: ['Chrome'], // TODO add more browsers
 
