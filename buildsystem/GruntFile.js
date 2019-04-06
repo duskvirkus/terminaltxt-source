@@ -103,6 +103,12 @@ module.exports = (grunt) => {
       },
     },
 
+    karma: {
+      src: {
+        configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
+      },
+    },
+
   });
 
   // ---------------------------------------------------------------------------
@@ -115,6 +121,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-typedoc');
   grunt.loadNpmTasks('grunt-tslint');
+  grunt.loadNpmTasks('grunt-karma');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -125,8 +132,8 @@ module.exports = (grunt) => {
   // Both
   grunt.registerTask('build:both', [
     'build:common',
-    'build:development',
     'build:production',
+    'build:development',
   ]);
 
   // Common
@@ -139,7 +146,8 @@ module.exports = (grunt) => {
   // Production Build
   grunt.registerTask('build:production', [
     // TODO add min version
-    'docs'
+    'test',
+    'docs',
   ]);
 
   // Development Build
@@ -157,12 +165,9 @@ module.exports = (grunt) => {
   // ---------------------------------------------------------------------------
   // Testing
 
-  // Default
-  grunt.registerTask('test', ['test:all']);
-
-  // All
-  grunt.registerTask('test:all', [
-    'tslint:src', // TODO
+  grunt.registerTask('test', [
+    'tslint',
+    'karma',
   ]);
 
   // ---------------------------------------------------------------------------
