@@ -12,7 +12,7 @@ module.exports = (grunt) => {
   grunt.initConfig({
 
     shell: Object.assign({}, {
-      cloneDist: {
+      cloneDist: { // TODO change name
         command: 'git clone ' + libraryConfig.buildRepository + ' ' + libraryConfig.buildDir,
       },
     }, examplesConfig.shellCommands),
@@ -63,7 +63,7 @@ module.exports = (grunt) => {
       },
     },
 
-    tslint: {
+    tslint: { // TODO consider separate file
       options: {
         configuration: {
           extends: [
@@ -104,9 +104,17 @@ module.exports = (grunt) => {
     },
 
     karma: {
-      src: {
+      // src: {
+      //   configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
+      // },
+      local: {
         configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
+        browsers: ['Chrome'],
       },
+      travis: {
+        configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
+        browsers: ['ChromeHeadless'],
+      }
     },
 
   });
@@ -167,7 +175,25 @@ module.exports = (grunt) => {
 
   grunt.registerTask('test', [
     'tslint',
-    'karma',
+    'karma:local',
+  ]);
+
+  // ---------------------------------------------------------------------------
+  // Travis
+
+  grunt.registerTask('travis', [
+    'travis:test',
+    'travis:build',
+  ]);
+
+  grunt.registerTask('travis:build', [
+    'build:dev',
+    'docs',
+  ]);
+
+  grunt.registerTask('travis:test', [
+    'tslint',
+    'karma:travis',
   ]);
 
   // ---------------------------------------------------------------------------
@@ -200,7 +226,7 @@ module.exports = (grunt) => {
   // ---------------------------------------------------------------------------
   // Helper Tasks
 
-  grunt.registerTask('notask', () => {
+  grunt.registerTask('notask', () => { // TODO Remove
     grunt.log.writeln("No Task Implemented Yet!")
   });
 
