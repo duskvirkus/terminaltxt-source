@@ -174,12 +174,19 @@ module.exports = (grunt) => {
   grunt.registerTask('docs', 'typedoc'); // TODO
 
   // ---------------------------------------------------------------------------
-  // Testing
+  // Linting
 
-  grunt.registerTask('test', [
+  grunt.registerTask('lint', [
     'json_generator:tsconfig',
     'tslint',
     'clean:tsconfig',
+  ]);
+
+  // ---------------------------------------------------------------------------
+  // Testing
+
+  grunt.registerTask('test', [
+    'lint',
     'karma:local',
   ]);
 
@@ -197,7 +204,7 @@ module.exports = (grunt) => {
   ]);
 
   grunt.registerTask('travis:test', [
-    'tslint',
+    'lint',
     'karma:travis',
   ]);
 
