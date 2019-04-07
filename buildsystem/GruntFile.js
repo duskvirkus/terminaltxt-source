@@ -1,9 +1,10 @@
 const path = require('path');
-const libraryConfig = require('./library.config.js')();
-const tsConfig = require('./tsconfig.js')(libraryConfig);
-const examplesConfig = require('./examples.config.js')(libraryConfig);
-const webpackConfigDevelopment = require('./webpack.config.js')(libraryConfig, 'development');
-const webpackConfigProduction = require('./webpack.config.js')(libraryConfig, 'production');
+const libraryConfig = require('./library.config')();
+const tsConfig = require('./tsconfig')(libraryConfig);
+const examplesConfig = require('./examples.config')(libraryConfig);
+const webpackConfigDevelopment = require('./webpack.config')(libraryConfig, 'development');
+const webpackConfigProduction = require('./webpack.config')(libraryConfig, 'production');
+const tslintConfig = require('./tslint.config')();
 
 module.exports = (grunt) => {
 
@@ -58,38 +59,9 @@ module.exports = (grunt) => {
 
     examples: examplesConfig.exampleTaskLists,
 
-    tslint: { // TODO consider separate file
+    tslint: {
       options: {
-        configuration: {
-          extends: [
-            'tslint:latest'
-          ],
-          rules: {
-            "adjacent-overload-signatures": true,
-            "member-access": true,
-            "ban-comma-operator": true,
-            "function-constructor": true,
-            "label-position": true,
-            "no-arg": true,
-            "no-conditional-assignment": true,
-            "no-construct": true,
-            "no-duplicate-switch-case": true,
-            "no-any": true,
-            "curly": true,
-            "no-sparse-arrays": true,
-            "no-var-keyword": true,
-            "prefer-const": true,
-            "array-type": [true, "array"],
-            "one-variable-per-declaration": true,
-            "variable-name": [
-              true,
-              "ban-keywords",
-              "check-format",
-              "require-const-for-all-caps",
-              "allow-leading-underscore",
-            ]
-          },
-        },
+        configuration: tslintConfig,
         project: path.resolve(__dirname, '../' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json'),
         fix: true,
       },
