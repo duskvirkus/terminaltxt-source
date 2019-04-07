@@ -1,8 +1,8 @@
-import { sayHello, addHello } from '../../picturesque/core/hello';
+import { sayHello, addHello } from '../../core/hello';
 
 describe('Hello Module Tests :', () => {
   it('sayHello function', () => {
-    let value = 'Test';
+    const value = 'Test';
     spyOn(console, 'log');
     sayHello(value);
     expect(console.log).toHaveBeenCalledWith('Hello Test');

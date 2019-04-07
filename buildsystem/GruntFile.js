@@ -23,7 +23,7 @@ module.exports = (grunt) => {
         ' --module ' + tsConfig.compilerOptions.module + 
         ' --name ' + libraryConfig.name + 
         ' --readme ./README.md' + 
-        ' --tsconfig ./' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json' + 
+        ' --tsconfig ./' + libraryConfig.srcDir + '/tsconfig.json' + 
         ' --exclude **/index.ts',
       }
     }, examplesConfig.shellCommands),
@@ -62,11 +62,11 @@ module.exports = (grunt) => {
     tslint: {
       options: {
         configuration: tslintConfig,
-        project: path.resolve(__dirname, '../' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json'),
+        project: path.resolve(__dirname, '../' + libraryConfig.srcDir + '/tsconfig.json'),
         fix: true,
       },
       src: {
-        src: './' + libraryConfig.srcDir + '/' + libraryConfig.name + '/**/*.ts',
+        src: './' + libraryConfig.srcDir + '/**/*.ts',
       },
     },
 
@@ -90,7 +90,7 @@ module.exports = (grunt) => {
 
     json_generator: {
       tsconfig: {
-        dest: './' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json',
+        dest: './' + libraryConfig.srcDir + '/tsconfig.json',
         options: tsConfig,
       },
     },
