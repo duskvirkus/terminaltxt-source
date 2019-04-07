@@ -16,6 +16,15 @@ module.exports = (grunt) => {
       cloneDist: { // TODO change name
         command: 'git clone ' + libraryConfig.buildRepository + ' ' + libraryConfig.buildDir,
       },
+      typedoc: {
+        command: 'typedoc --out ./' + libraryConfig.docsDir + 
+        ' --target ' + tsConfig.compilerOptions.target + 
+        ' --module ' + tsConfig.compilerOptions.module + 
+        ' --name ' + libraryConfig.name + 
+        ' --readme ./README.md' + 
+        ' --tsconfig ./' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json' + 
+        ' --exclude **/index.ts',
+      }
     }, examplesConfig.shellCommands),
 
     clean: {
@@ -48,18 +57,6 @@ module.exports = (grunt) => {
     },
 
     examples: examplesConfig.exampleTaskLists,
-
-    typedoc: { // TODO remove this
-      docs: {
-        options: {
-          out: './' + libraryConfig.docsDir,
-          target: 'es5', // TODO use library config after to do in tsconfig
-          module: "es2015", // TODO save as target to do
-          name: libraryConfig.name,
-        },
-        src: ['./' + libraryConfig.srcDir + '/*/**.ts']
-      },
-    },
 
     tslint: { // TODO consider separate file
       options: {
@@ -128,7 +125,6 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-template');
-  grunt.loadNpmTasks('grunt-typedoc');
   grunt.loadNpmTasks('grunt-tslint');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-json-generator');
@@ -171,7 +167,13 @@ module.exports = (grunt) => {
   // ---------------------------------------------------------------------------
   // Documentation
 
-  grunt.registerTask('docs', 'typedoc'); // TODO
+  grunt.registerTask('docs', 'typedoc');
+
+  grunt.registerTask('typedoc', [
+    'json_generator:tsconfig',
+    'shell:typedoc',
+    'clean:tsconfig',
+  ]);
 
   // ---------------------------------------------------------------------------
   // Linting
