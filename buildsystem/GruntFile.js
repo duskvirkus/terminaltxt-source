@@ -101,12 +101,19 @@ module.exports = (grunt) => {
     karma: {
       local: {
         configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
-        browsers: ['Chrome', 'Firefox', 'Electron', 'Edge'],
+        detectBrowsers: {
+          postDetection: function(availableBrowsers) {
+            availableBrowsers.push('Electron');
+            return availableBrowsers;
+          },
+        },
       },
       travis: {
         configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
-        browsers: ['ChromeHeadless', 'FirefoxHeadless'],
-      }
+        detectBrowsers: {
+          preferHeadless: true,
+        },
+      },
     },
 
     json_generator: {

@@ -6,7 +6,7 @@ module.exports = (config) => {
 
     basePath: '../', // TODO consider refactoring
 
-    frameworks: ['jasmine', 'karma-typescript'],
+    frameworks: ['jasmine', 'karma-typescript', 'detectBrowsers'],
 
     preprocessors: {
       '**/*.ts': ['karma-typescript', 'coverage'],
@@ -27,7 +27,21 @@ module.exports = (config) => {
       dir: './coverage',
     },
 
-    browsers: [''],
+    plugins: [
+      'karma-typescript',
+      'karma-coverage',
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-edge-launcher',
+      'karma-firefox-launcher',
+      'karma-ie-launcher',
+      'karma-safari-launcher',
+      'karma-safaritechpreview-launcher',
+      'karma-opera-launcher',
+      'karma-phantomjs-launcher',
+      'karma-electron-launcher',
+      'karma-detect-browsers',
+    ],
 
     singleRun: true,
 
