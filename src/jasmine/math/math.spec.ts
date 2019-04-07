@@ -1,4 +1,4 @@
-import { add } from '../../picturesque/math/math';
+import { add } from '../../math/math';
 // TODO make paths more reliable
 
 describe('Math Module Tests :', () => {
