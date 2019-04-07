@@ -23,12 +23,6 @@ module.exports = (grunt) => {
       },
     },
 
-    ts: { // TODO remove
-      development: {
-        tsconfig: './development.tsconfig.json',
-      },
-    },
-
     webpack: {
       // See webpack.config.js file.
       production: webpackConfigProduction,
@@ -124,7 +118,6 @@ module.exports = (grunt) => {
 
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-typedoc');
