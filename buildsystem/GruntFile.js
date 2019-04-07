@@ -101,7 +101,7 @@ module.exports = (grunt) => {
     karma: {
       local: {
         configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
-        browsers: ['Chrome', 'Firefox', 'Electron'],
+        browsers: ['Chrome', 'Firefox', 'Electron', 'Edge'],
       },
       travis: {
         configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
