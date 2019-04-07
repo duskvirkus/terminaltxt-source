@@ -27,7 +27,7 @@ module.exports = (config) => {
       dir: './coverage',
     },
 
-    browsers: ['Chrome'], // TODO add more browsers
+    browsers: [''],
 
     singleRun: true,
 
