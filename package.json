@@ -24,6 +24,7 @@
     "@types/jasmine": "^3.3.12",
     "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
+    "grunt-json-generator": "^0.1.0",
     "grunt-karma": "^3.0.1",
     "grunt-shell": "^3.0.1",
     "grunt-template": "^1.0.0",
