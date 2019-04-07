@@ -1,5 +1,6 @@
 const path = require('path');
 const libraryConfig = require('./library.config.js')();
+const tsConfig = require('./tsconfig.js')(libraryConfig);
 const examplesConfig = require('./examples.config.js')(libraryConfig);
 const webpackConfigDevelopment = require('./webpack.config.js')(libraryConfig, 'development');
 const webpackConfigProduction = require('./webpack.config.js')(libraryConfig, 'production');
@@ -20,6 +21,9 @@ module.exports = (grunt) => {
     clean: {
       prebuild: {
         src: ['./' + libraryConfig.buildDir],
+      },
+      tsconfig: {
+        src: ['./' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json'],
       },
     },
 
@@ -98,9 +102,6 @@ module.exports = (grunt) => {
     },
 
     karma: {
-      // src: {
-      //   configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
-      // },
       local: {
         configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
         browsers: ['Chrome'],
@@ -109,6 +110,13 @@ module.exports = (grunt) => {
         configFile: './' + libraryConfig.buildSystemDir + '/karma.conf.js',
         browsers: ['ChromeHeadless'],
       }
+    },
+
+    json_generator: {
+      tsconfig: {
+        dest: './' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json',
+        options: tsConfig,
+      },
     },
 
   });
@@ -123,6 +131,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-typedoc');
   grunt.loadNpmTasks('grunt-tslint');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-json-generator');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -154,20 +163,30 @@ module.exports = (grunt) => {
   // Development Build
   grunt.registerTask('build:dev', ['build:common', 'build:development']);
   grunt.registerTask('build:development', [
-    //'ts:development',
+    'json_generator:tsconfig',
     'webpack:development',
+    'clean:tsconfig',
   ]);
 
   // ---------------------------------------------------------------------------
   // Documentation
 
-  grunt.registerTask('docs', 'typedoc:docs');
+  grunt.registerTask('docs', 'typedoc'); // TODO
+
+  // ---------------------------------------------------------------------------
+  // Linting
+
+  grunt.registerTask('lint', [
+    'json_generator:tsconfig',
+    'tslint',
+    'clean:tsconfig',
+  ]);
 
   // ---------------------------------------------------------------------------
   // Testing
 
   grunt.registerTask('test', [
-    'tslint',
+    'lint',
     'karma:local',
   ]);
 
@@ -185,7 +204,7 @@ module.exports = (grunt) => {
   ]);
 
   grunt.registerTask('travis:test', [
-    'tslint',
+    'lint',
     'karma:travis',
   ]);
 

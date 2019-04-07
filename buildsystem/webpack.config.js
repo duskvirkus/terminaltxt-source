@@ -2,7 +2,6 @@ const path = require('path');
 const EventEmitter = require('events');
 const eventEmitter = new EventEmitter();
 
-
 module.exports = (libraryConfig, buildType) => {
 
   const webpackBuildConfig = {
