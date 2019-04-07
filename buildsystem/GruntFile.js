@@ -23,17 +23,23 @@ module.exports = (grunt) => {
         ' --module ' + tsConfig.compilerOptions.module + 
         ' --name ' + libraryConfig.name + 
         ' --readme ./README.md' + 
-        ' --tsconfig ./' + libraryConfig.srcDir + '/tsconfig.json' + 
+        ' --tsconfig ./src/tsconfig.json' + 
         ' --exclude **/index.ts',
       }
     }, examplesConfig.shellCommands),
 
     clean: {
-      prebuild: {
+      oldbuild: {
         src: ['./' + libraryConfig.buildDir],
       },
+      prebuild: {
+        src: [
+          './' + libraryConfig.distDir,
+          './' + libraryConfig.devDir,
+        ],
+      },
       tsconfig: {
-        src: ['./' + libraryConfig.srcDir + '/' + libraryConfig.name + '/tsconfig.json'],
+        src: ['./src/tsconfig.json'],
       },
     },
 
@@ -62,11 +68,14 @@ module.exports = (grunt) => {
     tslint: {
       options: {
         configuration: tslintConfig,
-        project: path.resolve(__dirname, '../' + libraryConfig.srcDir + '/tsconfig.json'),
+        project: path.resolve(__dirname, '../src/tsconfig.json'),
         fix: true,
       },
       src: {
-        src: './' + libraryConfig.srcDir + '/**/*.ts',
+        src: [
+          './src/**/*.ts',
+          '!./src/jasmine/**/*.ts',
+        ],
       },
     },
 
@@ -90,7 +99,7 @@ module.exports = (grunt) => {
 
     json_generator: {
       tsconfig: {
-        dest: './' + libraryConfig.srcDir + '/tsconfig.json',
+        dest: './src/tsconfig.json',
         options: tsConfig,
       },
     },
@@ -123,16 +132,17 @@ module.exports = (grunt) => {
 
   // Common
   grunt.registerTask('build:common', [
-    'clean:prebuild',
+    'clean:oldbuild',
     'shell:cloneDist',
+    'clean:prebuild',
     'template:typings',
   ]);
 
   // Production Build
   grunt.registerTask('build:production', [
-    // TODO add min version
     'test',
     'docs',
+    //'webpack:production',
   ]);
 
   // Development Build

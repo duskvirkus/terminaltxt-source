@@ -9,10 +9,10 @@ module.exports = () => {
 
     // File Locations
     // Relative to root of project. Just dir names.
-    srcDir: 'src',
     buildSystemDir: 'buildsystem',
     templateDir: 'buildsystem/templates',
     buildDir: 'build',
+    //devDir: 'build/dev',
     distDir: 'build/dist',
     docsDir: 'docs',
     examplesDir: 'examples',
