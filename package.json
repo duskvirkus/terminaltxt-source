@@ -1,7 +1,7 @@
 {
-  "name": "picturesque",
+  "name": "terminaltxt",
   "version": "0.0.0",
-  "description": "Text based game engine for the browser.",
+  "description": "This is a web based creative coding library / game engine for ASCII and text art reminiscent of Terminal graphics.",
   "main": "index.js",
   "scripts": {
     "build": "grunt build --base ./ --gruntfile ./build-system/GruntFile.js",
@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/figraham/picturesque.git"
+    "url": "git+https://github.com/figraham/terminaltxt.git"
   },
   "author": "Fi Graham",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/figraham/picturesque/issues"
+    "url": "https://github.com/figraham/terminaltxt/issues"
   },
-  "homepage": "https://github.com/figraham/picturesque#readme",
+  "homepage": "https://github.com/figraham/terminaltxt#readme",
   "devDependencies": {
     "@types/jasmine": "^3.3.12",
     "electron": "^4.1.4",

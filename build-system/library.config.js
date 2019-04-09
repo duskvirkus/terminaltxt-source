@@ -17,13 +17,13 @@ module.exports = () => {
     docsDir: 'docs',
     examplesDir: 'examples',
 
-    buildRepository: 'https://github.com/figraham/picturesque-dist',
+    buildRepository: 'https://github.com/figraham/terminaltxt-distribution',
 
     // Examples
     examples: [
       {
         name: 'hello-world',
-        repository: 'https://github.com/figraham/picturesque-helloworld-example',
+        repository: 'https://github.com/figraham/terminaltxt-helloworld',
       },
     ],
   };
