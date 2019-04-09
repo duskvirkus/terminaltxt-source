@@ -232,6 +232,11 @@ module.exports = (grunt) => {
     grunt.log.write(JSON.stringify(webpackConfigDevelopment, null, 2));
   });
 
+  grunt.registerTask('log:productionConfig', () => {
+    grunt.log.writeln("Development Webpack Config:");
+    grunt.log.write(JSON.stringify(webpackConfigDevelopment, null, 2));
+  });
+
   grunt.registerTask('log:libraryConfig', () => {
     grunt.log.writeln("Library Config:");
     grunt.log.write(JSON.stringify(libraryConfig, null, 2));
