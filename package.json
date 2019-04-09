@@ -6,6 +6,7 @@
   "scripts": {
     "build": "grunt build --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
     "build:dev": "grunt build:dev --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
+    "build:push": "grunt build:push --base ./ --gruntfile ./buildsystem/GruntFile.js",
     "test": "grunt test --base ./ --gruntfile ./buildsystem/GruntFile.js -v",
     "travis": "grunt travis --base ./ --gruntfile ./buildsystem/GruntFile.js",
     "docs": "grunt docs --base ./ --gruntfile ./buildsystem/GruntFile.js -v"

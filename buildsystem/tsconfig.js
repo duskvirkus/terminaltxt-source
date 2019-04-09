@@ -1,7 +1,7 @@
 module.exports = (libraryConfig) => {
   const tsconfig = {
     compilerOptions: {
-      outDir: '../../' + libraryConfig.distDir + '/',
+      outDir: '../' + libraryConfig.distDir + '/',
       moduleResolution: 'node',
       sourceMap: true,
       experimentalDecorators: true,
@@ -10,6 +10,11 @@ module.exports = (libraryConfig) => {
       declaration: true,
       strict: true,
     },
+    exclude: [
+      'node_modules',
+      'jasmine',
+      '**/*.spec.ts',
+    ],
   };
   return tsconfig;
 }

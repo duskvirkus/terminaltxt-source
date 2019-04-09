@@ -4,7 +4,7 @@ const libraryConfig = require('./library.config');
 module.exports = (config) => {
   config.set({
 
-    basePath: '../', // TODO consider refactoring
+    basePath: process.cwd() + '/src/',
 
     frameworks: ['jasmine', 'karma-typescript', 'detectBrowsers'],
 
@@ -13,7 +13,7 @@ module.exports = (config) => {
     },
 
     files: [
-      './src/**/*.ts',
+      '**/*.ts',
     ],
 
     reporters: [
