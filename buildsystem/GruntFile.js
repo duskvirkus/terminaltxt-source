@@ -14,8 +14,18 @@ module.exports = (grunt) => {
   grunt.initConfig({
 
     shell: Object.assign({}, {
-      cloneDist: { // TODO change name
+      cloneBuild: {
         command: 'git clone ' + libraryConfig.buildRepository + ' ' + libraryConfig.buildDir,
+      },
+      pushBuild: {
+        command: 'cd build && ' + 
+        'echo ----- STATUS ----- && ' + 
+        'git status && ' +
+        'git add . && ' +
+        'echo ----- STATUS ----- && ' + 
+        'git status && ' +
+        'git commit -m \"🏗️ version: ' + libraryConfig.version + '\" &&' + 
+        'git push origin master'
       },
       typedoc: {
         command: 'typedoc --out ./' + libraryConfig.docsDir + 
@@ -25,14 +35,14 @@ module.exports = (grunt) => {
         ' --readme ./README.md' + 
         ' --tsconfig ./src/tsconfig.json' + 
         ' --exclude **/index.ts',
-      }
+      },
     }, examplesConfig.shellCommands),
 
     clean: {
-      oldbuild: {
+      oldBuild: {
         src: ['./' + libraryConfig.buildDir],
       },
-      prebuild: {
+      preBuild: {
         src: [
           './' + libraryConfig.distDir,
           './' + libraryConfig.devDir,
@@ -132,9 +142,9 @@ module.exports = (grunt) => {
 
   // Common
   grunt.registerTask('build:common', [
-    'clean:oldbuild',
-    'shell:cloneDist',
-    'clean:prebuild',
+    'clean:oldBuild',
+    'shell:cloneBuild',
+    'clean:preBuild',
     'template:typings',
   ]);
 
@@ -154,6 +164,10 @@ module.exports = (grunt) => {
     'webpack:development',
     'clean:tsconfig',
   ]);
+
+  // Push Build
+
+  grunt.registerTask('build:push', ['build', 'shell:pushBuild']);
 
   // ---------------------------------------------------------------------------
   // Documentation
