@@ -4,13 +4,20 @@
   "description": "Text based game engine for the browser.",
   "main": "index.js",
   "scripts": {
-    "build": "grunt build --base ./ --gruntfile ./build-system/GruntFile.js -v",
-    "build:dev": "grunt build:dev --base ./ --gruntfile ./build-system/GruntFile.js -v",
+    "build": "grunt build --base ./ --gruntfile ./build-system/GruntFile.js",
+    "build:v": "grunt build --base ./ --gruntfile ./build-system/GruntFile.js -v",
+    "build:dev": "grunt build:dev --base ./ --gruntfile ./build-system/GruntFile.js",
+    "build:dev:v": "grunt build:dev --base ./ --gruntfile ./build-system/GruntFile.js -v",
     "build:push": "grunt build:push --base ./ --gruntfile ./build-system/GruntFile.js",
-    "test": "grunt test --base ./ --gruntfile ./build-system/GruntFile.js -v",
+    "build:push:v": "grunt build:push --base ./ --gruntfile ./build-system/GruntFile.js -v",
+    "test": "grunt test --base ./ --gruntfile ./build-system/GruntFile.js",
+    "test:v": "grunt test --base ./ --gruntfile ./build-system/GruntFile.js -v",
     "travis": "grunt travis --base ./ --gruntfile ./build-system/GruntFile.js",
-    "docs": "grunt docs --base ./ --gruntfile ./build-system/GruntFile.js -v",
-    "examples": "grunt examples --base ./ --gruntfile ./build-system/GruntFile.js -v"
+    "travis:v": "grunt travis --base ./ --gruntfile ./build-system/GruntFile.js -v",
+    "docs": "grunt docs --base ./ --gruntfile ./build-system/GruntFile.js",
+    "docs:v": "grunt docs --base ./ --gruntfile ./build-system/GruntFile.js -v",
+    "examples": "grunt examples --base ./ --gruntfile ./build-system/GruntFile.js",
+    "examples:v": "grunt examples --base ./ --gruntfile ./build-system/GruntFile.js -v"
   },
   "repository": {
     "type": "git",
