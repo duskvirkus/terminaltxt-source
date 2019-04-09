@@ -9,7 +9,8 @@
     "build:push": "grunt build:push --base ./ --gruntfile ./build-system/GruntFile.js",
     "test": "grunt test --base ./ --gruntfile ./build-system/GruntFile.js -v",
     "travis": "grunt travis --base ./ --gruntfile ./build-system/GruntFile.js",
-    "docs": "grunt docs --base ./ --gruntfile ./build-system/GruntFile.js -v"
+    "docs": "grunt docs --base ./ --gruntfile ./build-system/GruntFile.js -v",
+    "examples": "grunt examples --base ./ --gruntfile ./build-system/GruntFile.js -v"
   },
   "repository": {
     "type": "git",
