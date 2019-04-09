@@ -247,11 +247,4 @@ module.exports = (grunt) => {
     grunt.log.write(JSON.stringify(grunt.config(), null, 2));
   });
 
-  // ---------------------------------------------------------------------------
-  // Helper Tasks
-
-  grunt.registerTask('notask', () => { // TODO Remove
-    grunt.log.writeln("No Task Implemented Yet!")
-  });
-
 }

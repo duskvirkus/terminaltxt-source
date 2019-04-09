@@ -1,5 +1,4 @@
 import { add } from '../../math/math';
-// TODO make paths more reliable
 
 describe('Math Module Tests :', () => {
   it('Add function', () => {
