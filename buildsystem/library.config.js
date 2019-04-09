@@ -12,7 +12,7 @@ module.exports = () => {
     buildSystemDir: 'buildsystem',
     templateDir: 'buildsystem/templates',
     buildDir: 'build',
-    //devDir: 'build/dev',
+    devDir: 'build/dev',
     distDir: 'build/dist',
     docsDir: 'docs',
     examplesDir: 'examples',

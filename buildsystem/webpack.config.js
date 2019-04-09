@@ -26,12 +26,12 @@ module.exports = (libraryConfig, buildType) => {
 
   if (buildType === 'development') {
     webpackBuildConfig.mode = 'development';
-    webpackBuildConfig.output.path = path.resolve(__dirname, '../build/dist');
+    webpackBuildConfig.output.path = path.resolve(__dirname, '../' + libraryConfig.devDir + '/');
     webpackBuildConfig.output.filename = libraryConfig.name + '.js'
   } else if (buildType === 'production') {
-    // webpackBuildConfig.mode = 'production',
-    // webpackBuildConfig.output.path = path.resolve(__dirname, '../build/dist');
-    // webpackBuildConfig.output.filename = libraryConfig.name + '.js'
+    webpackBuildConfig.mode = 'production',
+    webpackBuildConfig.output.path = path.resolve(__dirname, '../' + libraryConfig.distDir + '/');
+    webpackBuildConfig.output.filename = libraryConfig.name + '.js'
   } else {
     const errorMessage = "Invalid input in " + __filename + ". Expected 'development' or 'production' as buildType but received '" + buildType + "'.";
     eventEmitter.emit('error', new Error(errorMessage));

@@ -142,7 +142,9 @@ module.exports = (grunt) => {
   grunt.registerTask('build:production', [
     'test',
     'docs',
-    //'webpack:production',
+    'json_generator:tsconfig',
+    'webpack:production',
+    'clean:tsconfig',
   ]);
 
   // Development Build
