@@ -1,1 +1,1 @@
-export * from './hello';
+export * from './TxtBlock';
