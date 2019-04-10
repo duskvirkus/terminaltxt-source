@@ -6,17 +6,17 @@ export class SpaceSolidCharacterSet implements ICharacterSet {
   /**
    * see [[ICharacterSet]]
    */
-  encoding: Encoding;
+  public encoding: Encoding;
 
   /**
    * see [[ICharacterSet]]
    */
-  set: number[];
+  public set: number[];
 
   /**
    * see [[ICharacterSet]]
    */
-  size: number;
+  public size: number;
 
   constructor() {
     this.encoding = Encoding.EXTENDED_ASCII;

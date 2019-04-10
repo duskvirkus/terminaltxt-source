@@ -1,4 +1,5 @@
 import { ICharacterSet, SpaceSolidCharacterSet } from '../characterset/index';
+import { TxtBlockDomController } from './TxtBlockDomController';
 
 /**
  * Stores and updates TxtBlock.
@@ -39,6 +40,8 @@ export class TxtBlock {
    * Span element that holds the rendered TxtBlock.
    */
   protected domSpan: HTMLSpanElement;
+
+  protected domController: TxtBlockDomController;
 
   /**
    * @param width default: 80
@@ -110,6 +113,13 @@ export class TxtBlock {
     return this.block;
   }
 
+  /**
+   * @returns domDiv
+   */
+  public getDiv(): HTMLElement {
+    return this.domDiv;
+  }
+
   // ------------------------------------------------------------
   // Setters
 
@@ -157,8 +167,8 @@ export class TxtBlock {
   // TODO write doc // TODO write test
   protected indexDom(index: number): number {
     // TODO refactor
-    let row = Math.floor(index / this.width);
-    let col = index - (row * this.width);
+    const row = Math.floor(index / this.width);
+    const col = index - (row * this.width);
     return col + row * this.width + 1;
   }
 

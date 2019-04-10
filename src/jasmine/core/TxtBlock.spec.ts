@@ -1,6 +1,8 @@
 import { TxtBlock } from '../../core/TxtBlock';
+import 'jasmine-dom-custom-matchers';
 
 describe('TxtBlock Suite:', () => {
+
   it('Check Default Size', () => {
     let txtBlock = new TxtBlock();
     expect(txtBlock.getWidth()).toEqual(80);
@@ -24,4 +26,19 @@ describe('TxtBlock Suite:', () => {
   });
 
   // TODO add dom testing
+});
+
+describe('TxtBlock DOM Suite: ', () => {
+
+  beforeAll(() => {
+    // @ts-ignore
+    jasmine.addMatchers(DOMCustomMatchers);
+  });
+
+  it('Check DOM structure', () => {
+    let txtBlock = new TxtBlock();
+    expect(document.body).toBeHTMLElement();
+    //expect(document.getElementsByTagName('div').length).toEqual(1);
+  });
+
 });
