@@ -26,7 +26,19 @@ module.exports = () => {
         "check-format",
         "require-const-for-all-caps",
         "allow-leading-underscore",
-      ]
+      ],
+      "typedef": [
+        true,
+        "call-signature",
+        "arrow-call-signature",
+        "parameter",
+        "arrow-parameter",
+        "property-declaration",
+        "variable-declaration",
+        "member-variable-declaration",
+        "object-destructuring",
+        "array-destructuring",
+      ],
     },
   };
   return tslintConfig;
