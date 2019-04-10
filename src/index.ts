@@ -1,1 +1,1 @@
-export * from './core/index';
+export * from './terminal/index';
