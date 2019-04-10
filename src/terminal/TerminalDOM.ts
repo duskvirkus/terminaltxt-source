@@ -38,97 +38,10 @@ export class TerminalDOM {
   }
 
   /**
-   * Adds text to innerHTML of display.
-   * 
-   * @param txt 
+   * Clears text and children from inside display span.
    */
-  protected addInnerTxt(txt: string): void {
-    const txtArray: string[] = [];
-    txtArray.push(txt);
-    this.addInnerMultiTxt(txtArray);
-  }
-
-  /**
-   * Adds multiple strings of text to innerHTML of display.
-   * 
-   * @param txtArray 
-   */
-  protected addInnerMultiTxt(txtArray: string[]): void {
-    for (let i: number = 0; i < txtArray.length; i++) {
-      this.display.innerHTML += (txtArray[i]);
-    }
-  }
-
-  /**
-   * Clears and then sets the innerHTML of display to text.
-   * 
-   * @param txt 
-   */
-  protected setInnerTxt(txt: string): void {
-    const txtArray: string[] = [];
-    txtArray.push(txt);
-    this.setInnerMultiTxt(txtArray);
-  }
-
-  /**
-   * Clears and then sets the innerHTML of display to multiple strings of text.
-   * 
-   * @param txtArray 
-   */
-  protected setInnerMultiTxt(txtArray: string[]): void {
-    this.clearInnerTxt();
-    this.addInnerMultiTxt(txtArray);
-  }
-
-  /**
-   * Clears all text from innerHTML of display.
-   */
-  protected clearInnerTxt(): void {
+  public clear(): void {
     this.display.innerHTML = '';
-  }
-
-  /**
-   * Appends child element to display.
-   * 
-   * @param element 
-   */
-  protected addChildElement(element: HTMLElement): void {
-    const elements: HTMLElement[] = [];
-    elements.push(element);
-    this.addChildElements(elements);
-  }
-
-  /**
-   * Appends multiple children to display.
-   * 
-   * @param elements 
-   */
-  protected addChildElements(elements: HTMLElement[]): void {
-    for (let i: number = 0; i < elements.length; i++) {
-      this.display.appendChild(elements[i]);
-    }
-  }
-
-  /**
-   * Clears all children elements from display and then appends a new child on.
-   * 
-   * @param element 
-   */
-  protected setChildElement(element: HTMLElement): void {
-    const elements: HTMLElement[] = [];
-    elements.push(element);
-    this.setChildElements(elements);
-  }
-
-  protected setChildElements(elements: HTMLElement[]): void {
-    this.clearChildElements();
-    this.addChildElements(elements);
-  }
-
-  protected clearChildElements(): void {
-    while(this.display.firstChild) {
-      this.display.removeChild(this.display.firstChild);
-    }
   }
 
 }
