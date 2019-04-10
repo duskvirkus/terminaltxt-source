@@ -6,7 +6,12 @@ module.exports = (config) => {
 
     basePath: process.cwd() + '/src/',
 
-    frameworks: ['jasmine', 'karma-typescript', 'detectBrowsers'],
+    frameworks: [
+      'jasmine-dom',
+      'jasmine',
+      'karma-typescript',
+      'detectBrowsers',
+    ],
 
     preprocessors: {
       '**/*.ts': ['karma-typescript', 'coverage'],
@@ -31,6 +36,7 @@ module.exports = (config) => {
       'karma-typescript',
       'karma-coverage',
       'karma-jasmine',
+      'karma-jasmine-dom',
       'karma-chrome-launcher',
       'karma-edge-launcher',
       'karma-firefox-launcher',

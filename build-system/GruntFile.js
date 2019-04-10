@@ -84,7 +84,7 @@ module.exports = (grunt) => {
       src: {
         src: [
           './src/**/*.ts',
-          '!./src/jasmine/**/*.ts',
+          '!./src/_jasmine/**/*.ts',
         ],
       },
     },

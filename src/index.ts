@@ -1,1 +1,2 @@
-export * from './core/index';
+export * from './characterset/index';
+export * from './terminal/index';
