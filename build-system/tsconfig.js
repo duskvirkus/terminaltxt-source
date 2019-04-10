@@ -12,7 +12,7 @@ module.exports = (libraryConfig) => {
     },
     exclude: [
       'node_modules',
-      'jasmine',
+      '_jasmine',
       '**/*.spec.ts',
     ],
   };
