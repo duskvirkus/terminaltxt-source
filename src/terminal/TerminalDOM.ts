@@ -44,4 +44,15 @@ export class TerminalDOM {
     this.display.innerHTML = '';
   }
 
+  /**
+   * Creates an empty container div and appends it to the body.
+   * 
+   * @returns created container
+   */
+  public static defaultContainer(): HTMLDivElement {
+    const container: HTMLDivElement = document.createElement('div');
+    document.body.appendChild(container);
+    return container;
+  }
+
 }
