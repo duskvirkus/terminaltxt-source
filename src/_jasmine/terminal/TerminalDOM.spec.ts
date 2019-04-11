@@ -6,9 +6,9 @@ describe('TerminalDOM Units: ', () => {
   beforeAll(() => {
     // @ts-ignore
     jasmine.addMatchers(DOMCustomMatchers);
-  })
+  });
   
-  let dom
+  let dom;
 
   beforeEach(() => {
     let div = document.createElement('div');
@@ -48,6 +48,21 @@ describe('TerminalDOM Units: ', () => {
     expect(dom.display.innerHTML).not.toEqual('');
     dom.clear();
     expect(dom.display.children.length).toEqual(0);
+  });
+
+});
+
+describe('TerminalDOM static Units: ', () => {
+
+  beforeAll(() => {
+    // @ts-ignore
+    jasmine.addMatchers(DOMCustomMatchers);
+  });
+
+  it('defaultContainer unit', () => {
+    let container = TerminalDOM.defaultContainer();
+    expect(container).toBeHTMLElement();
+    expect(container).toBeChildOf(document.body);
   });
 
 });

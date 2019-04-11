@@ -20,6 +20,7 @@ module.exports = () => {
       "prefer-const": true,
       "array-type": [true, "array"],
       "one-variable-per-declaration": true,
+      "ordered-imports": true,
       "variable-name": [
         true,
         "ban-keywords",
@@ -38,6 +39,13 @@ module.exports = () => {
         "member-variable-declaration",
         "object-destructuring",
         "array-destructuring",
+      ],
+      "member-ordering": [
+        true,
+        {
+          order: "fields-first",
+          "alphabetize": true,
+        },
       ],
     },
   };
