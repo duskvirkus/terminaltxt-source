@@ -34,4 +34,15 @@ describe('TerminalCellDOM Units: ', () => {
     }
   });
 
+  it('setCellValue unit', () => {
+    for (let i = 0; i < dom.width; i++) {
+      for (let j = 0; j < dom.height; j++) {
+        dom.setCellValue(String.fromCharCode((i + j) % 96 + 63), i, j);
+      }
+    }
+    for (let i = 0; i < dom.cells.length; i++) {
+      expect(dom.cells[i].innerHTML).toEqual(String.fromCharCode(((i % dom.width) + (i / dom.width)) % 96 + 63));
+    }
+  })
+
 });

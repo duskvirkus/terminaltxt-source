@@ -37,6 +37,28 @@ export class TerminalCellDOM extends TerminalDOM {
   }
 
   /**
+   * Get index of cell in cells array based on column and row values.
+   * 
+   * @param column 
+   * @param row 
+   * @returns index
+   */
+  public index(column: number, row: number): number {
+    return column + row * this.width;
+  }
+
+  /**
+   * Set the string value of a cell.
+   * 
+   * @param value 
+   * @param column 
+   * @param row 
+   */
+  public setCellValue(value: string, column: number, row: number): void {
+    this.cells[this.index(column, row)].innerHTML = value;
+  }
+
+  /**
    * Initializes cells as empty span elements with line breaks.
    */
   protected initCells(): void {

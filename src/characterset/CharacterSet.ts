@@ -36,6 +36,8 @@ export class CharacterSet {
    */
   public unknown: number;
 
+  // TODO fix problem with <,>,&,&nbsp;
+
   /**
    * @param characters 
    * @param unknown

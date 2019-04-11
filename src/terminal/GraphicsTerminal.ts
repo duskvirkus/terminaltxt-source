@@ -8,8 +8,14 @@ import { TerminalConfig } from './TerminalConfig';
  */ // TODO
 export class GraphicsTerminal extends Terminal {
 
+  /**
+   * Cell data for this instance of GraphicsTerminal. see [[TerminalCellData]]
+   */
   protected cellData: TerminalCellData;
 
+  /**
+   * @param config [[TerminalConfig]]
+   */
   constructor(config: TerminalConfig = {} as TerminalConfig) {
     if (!config.graphics) {
       config.graphics = {};
