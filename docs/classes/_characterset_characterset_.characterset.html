@@ -74,6 +74,17 @@
 					<div class="lead">
 						<p>For creating, loading, and saving terminal character sets.</p>
 					</div>
+					<h2 id="string-based-constructor">string based constructor</h2>
+					<p>String of characters that will be converted to a set. No separator characters.</p>
+					<pre><code class="language-ts"><span class="hljs-keyword">const</span> example: CharacterSet = <span class="hljs-keyword">new</span> CharacterSet(<span class="hljs-string">' .:-=+*#%@'</span>);</code></pre>
+					<h2 id="number-based-constructor">number[] based constructor</h2>
+					<p>Use a set that has already been converted to UTF-16.</p>
+					<pre><code class="language-ts"><span class="hljs-keyword">const</span> example: CharacterSet = <span class="hljs-keyword">new</span> CharacterSet([<span class="hljs-number">32</span>, <span class="hljs-number">46</span>, <span class="hljs-number">58</span>, <span class="hljs-number">45</span>, <span class="hljs-number">61</span>, <span class="hljs-number">43</span>, <span class="hljs-number">42</span>, <span class="hljs-number">35</span>, <span class="hljs-number">37</span>, <span class="hljs-number">64</span>]);</code></pre>
+					<p>Notes:</p>
+					<ul>
+						<li>In some cases order matters, so keep that in mind.</li>
+						<li>You must include a space (32 in UTF-16) in the constructor for it to be included in the set.</li>
+					</ul>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -83,6 +94,116 @@
 						<span class="target">CharacterSet</span>
 					</li>
 				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#set" class="tsd-kind-icon">set</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#unknown" class="tsd-kind-icon">unknown</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Character<wbr>Set<span class="tsd-signature-symbol">(</span>characters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, unknown<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Character<wbr>Set<span class="tsd-signature-symbol">(</span>set<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, unknown<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/2943826/src/characterset/CharacterSet.ts#L37">characterset/CharacterSet.ts:37</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>characters: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> unknown: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/2943826/src/characterset/CharacterSet.ts#L46">characterset/CharacterSet.ts:46</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>set: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> unknown: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="set" class="tsd-anchor"></a>
+					<h3>set</h3>
+					<div class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/2943826/src/characterset/CharacterSet.ts#L32">characterset/CharacterSet.ts:32</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A set of characters stored as UTF-16 numbers.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="unknown" class="tsd-anchor"></a>
+					<h3>unknown</h3>
+					<div class="tsd-signature tsd-kind-icon">unknown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/2943826/src/characterset/CharacterSet.ts#L37">characterset/CharacterSet.ts:37</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A number representing the UTF-16 code of the character to use if not in set.</p>
+						</div>
+					</div>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -123,6 +244,17 @@
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_characterset_characterset_.characterset.html" class="tsd-kind-icon">Character<wbr>Set</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_characterset_characterset_.characterset.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_characterset_characterset_.characterset.html#set" class="tsd-kind-icon">set</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_characterset_characterset_.characterset.html#unknown" class="tsd-kind-icon">unknown</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
