@@ -100,14 +100,19 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminaldom_.terminaldom.html#code" class="tsd-kind-icon">code</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminaldom_.terminaldom.html#container" class="tsd-kind-icon">container</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminaldom_.terminaldom.html#display" class="tsd-kind-icon">display</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminaldom_.terminaldom.html#idnumber" class="tsd-kind-icon">id<wbr>Number</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminaldom_.terminaldom.html#pre" class="tsd-kind-icon">pre</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_terminal_terminaldom_.terminaldom.html#idcounter" class="tsd-kind-icon">id<wbr>Counter</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_terminal_terminaldom_.terminaldom.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_terminal_terminaldom_.terminaldom.html#setclasses" class="tsd-kind-icon">set<wbr>Classes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_terminal_terminaldom_.terminaldom.html#setids" class="tsd-kind-icon">setIDs</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_terminal_terminaldom_.terminaldom.html#defaultcontainer" class="tsd-kind-icon">default<wbr>Container</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_terminal_terminaldom_.terminaldom.html#getid" class="tsd-kind-icon">getID</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/fdb59f2/src/terminal/TerminalDOM.ts#L25">terminal/TerminalDOM.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L35">terminal/TerminalDOM.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -153,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/fdb59f2/src/terminal/TerminalDOM.ts#L9">terminal/TerminalDOM.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L14">terminal/TerminalDOM.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -168,7 +173,7 @@
 					<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLDivElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/fdb59f2/src/terminal/TerminalDOM.ts#L15">terminal/TerminalDOM.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L20">terminal/TerminalDOM.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -184,7 +189,7 @@
 					<div class="tsd-signature tsd-kind-icon">display<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLSpanElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/fdb59f2/src/terminal/TerminalDOM.ts#L20">terminal/TerminalDOM.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L25">terminal/TerminalDOM.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -194,17 +199,47 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="idnumber" class="tsd-anchor"></a>
+					<h3>id<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">id<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L30">terminal/TerminalDOM.ts:30</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>ID number for this instance of the TerminalDOM.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="pre" class="tsd-anchor"></a>
 					<h3>pre</h3>
 					<div class="tsd-signature tsd-kind-icon">pre<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLPreElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/fdb59f2/src/terminal/TerminalDOM.ts#L25">terminal/TerminalDOM.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L35">terminal/TerminalDOM.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Preformatted Text, should be the direct child of the container.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="idcounter" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> id<wbr>Counter</h3>
+					<div class="tsd-signature tsd-kind-icon">id<wbr>Counter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L9">terminal/TerminalDOM.ts:9</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Keeps track of number of ids that have been created.</p>
 						</div>
 					</div>
 				</section>
@@ -221,12 +256,56 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/fdb59f2/src/terminal/TerminalDOM.ts#L55">terminal/TerminalDOM.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L80">terminal/TerminalDOM.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Clears text and children from inside display span.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="setclasses" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> set<wbr>Classes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Classes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L87">terminal/TerminalDOM.ts:87</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds HTML classes to DOM elements in TerminalDOM.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="setids" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> setIDs</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">setIDs<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L97">terminal/TerminalDOM.ts:97</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Uses idNumber property to set HTML id traits for each of the DOM elements.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -243,7 +322,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/fdb59f2/src/terminal/TerminalDOM.ts#L46">terminal/TerminalDOM.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L60">terminal/TerminalDOM.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -253,6 +332,29 @@
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLDivElement</span></h4>
 							<p>created container</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="getid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> getID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">getID<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/TerminalDOM.ts#L71">terminal/TerminalDOM.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an incremented id number for new TerminalDOM.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>new idNumber</p>
 						</li>
 					</ul>
 				</section>
@@ -310,13 +412,28 @@
 								<a href="_terminal_terminaldom_.terminaldom.html#display" class="tsd-kind-icon">display</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_terminal_terminaldom_.terminaldom.html#idnumber" class="tsd-kind-icon">id<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_terminal_terminaldom_.terminaldom.html#pre" class="tsd-kind-icon">pre</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_terminal_terminaldom_.terminaldom.html#idcounter" class="tsd-kind-icon">id<wbr>Counter</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_terminal_terminaldom_.terminaldom.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_terminal_terminaldom_.terminaldom.html#setclasses" class="tsd-kind-icon">set<wbr>Classes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_terminal_terminaldom_.terminaldom.html#setids" class="tsd-kind-icon">setIDs</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_terminal_terminaldom_.terminaldom.html#defaultcontainer" class="tsd-kind-icon">default<wbr>Container</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_terminal_terminaldom_.terminaldom.html#getid" class="tsd-kind-icon">getID</a>
 							</li>
 						</ul>
 					</li>
