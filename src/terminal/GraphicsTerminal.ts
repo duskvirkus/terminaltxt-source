@@ -1,5 +1,6 @@
 import { Terminal } from './Terminal';
 import { TerminalCellData } from './TerminalCellData';
+import { TerminalCellDOM } from './TerminalCellDOM';
 import { TerminalConfig } from './TerminalConfig';
 
 /**
@@ -10,8 +11,6 @@ export class GraphicsTerminal extends Terminal {
   protected cellData: TerminalCellData;
 
   constructor(config: TerminalConfig = {} as TerminalConfig) {
-    super(config);
-
     if (!config.graphics) {
       config.graphics = {};
     }
@@ -21,6 +20,21 @@ export class GraphicsTerminal extends Terminal {
     if (!config.graphics.height) {
       config.graphics.height = 25;
     }
+
+    if (config.container) {
+      config.domOverride = new TerminalCellDOM(
+        config.graphics.width,
+        config.graphics.height,
+        config.container,
+      );
+    } else {
+      config.domOverride = new TerminalCellDOM(
+        config.graphics.width,
+        config.graphics.height,
+      );
+    }
+
+    super(config);
 
     this.cellData = new TerminalCellData(config.graphics.width, config.graphics.height);
   }

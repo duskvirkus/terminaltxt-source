@@ -37,7 +37,7 @@ export class TerminalDOM {
   /**
    * @param container
    */
-  constructor(container: HTMLDivElement) {
+  constructor(container: HTMLDivElement = TerminalDOM.defaultContainer()) {
     this.container = container;
     this.pre = document.createElement('pre');
     this.code = document.createElement('code');

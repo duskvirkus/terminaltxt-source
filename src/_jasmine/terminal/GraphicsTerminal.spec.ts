@@ -8,7 +8,9 @@ describe('GraphicsTerminal Units: ', () => {
   });
 
   it('config constructor unit', () => {
+    const randomDiv = document.createElement('div');
     const testTerminal: GraphicsTerminal = new GraphicsTerminal({
+      container: randomDiv,
       graphics: {
         width: 120,
         height: 50,

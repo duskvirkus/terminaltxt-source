@@ -12,11 +12,13 @@ export abstract class Terminal {
    * @param config see [[TerminalConfig]]
    */
   constructor(config: TerminalConfig) {
-    if (!config.container) {
-      config.container = TerminalDOM.defaultContainer();
+    if (config.domOverride) {
+      this.terminalDOM = config.domOverride;
+    } else if (config.container) {
+      this.terminalDOM = new TerminalDOM(config.container);
+    } else {
+      this.terminalDOM = new TerminalDOM();
     }
-
-    this.terminalDOM = new TerminalDOM(config.container);
   }
 
 }
