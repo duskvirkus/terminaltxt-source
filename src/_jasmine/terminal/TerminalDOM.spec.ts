@@ -50,6 +50,20 @@ describe('TerminalDOM Units: ', () => {
     expect(dom.display.children.length).toEqual(0);
   });
 
+  it('DOM classes unit', () => {
+    expect(dom.container.className).toMatch(/termtxt-container/);
+    expect(dom.pre.className).toMatch(/termtxt-pre/);
+    expect(dom.code.className).toMatch(/termtxt-code/);
+    expect(dom.display.className).toMatch(/termtxt-display/);
+  });
+
+  it('DOM ids unit', () => {
+    expect(dom.container.id).toMatch(/\btermtxt-container(-(\d{2,}|[1-9]+))?\b/);
+    expect(dom.pre.id).toMatch(/\btermtxt-pre(-(\d{2,}|[1-9]+))?\b/);
+    expect(dom.code.id).toMatch(/\btermtxt-code(-(\d{2,}|[1-9]+))?\b/);
+    expect(dom.display.id).toMatch(/\btermtxt-display(-(\d{2,}|[1-9]+))?\b/);
+  });
+
 });
 
 describe('TerminalDOM static Units: ', () => {
