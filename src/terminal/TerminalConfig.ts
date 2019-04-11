@@ -5,4 +5,9 @@ export interface TerminalConfig {
 
   container?: HTMLDivElement,
 
+  graphics?: {
+    height?: number,
+    width?: number,
+  },
+
 }

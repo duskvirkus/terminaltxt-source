@@ -5,7 +5,7 @@ module.exports = () => {
   const libraryConfig = {
     name: '' || package.name,
     version: package.version,
-    nameSpace: '' || package.name,
+    nameSpace: 'termtxt' || package.name,
 
     // File Locations
     // Relative to root of project. Just dir names.
