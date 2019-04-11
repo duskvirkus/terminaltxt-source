@@ -1,5 +1,5 @@
 import { Terminal } from './Terminal';
-import { TerminalBuffer } from './TerminalBuffer';
+import { TerminalCellData } from './TerminalCellData';
 
 /**
  * Graphical Terminal for text art rendering.
