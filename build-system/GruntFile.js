@@ -1,6 +1,7 @@
 const path = require('path');
 const libraryConfig = require('./library.config')();
-const tsConfig = require('./tsconfig')(libraryConfig);
+const tsconfigDevelopment = require('./tsconfig')(libraryConfig, 'development');
+const tsconfigProduction = require('./tsconfig')(libraryConfig, 'production');
 const examplesConfig = require('./examples.config')(libraryConfig);
 const webpackConfigDevelopment = require('./webpack.config')(libraryConfig, 'development');
 const webpackConfigProduction = require('./webpack.config')(libraryConfig, 'production');
@@ -29,8 +30,8 @@ module.exports = (grunt) => {
       },
       typedoc: {
         command: 'typedoc --out ./' + libraryConfig.docsDir + 
-        ' --target ' + tsConfig.compilerOptions.target + 
-        ' --module ' + tsConfig.compilerOptions.module + 
+        ' --target ' + tsconfigProduction.compilerOptions.target + 
+        ' --module ' + tsconfigProduction.compilerOptions.module + 
         ' --name ' + libraryConfig.name + 
         ' --readme ./README.md' + 
         ' --tsconfig ./src/tsconfig.json' + 
@@ -60,7 +61,18 @@ module.exports = (grunt) => {
     },
 
     template: {
-      typings: {
+      typingsDevelopment: {
+        options: {
+          data: {
+            nameSpace: libraryConfig.nameSpace,
+          }
+        },
+        files: [{
+          dest: './' + libraryConfig.devDir + '/' + libraryConfig.name + '.d.ts',
+          src: './' + libraryConfig.templateDir + '/typings.d.ts.template',
+        }],
+      },
+      typingsProduction: {
         options: {
           data: {
             nameSpace: libraryConfig.nameSpace,
@@ -108,9 +120,13 @@ module.exports = (grunt) => {
     },
 
     json_generator: {
-      tsconfig: {
+      tsconfigDevelopment: {
         dest: './src/tsconfig.json',
-        options: tsConfig,
+        options: tsconfigDevelopment,
+      },
+      tsconfigProduction: {
+        dest: './src/tsconfig.json',
+        options: tsconfigProduction,
       },
     },
 
@@ -145,14 +161,14 @@ module.exports = (grunt) => {
     'clean:oldBuild',
     'shell:cloneBuild',
     'clean:preBuild',
-    'template:typings',
   ]);
 
   // Production Build
   grunt.registerTask('build:production', [
     'test',
     'docs',
-    'json_generator:tsconfig',
+    'template:typingsProduction',
+    'json_generator:tsconfigProduction',
     'webpack:production',
     'clean:tsconfig',
   ]);
@@ -160,7 +176,8 @@ module.exports = (grunt) => {
   // Development Build
   grunt.registerTask('build:dev', ['build:common', 'build:development']);
   grunt.registerTask('build:development', [
-    'json_generator:tsconfig',
+    'template:typingsDevelopment',
+    'json_generator:tsconfigDevelopment',
     'webpack:development',
     'clean:tsconfig',
   ]);
@@ -175,7 +192,7 @@ module.exports = (grunt) => {
   grunt.registerTask('docs', 'typedoc');
 
   grunt.registerTask('typedoc', [
-    'json_generator:tsconfig',
+    'json_generator:tsconfigProduction',
     'shell:typedoc',
     'clean:tsconfig',
   ]);
@@ -184,7 +201,7 @@ module.exports = (grunt) => {
   // Linting
 
   grunt.registerTask('lint', [
-    'json_generator:tsconfig',
+    'json_generator:tsconfigProduction',
     'tslint',
     'clean:tsconfig',
   ]);
