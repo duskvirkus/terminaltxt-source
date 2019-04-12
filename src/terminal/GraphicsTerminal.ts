@@ -51,14 +51,14 @@ export class GraphicsTerminal {
 
   // TODO docs // TODO test
   public update(): void {
-    for (let i: number = 0; i < this.cellData.data.length; i++) {
-      if (this.cellData.changed[i]) {
-        //this.cellDOM.setCellValueByIndex(this.charSet.toString(this.cellData.data[i]), i);
-        this.cellDOM.setCellValue(String.fromCharCode(Math.random() * 32 + 65), i);
-        //this.cellDOM.setCellValueByIndex('A', i);
-        //this.cellDOM.cells[i].innerHTML = ;
-      }
-    }
+    // for (let i: number = 0; i < this.cellData.data.length; i++) {
+    //   if (this.cellData.changed[i]) {
+    //     //this.cellDOM.setCellValueByIndex(this.charSet.toString(this.cellData.data[i]), i);
+    //     this.cellDOM.setCellValue(String.fromCharCode(Math.random() * 32 + 65), i);
+    //     //this.cellDOM.setCellValueByIndex('A', i);
+    //     //this.cellDOM.cells[i].innerHTML = ;
+    //   }
+    // }
   }
 
 }
