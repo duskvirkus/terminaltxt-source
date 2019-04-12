@@ -1,27 +1,23 @@
 import { CharacterSet } from '../characterset/CharacterSet';
+import { Terminal } from './Terminal';
 import { TerminalCellData } from './TerminalCellData';
 import { TerminalCellDOM } from './TerminalCellDOM';
 import { TerminalConfig } from './TerminalConfig';
 
 /**
  * Graphical Terminal for text art rendering.
- */ // TODO
-export class GraphicsTerminal {
-
-  public cellDOM: TerminalCellDOM;
+ */
+export class GraphicsTerminal extends Terminal {
 
   /**
    * Cell data for this instance of GraphicsTerminal. see [[TerminalCellData]]
    */
   protected cellData: TerminalCellData;
 
-  // TODO doc // TODO test
-  protected charSet: CharacterSet;
-
   /**
    * @param config [[TerminalConfig]]
    */
-  constructor(config: TerminalConfig = {} as TerminalConfig, charSet: CharacterSet) {
+  constructor(config: TerminalConfig = {} as TerminalConfig, characterSet: CharacterSet = new CharacterSet()) {
     if (!config.graphics) {
       config.graphics = {};
     }
@@ -33,32 +29,39 @@ export class GraphicsTerminal {
     }
 
     if (config.container) {
-      this.cellDOM = new TerminalCellDOM(
-        config.graphics.width,
-        config.graphics.height,
-        config.container,
+      super(
+          new TerminalCellDOM(
+          config.graphics.width,
+          config.graphics.height,
+          config.container,
+        ),
+        characterSet
       );
     } else {
-      this.cellDOM = new TerminalCellDOM(
-        config.graphics.width,
-        config.graphics.height,
+      super(
+          new TerminalCellDOM(
+          config.graphics.width,
+          config.graphics.height,
+        ),
+        characterSet
       );
     }
 
     this.cellData = new TerminalCellData(config.graphics.width, config.graphics.height);
-    this.charSet = charSet;
   }
 
-  // TODO docs // TODO test
+  // TODO test
+  /**
+   * Will update dom graphics based on [[TerminalCellData]].
+   */
   public update(): void {
-    // for (let i: number = 0; i < this.cellData.data.length; i++) {
-    //   if (this.cellData.changed[i]) {
-    //     //this.cellDOM.setCellValueByIndex(this.charSet.toString(this.cellData.data[i]), i);
-    //     this.cellDOM.setCellValue(String.fromCharCode(Math.random() * 32 + 65), i);
-    //     //this.cellDOM.setCellValueByIndex('A', i);
-    //     //this.cellDOM.cells[i].innerHTML = ;
-    //   }
-    // }
+    const cellController: TerminalCellDOM = <TerminalCellDOM> this.domController;
+    for (let i: number = 0; i < this.cellData.numberOfCells(); i++) {
+      if (this.cellData.hasBeenChanged(i)) {
+        cellController.setCellValue(String.fromCharCode(this.cellData.getCell(i)), i);
+        this.cellData.doneChange(i);
+      }
+    }
   }
 
 }

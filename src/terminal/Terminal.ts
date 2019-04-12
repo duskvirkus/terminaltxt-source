@@ -1,24 +1,20 @@
-import { TerminalConfig } from './TerminalConfig';
+import { CharacterSet } from '../characterset/CharacterSet';
 import { TerminalDOM } from './TerminalDOM';
 
 /**
- * Contains the shared framework between the CommandTerminal and GraphicsTerminal.
- */ // TODO
+ * Contains framework between the CommandTerminal and GraphicsTerminal.
+ */
 export abstract class Terminal {
 
-  public terminalDOM: TerminalDOM; // TODO refactor
+  protected characterSet: CharacterSet;
 
-  /**
-   * @param config see [[TerminalConfig]]
-   */
-  constructor(config: TerminalConfig) {
-    if (config.domOverride) {
-      this.terminalDOM = config.domOverride;
-    } else if (config.container) {
-      this.terminalDOM = new TerminalDOM(config.container);
-    } else {
-      this.terminalDOM = new TerminalDOM();
-    }
+  // TODO docs
+
+  protected domController: TerminalDOM;
+
+  constructor(domController: TerminalDOM, characterSet: CharacterSet) {
+    this.domController = domController;
+    this.characterSet = characterSet;
   }
 
 }

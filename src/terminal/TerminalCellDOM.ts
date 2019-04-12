@@ -2,6 +2,8 @@ import { TerminalDOM } from "./TerminalDOM";
 
 export class TerminalCellDOM extends TerminalDOM {
 
+  // TODO fix visibility
+
   /**
    * Span elements that hold characters.
    */

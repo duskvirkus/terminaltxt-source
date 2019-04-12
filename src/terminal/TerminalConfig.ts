@@ -11,11 +11,6 @@ export interface TerminalConfig {
   container?: HTMLDivElement,
 
   /**
-   * Internal override for TerminalDOM element in [[Terminal]].
-   */
-  domOverride?: TerminalDOM,
-
-  /**
    * Configuration specific to [[GraphicsTerminal]].
    */
   graphics?: {

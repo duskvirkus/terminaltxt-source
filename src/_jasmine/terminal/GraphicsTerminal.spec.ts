@@ -5,7 +5,7 @@ import { CharacterSet } from '../../characterset/CharacterSet';
 describe('GraphicsTerminal Units: ', () => {
   
   it('minimal constructor unit', () => {
-    const testTerminal: GraphicsTerminal = new GraphicsTerminal({} as TerminalConfig, new CharacterSet());
+    const testTerminal: GraphicsTerminal = new GraphicsTerminal();
   });
 
   it('config constructor unit', () => {
