@@ -47,6 +47,18 @@ export class TerminalCellDOM extends TerminalDOM {
     return column + row * this.width;
   }
 
+  // /**
+  //  * Set the string value of a cell.
+  //  * 
+  //  * @param value 
+  //  * @param column 
+  //  * @param row 
+  //  */
+  // public setCellValue(value: string, column: number, row: number): void {
+  //   this.cells[this.index(column, row)].innerHTML = value;
+  // }
+
+  // TODO test
   /**
    * Set the string value of a cell.
    * 
@@ -54,8 +66,13 @@ export class TerminalCellDOM extends TerminalDOM {
    * @param column 
    * @param row 
    */
-  public setCellValue(value: string, column: number, row: number): void {
-    this.cells[this.index(column, row)].innerHTML = value;
+  public setCellValueByIndex(value: string, index: number): void { // Refactor
+    this.cells[index].innerHTML = 'H';
+    // window.getComputedStyle(this.cells[index], null);
+    // let txtNode: Text = document.createTextNode(value);
+    // this.cells[index].appendChild(txtNode);
+    // console.log('set cell ' + value);
+    //this.cells[index].textContent = value;
   }
 
   /**
@@ -64,9 +81,10 @@ export class TerminalCellDOM extends TerminalDOM {
   protected initCells(): void {
     for (let i: number = 0; i < this.height; i++) {
       for (let j: number = 0; j < this.width; j++) {
-        const cell: HTMLSpanElement = document.createElement('span');
-        this.cells.push(cell);
-        this.display.appendChild(cell);
+        this.cells.push(document.createElement('span'));
+        this.display.appendChild(this.cells[this.cells.length - 1]);
+        this.cells[this.cells.length - 1].id = `${i}-${j}`;
+        this.cells[this.cells.length - 1].innerHTML = 'B';
       }
       this.display.innerHTML += '\n';
     }

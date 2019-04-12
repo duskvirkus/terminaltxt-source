@@ -1,3 +1,4 @@
+import { CharacterSet } from '../characterset/CharacterSet';
 import { Terminal } from './Terminal';
 import { TerminalCellData } from './TerminalCellData';
 import { TerminalCellDOM } from './TerminalCellDOM';
@@ -13,10 +14,13 @@ export class GraphicsTerminal extends Terminal {
    */
   protected cellData: TerminalCellData;
 
+  // TODO doc // TODO test
+  protected charSet: CharacterSet;
+
   /**
    * @param config [[TerminalConfig]]
    */
-  constructor(config: TerminalConfig = {} as TerminalConfig) {
+  constructor(config: TerminalConfig = {} as TerminalConfig, charSet: CharacterSet) {
     if (!config.graphics) {
       config.graphics = {};
     }
@@ -43,6 +47,21 @@ export class GraphicsTerminal extends Terminal {
     super(config);
 
     this.cellData = new TerminalCellData(config.graphics.width, config.graphics.height);
+    this.charSet = charSet;
+  }
+
+  // TODO docs // TODO test
+  public update(): void {
+    //if (this.terminalDOM instanceof TerminalCellDOM) { // TODO change after refactor in Terminal
+      const temp: TerminalCellDOM = <TerminalCellDOM> this.terminalDOM;
+      for (let i: number = 0; i < this.cellData.data.length; i++) {
+        if (this.cellData.changed[i]) {
+          //temp.setCellValueByIndex(this.charSet.toString(this.cellData.data[i]), i);
+          temp.setCellValueByIndex('A', i);
+        }
+      }
+      this.terminalDOM = temp;
+    //}
   }
 
 }

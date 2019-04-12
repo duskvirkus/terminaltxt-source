@@ -4,6 +4,11 @@
 export class TerminalCellData {
 
   /**
+   * Array of booleans to keep track of what data has been changed since last update.
+   */
+  public changed: boolean[] = [];
+
+  /**
    * Array of numbers that map to a characters in a [[CharacterSet]]
    */
   public data: number[] = [];
@@ -27,6 +32,18 @@ export class TerminalCellData {
     this.height = height;
 
     this.initData();
+    this.initChanged();
+  }
+
+  // TODO test
+  /**
+   * Initializes changed with true.
+   */
+  public initChanged(): void {
+    this.changed = [];
+    for (let i: number = 0; i < this.width * this.height; i++) {
+      this.changed.push(true);
+    }
   }
 
   /**

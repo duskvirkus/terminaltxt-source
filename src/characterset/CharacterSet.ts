@@ -45,9 +45,9 @@ export class CharacterSet {
    * @param set
    * @param unknown
    */
-  constructor(characters: string, unknown?: string | number)
-  constructor(set: number[], unknown?: string | number)
-  constructor(argument: string | number[], unknown?: string | number) {
+  constructor(characters?: string, unknown?: string | number)
+  constructor(set?: number[], unknown?: string | number)
+  constructor(argument: string | number[] = CharacterSet.getDefaultCharacterSet(), unknown?: string | number) {
 
     if (typeof argument === 'string') {
       const set: number[] = [];
@@ -73,6 +73,24 @@ export class CharacterSet {
       }
     }
 
+  }
+
+  // TODO test // TODO docs
+  public static getDefaultCharacterSet(): number[] {
+    return [32, 9608];
+  }
+
+  // TODO test // TODO doc
+  public getValue(index: number): number {
+    if (index >= 0 && index < this.set.length) {
+      return this.set[index];
+    }
+    return this.unknown;
+  }
+
+  // TODO test // TODO doc
+  public toString(index: number): string {
+    return String.fromCharCode(this.getValue(index));
   }
 
 }

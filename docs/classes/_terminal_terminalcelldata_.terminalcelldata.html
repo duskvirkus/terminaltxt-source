@@ -97,6 +97,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminalcelldata_.terminalcelldata.html#changed" class="tsd-kind-icon">changed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminalcelldata_.terminalcelldata.html#data" class="tsd-kind-icon">data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminalcelldata_.terminalcelldata.html#height" class="tsd-kind-icon">height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminalcelldata_.terminalcelldata.html#width" class="tsd-kind-icon">width</a></li>
@@ -105,6 +106,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_terminal_terminalcelldata_.terminalcelldata.html#initchanged" class="tsd-kind-icon">init<wbr>Changed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_terminal_terminalcelldata_.terminalcelldata.html#initdata" class="tsd-kind-icon">init<wbr>Data</a></li>
 							</ul>
 						</section>
@@ -123,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/ad7ada7/src/terminal/TerminalCellData.ts#L19">terminal/TerminalCellData.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/TerminalCellData.ts#L24">terminal/TerminalCellData.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -149,12 +151,27 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="changed" class="tsd-anchor"></a>
+					<h3>changed</h3>
+					<div class="tsd-signature tsd-kind-icon">changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/TerminalCellData.ts#L9">terminal/TerminalCellData.ts:9</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of booleans to keep track of what data has been changed since last update.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="data" class="tsd-anchor"></a>
 					<h3>data</h3>
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/ad7ada7/src/terminal/TerminalCellData.ts#L9">terminal/TerminalCellData.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/TerminalCellData.ts#L14">terminal/TerminalCellData.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,7 +186,7 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/ad7ada7/src/terminal/TerminalCellData.ts#L14">terminal/TerminalCellData.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/TerminalCellData.ts#L19">terminal/TerminalCellData.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -184,7 +201,7 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/ad7ada7/src/terminal/TerminalCellData.ts#L19">terminal/TerminalCellData.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/TerminalCellData.ts#L24">terminal/TerminalCellData.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -197,6 +214,28 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="initchanged" class="tsd-anchor"></a>
+					<h3>init<wbr>Changed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">init<wbr>Changed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/TerminalCellData.ts#L42">terminal/TerminalCellData.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializes changed with true.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="initdata" class="tsd-anchor"></a>
 					<h3>init<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -206,7 +245,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/ad7ada7/src/terminal/TerminalCellData.ts#L35">terminal/TerminalCellData.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/TerminalCellData.ts#L52">terminal/TerminalCellData.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,6 +305,9 @@
 								<a href="_terminal_terminalcelldata_.terminalcelldata.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_terminal_terminalcelldata_.terminalcelldata.html#changed" class="tsd-kind-icon">changed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_terminal_terminalcelldata_.terminalcelldata.html#data" class="tsd-kind-icon">data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -273,6 +315,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_terminal_terminalcelldata_.terminalcelldata.html#width" class="tsd-kind-icon">width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_terminal_terminalcelldata_.terminalcelldata.html#initchanged" class="tsd-kind-icon">init<wbr>Changed</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_terminal_terminalcelldata_.terminalcelldata.html#initdata" class="tsd-kind-icon">init<wbr>Data</a>

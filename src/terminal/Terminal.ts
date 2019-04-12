@@ -6,7 +6,7 @@ import { TerminalDOM } from './TerminalDOM';
  */ // TODO
 export abstract class Terminal {
 
-  public terminalDOM: TerminalDOM;
+  public terminalDOM: TerminalDOM; // TODO refactor
 
   /**
    * @param config see [[TerminalConfig]]

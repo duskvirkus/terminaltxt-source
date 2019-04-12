@@ -43,6 +43,13 @@ describe('TerminalCellDOM Units: ', () => {
     for (let i = 0; i < dom.cells.length; i++) {
       expect(dom.cells[i].innerHTML).toEqual(String.fromCharCode(((i % dom.width) + (i / dom.width)) % 96 + 63));
     }
-  })
+  });
+
+  it('span elements unit', () => {
+    const offset: number = document.getElementsByTagName('span').length - dom.cells.length;
+    for (let i = 0; i < dom.cells.length; i++) {
+      expect(dom.cells[i].isEqualNode(document.getElementsByTagName('span')[i + offset])).toEqual(true);
+    }
+  });
 
 });
