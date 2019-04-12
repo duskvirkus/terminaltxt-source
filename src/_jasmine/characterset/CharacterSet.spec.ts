@@ -55,4 +55,30 @@ describe('CharacterSet Units: ', () => {
     expect(charSet.unknown).toEqual('?'.charCodeAt(0));
   });
 
+  it('getValue unit', () => {
+    const charSet = new CharacterSet();
+    expect(charSet.getValue(-1)).toEqual('�'.charCodeAt(0));
+    expect(charSet.getValue(0)).toEqual(' '.charCodeAt(0));
+    expect(charSet.getValue(1)).toEqual('█'.charCodeAt(0));
+    expect(charSet.getValue(2)).toEqual('�'.charCodeAt(0));
+  });
+
+  it('toString unit', () => {
+    const charSet = new CharacterSet();
+    expect(charSet.toString(-1)).toEqual('�');
+    expect(charSet.toString(0)).toEqual(' ');
+    expect(charSet.toString(1)).toEqual('█');
+    expect(charSet.toString(2)).toEqual('�');
+  });
+
+});
+
+describe('CharacterSet static Units: ', () => {
+
+  it('getDefaultCharacterSet unit', () => {
+    const defaultSet: number[] = CharacterSet.getDefaultCharacterSet();
+    expect(defaultSet[0]).toEqual(' '.charCodeAt(0));
+    expect(defaultSet[1]).toEqual('█'.charCodeAt(0));
+  });
+
 });

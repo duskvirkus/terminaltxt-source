@@ -55,10 +55,10 @@ export class GraphicsTerminal extends Terminal {
    * Will update dom graphics based on [[TerminalCellData]].
    */
   public update(): void {
-    const cellController: TerminalCellDOM = <TerminalCellDOM> this.domController;
+    // const cellController: TerminalCellDOM = <TerminalCellDOM> this.domController;
     for (let i: number = 0; i < this.cellData.numberOfCells(); i++) {
       if (this.cellData.hasBeenChanged(i)) {
-        cellController.setCellValue(String.fromCharCode(this.cellData.getCell(i)), i);
+        (this.domController as TerminalCellDOM).setCellValue(this.characterSet.toString(this.cellData.getCell(i)), i);
         this.cellData.doneChange(i);
       }
     }

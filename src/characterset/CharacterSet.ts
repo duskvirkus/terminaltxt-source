@@ -75,12 +75,19 @@ export class CharacterSet {
 
   }
 
-  // TODO test // TODO docs
+  /**
+   * @returns ' ' and '█' in UTF-16 form.
+   */
   public static getDefaultCharacterSet(): number[] {
     return [32, 9608];
   }
 
-  // TODO test // TODO doc
+  /**
+   * Will return unknown code if index is out of bounds.
+   * 
+   * @param index 
+   * @return UTF-16 code at index
+   */
   public getValue(index: number): number {
     if (index >= 0 && index < this.set.length) {
       return this.set[index];
@@ -88,7 +95,11 @@ export class CharacterSet {
     return this.unknown;
   }
 
-  // TODO test // TODO doc
+  /**
+   * Like [[getValue]] just the code is converted into a string.
+   * 
+   * @param index 
+   */
   public toString(index: number): string {
     return String.fromCharCode(this.getValue(index));
   }
