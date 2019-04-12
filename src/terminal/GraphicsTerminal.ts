@@ -8,6 +8,8 @@ import { TerminalConfig } from './TerminalConfig';
  */ // TODO
 export class GraphicsTerminal {
 
+  public cellDOM: TerminalCellDOM;
+
   /**
    * Cell data for this instance of GraphicsTerminal. see [[TerminalCellData]]
    */
@@ -15,8 +17,6 @@ export class GraphicsTerminal {
 
   // TODO doc // TODO test
   protected charSet: CharacterSet;
-
-  public cellDOM: TerminalCellDOM;
 
   /**
    * @param config [[TerminalConfig]]
@@ -53,11 +53,11 @@ export class GraphicsTerminal {
   public update(): void {
     for (let i: number = 0; i < this.cellData.data.length; i++) {
       if (this.cellData.changed[i]) {
-        //temp.setCellValueByIndex(this.charSet.toString(this.cellData.data[i]), i);
+        //this.cellDOM.setCellValueByIndex(this.charSet.toString(this.cellData.data[i]), i);
+        this.cellDOM.setCellValue(String.fromCharCode(Math.random() * 32 + 65), i);
         //this.cellDOM.setCellValueByIndex('A', i);
+        //this.cellDOM.cells[i].innerHTML = ;
       }
-      //this.cellDOM.clear();
-      this.cellDOM.cells[i].innerHTML = String.fromCharCode(Math.random() * 32 + 65);
     }
   }
 

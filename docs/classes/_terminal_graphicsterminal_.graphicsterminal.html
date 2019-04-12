@@ -80,12 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_terminal_terminal_.terminal.html" class="tsd-signature-type">Terminal</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">GraphicsTerminal</span>
-							</li>
-						</ul>
+						<span class="target">GraphicsTerminal</span>
 					</li>
 				</ul>
 			</section>
@@ -96,15 +91,15 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_terminal_graphicsterminal_.graphicsterminal.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_terminal_graphicsterminal_.graphicsterminal.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_graphicsterminal_.graphicsterminal.html#celldom" class="tsd-kind-icon">cellDOM</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_terminal_graphicsterminal_.graphicsterminal.html#celldata" class="tsd-kind-icon">cell<wbr>Data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_terminal_graphicsterminal_.graphicsterminal.html#charset" class="tsd-kind-icon">char<wbr>Set</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_terminal_graphicsterminal_.graphicsterminal.html#terminaldom" class="tsd-kind-icon">terminalDOM</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -118,18 +113,17 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Graphics<wbr>Terminal<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_terminal_terminalconfig_.terminalconfig.html" class="tsd-signature-type">TerminalConfig</a>, charSet<span class="tsd-signature-symbol">: </span><a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_terminal_graphicsterminal_.graphicsterminal.html" class="tsd-signature-type">GraphicsTerminal</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_terminal_terminal_.terminal.html">Terminal</a>.<a href="_terminal_terminal_.terminal.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/GraphicsTerminal.ts#L18">terminal/GraphicsTerminal.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d9c4761/src/terminal/GraphicsTerminal.ts#L19">terminal/GraphicsTerminal.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -155,13 +149,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="celldom" class="tsd-anchor"></a>
+					<h3>cellDOM</h3>
+					<div class="tsd-signature tsd-kind-icon">cellDOM<span class="tsd-signature-symbol">:</span> <a href="_terminal_terminalcelldom_.terminalcelldom.html" class="tsd-signature-type">TerminalCellDOM</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d9c4761/src/terminal/GraphicsTerminal.ts#L11">terminal/GraphicsTerminal.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="celldata" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> cell<wbr>Data</h3>
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Data<span class="tsd-signature-symbol">:</span> <a href="_terminal_terminalcelldata_.terminalcelldata.html" class="tsd-signature-type">TerminalCellData</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/GraphicsTerminal.ts#L15">terminal/GraphicsTerminal.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d9c4761/src/terminal/GraphicsTerminal.ts#L16">terminal/GraphicsTerminal.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -176,18 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">char<wbr>Set<span class="tsd-signature-symbol">:</span> <a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/GraphicsTerminal.ts#L18">terminal/GraphicsTerminal.ts:18</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="terminaldom" class="tsd-anchor"></a>
-					<h3>terminalDOM</h3>
-					<div class="tsd-signature tsd-kind-icon">terminalDOM<span class="tsd-signature-symbol">:</span> <a href="_terminal_terminaldom_.terminaldom.html" class="tsd-signature-type">TerminalDOM</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_terminal_terminal_.terminal.html">Terminal</a>.<a href="_terminal_terminal_.terminal.html#terminaldom">terminalDOM</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/Terminal.ts#L9">terminal/Terminal.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d9c4761/src/terminal/GraphicsTerminal.ts#L19">terminal/GraphicsTerminal.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +197,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d038f10/src/terminal/GraphicsTerminal.ts#L54">terminal/GraphicsTerminal.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d9c4761/src/terminal/GraphicsTerminal.ts#L53">terminal/GraphicsTerminal.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -255,17 +248,17 @@
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_terminal_graphicsterminal_.graphicsterminal.html" class="tsd-kind-icon">Graphics<wbr>Terminal</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_terminal_graphicsterminal_.graphicsterminal.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_terminal_graphicsterminal_.graphicsterminal.html#celldom" class="tsd-kind-icon">cellDOM</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_terminal_graphicsterminal_.graphicsterminal.html#celldata" class="tsd-kind-icon">cell<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_terminal_graphicsterminal_.graphicsterminal.html#charset" class="tsd-kind-icon">char<wbr>Set</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_terminal_graphicsterminal_.graphicsterminal.html#terminaldom" class="tsd-kind-icon">terminalDOM</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_terminal_graphicsterminal_.graphicsterminal.html#update" class="tsd-kind-icon">update</a>

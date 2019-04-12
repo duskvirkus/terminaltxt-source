@@ -60,20 +60,28 @@ export class TerminalCellDOM extends TerminalDOM {
 
   // TODO test
   /**
-   * Set the string value of a cell.
+   * Will set single cell innerHTML to a string based on cell index.
+   * 
+   * @param value 
+   * @param index 
+   */
+  public setCellValue(value: string, index: number): void
+  /** 
+   * Will set single cell innerHTML to a string based on cell column and row.
    * 
    * @param value 
    * @param column 
    * @param row 
    */
-  public setCellValueByIndex(value: string, index: number): void { // Refactor
-    
-    this.cells[index].innerHTML = 'H';
-    // window.getComputedStyle(this.cells[index], null);
-    // let txtNode: Text = document.createTextNode(value);
-    // this.cells[index].appendChild(txtNode);
-    // console.log('set cell ' + value);
-    //this.cells[index].textContent = value;
+  public setCellValue(value: string, column: number, row: number): void
+  public setCellValue(value: string, indexOrColumn: number, row?: number): void {
+    let index: number;
+    if (row) {
+      index = this.index(indexOrColumn, row);
+    } else {
+      index = indexOrColumn;
+    }
+    this.cells[index].innerHTML = value;
   }
 
   /**
@@ -85,7 +93,6 @@ export class TerminalCellDOM extends TerminalDOM {
         this.cells.push(document.createElement('span'));
         this.display.appendChild(this.cells[this.cells.length - 1]);
         this.cells[this.cells.length - 1].id = `${i}-${j}`;
-        this.cells[this.cells.length - 1].innerHTML = 'B';
       }
       this.display.appendChild(document.createTextNode('\n'));
     }
