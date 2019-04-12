@@ -1,5 +1,4 @@
 import { CharacterSet } from '../characterset/CharacterSet';
-import { Terminal } from './Terminal';
 import { TerminalCellData } from './TerminalCellData';
 import { TerminalCellDOM } from './TerminalCellDOM';
 import { TerminalConfig } from './TerminalConfig';
@@ -7,7 +6,7 @@ import { TerminalConfig } from './TerminalConfig';
 /**
  * Graphical Terminal for text art rendering.
  */ // TODO
-export class GraphicsTerminal extends Terminal {
+export class GraphicsTerminal {
 
   /**
    * Cell data for this instance of GraphicsTerminal. see [[TerminalCellData]]
@@ -16,6 +15,8 @@ export class GraphicsTerminal extends Terminal {
 
   // TODO doc // TODO test
   protected charSet: CharacterSet;
+
+  public cellDOM: TerminalCellDOM;
 
   /**
    * @param config [[TerminalConfig]]
@@ -32,19 +33,17 @@ export class GraphicsTerminal extends Terminal {
     }
 
     if (config.container) {
-      config.domOverride = new TerminalCellDOM(
+      this.cellDOM = new TerminalCellDOM(
         config.graphics.width,
         config.graphics.height,
         config.container,
       );
     } else {
-      config.domOverride = new TerminalCellDOM(
+      this.cellDOM = new TerminalCellDOM(
         config.graphics.width,
         config.graphics.height,
       );
     }
-
-    super(config);
 
     this.cellData = new TerminalCellData(config.graphics.width, config.graphics.height);
     this.charSet = charSet;
@@ -52,16 +51,14 @@ export class GraphicsTerminal extends Terminal {
 
   // TODO docs // TODO test
   public update(): void {
-    //if (this.terminalDOM instanceof TerminalCellDOM) { // TODO change after refactor in Terminal
-      const temp: TerminalCellDOM = <TerminalCellDOM> this.terminalDOM;
-      for (let i: number = 0; i < this.cellData.data.length; i++) {
-        if (this.cellData.changed[i]) {
-          //temp.setCellValueByIndex(this.charSet.toString(this.cellData.data[i]), i);
-          temp.setCellValueByIndex('A', i);
-        }
+    for (let i: number = 0; i < this.cellData.data.length; i++) {
+      if (this.cellData.changed[i]) {
+        //temp.setCellValueByIndex(this.charSet.toString(this.cellData.data[i]), i);
+        //this.cellDOM.setCellValueByIndex('A', i);
       }
-      this.terminalDOM = temp;
-    //}
+      //this.cellDOM.clear();
+      this.cellDOM.cells[i].innerHTML = String.fromCharCode(Math.random() * 32 + 65);
+    }
   }
 
 }

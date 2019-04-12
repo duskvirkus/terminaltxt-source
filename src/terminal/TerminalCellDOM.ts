@@ -67,6 +67,7 @@ export class TerminalCellDOM extends TerminalDOM {
    * @param row 
    */
   public setCellValueByIndex(value: string, index: number): void { // Refactor
+    
     this.cells[index].innerHTML = 'H';
     // window.getComputedStyle(this.cells[index], null);
     // let txtNode: Text = document.createTextNode(value);
@@ -86,7 +87,7 @@ export class TerminalCellDOM extends TerminalDOM {
         this.cells[this.cells.length - 1].id = `${i}-${j}`;
         this.cells[this.cells.length - 1].innerHTML = 'B';
       }
-      this.display.innerHTML += '\n';
+      this.display.appendChild(document.createTextNode('\n'));
     }
   }
 
