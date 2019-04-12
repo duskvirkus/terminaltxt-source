@@ -47,18 +47,6 @@ export class TerminalCellDOM extends TerminalDOM {
     return column + row * this.width;
   }
 
-  // /**
-  //  * Set the string value of a cell.
-  //  * 
-  //  * @param value 
-  //  * @param column 
-  //  * @param row 
-  //  */
-  // public setCellValue(value: string, column: number, row: number): void {
-  //   this.cells[this.index(column, row)].innerHTML = value;
-  // }
-
-  // TODO test
   /**
    * Will set single cell innerHTML to a string based on cell index.
    * 
