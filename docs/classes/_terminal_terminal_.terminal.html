@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Contains the shared framework between the CommandTerminal and GraphicsTerminal.</p>
+						<p>Contains framework between the CommandTerminal and GraphicsTerminal.</p>
 					</div>
 				</div>
 			</section>
@@ -102,10 +102,11 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_terminal_terminal_.terminal.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_terminal_terminal_.terminal.html#terminaldom" class="tsd-kind-icon">terminalDOM</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_terminal_terminal_.terminal.html#characterset" class="tsd-kind-icon">character<wbr>Set</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_terminal_terminal_.terminal.html#domcontroller" class="tsd-kind-icon">dom<wbr>Controller</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,26 +118,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Terminal<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/_terminal_terminalconfig_.terminalconfig.html" class="tsd-signature-type">TerminalConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_terminal_terminal_.terminal.html" class="tsd-signature-type">Terminal</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Terminal<span class="tsd-signature-symbol">(</span>domController<span class="tsd-signature-symbol">: </span><a href="_terminal_terminaldom_.terminaldom.html" class="tsd-signature-type">TerminalDOM</a>, characterSet<span class="tsd-signature-symbol">: </span><a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_terminal_terminal_.terminal.html" class="tsd-signature-type">Terminal</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/Terminal.ts#L9">terminal/Terminal.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a4b04f0/src/terminal/Terminal.ts#L13">terminal/Terminal.ts:13</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <a href="../interfaces/_terminal_terminalconfig_.terminalconfig.html" class="tsd-signature-type">TerminalConfig</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>see <a href="../interfaces/_terminal_terminalconfig_.terminalconfig.html">TerminalConfig</a></p>
-										</div>
-									</div>
+									<h5>domController: <a href="_terminal_terminaldom_.terminaldom.html" class="tsd-signature-type">TerminalDOM</a></h5>
+								</li>
+								<li>
+									<h5>characterSet: <a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_terminal_terminal_.terminal.html" class="tsd-signature-type">Terminal</a></h4>
@@ -144,15 +141,25 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="terminaldom" class="tsd-anchor"></a>
-					<h3>terminalDOM</h3>
-					<div class="tsd-signature tsd-kind-icon">terminalDOM<span class="tsd-signature-symbol">:</span> <a href="_terminal_terminaldom_.terminaldom.html" class="tsd-signature-type">TerminalDOM</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="characterset" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> character<wbr>Set</h3>
+					<div class="tsd-signature tsd-kind-icon">character<wbr>Set<span class="tsd-signature-symbol">:</span> <a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a88a78c/src/terminal/Terminal.ts#L9">terminal/Terminal.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a4b04f0/src/terminal/Terminal.ts#L9">terminal/Terminal.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="domcontroller" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> dom<wbr>Controller</h3>
+					<div class="tsd-signature tsd-kind-icon">dom<wbr>Controller<span class="tsd-signature-symbol">:</span> <a href="_terminal_terminaldom_.terminaldom.html" class="tsd-signature-type">TerminalDOM</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/a4b04f0/src/terminal/Terminal.ts#L13">terminal/Terminal.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,6 +182,9 @@
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/_terminal_terminal_.html">"terminal/<wbr>Terminal"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_terminal_terminalcelldom_.html">"terminal/<wbr>Terminal<wbr>CellDOM"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_terminal_terminalcelldata_.html">"terminal/<wbr>Terminal<wbr>Cell<wbr>Data"</a>
@@ -200,8 +210,11 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_terminal_terminal_.terminal.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_terminal_terminal_.terminal.html#terminaldom" class="tsd-kind-icon">terminalDOM</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_terminal_terminal_.terminal.html#characterset" class="tsd-kind-icon">character<wbr>Set</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_terminal_terminal_.terminal.html#domcontroller" class="tsd-kind-icon">dom<wbr>Controller</a>
 							</li>
 						</ul>
 					</li>

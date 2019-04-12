@@ -36,6 +36,8 @@ export class CharacterSet {
    */
   public unknown: number;
 
+  // TODO fix problem with <,>,&,&nbsp;
+
   /**
    * @param characters 
    * @param unknown
@@ -43,9 +45,9 @@ export class CharacterSet {
    * @param set
    * @param unknown
    */
-  constructor(characters: string, unknown?: string | number)
-  constructor(set: number[], unknown?: string | number)
-  constructor(argument: string | number[], unknown?: string | number) {
+  constructor(characters?: string, unknown?: string | number)
+  constructor(set?: number[], unknown?: string | number)
+  constructor(argument: string | number[] = CharacterSet.getDefaultCharacterSet(), unknown?: string | number) {
 
     if (typeof argument === 'string') {
       const set: number[] = [];
@@ -71,6 +73,35 @@ export class CharacterSet {
       }
     }
 
+  }
+
+  /**
+   * @returns ' ' and '█' in UTF-16 form.
+   */
+  public static getDefaultCharacterSet(): number[] {
+    return [32, 9608];
+  }
+
+  /**
+   * Will return unknown code if index is out of bounds.
+   * 
+   * @param index 
+   * @return UTF-16 code at index
+   */
+  public getValue(index: number): number {
+    if (index >= 0 && index < this.set.length) {
+      return this.set[index];
+    }
+    return this.unknown;
+  }
+
+  /**
+   * Like [[getValue]] just the code is converted into a string.
+   * 
+   * @param index 
+   */
+  public toString(index: number): string {
+    return String.fromCharCode(this.getValue(index));
   }
 
 }

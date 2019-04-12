@@ -1,6 +1,6 @@
 /**
  * Keeps track of Terminal's DOM elements and is used for updating them.
- */ // TODO
+ */
 export class TerminalDOM {
   
   /**
@@ -37,7 +37,7 @@ export class TerminalDOM {
   /**
    * @param container
    */
-  constructor(container: HTMLDivElement) {
+  constructor(container: HTMLDivElement = TerminalDOM.defaultContainer()) {
     this.container = container;
     this.pre = document.createElement('pre');
     this.code = document.createElement('code');
