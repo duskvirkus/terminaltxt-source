@@ -130,6 +130,14 @@ module.exports = (grunt) => {
       },
     },
 
+    copy: {
+      buildReadMe: {
+        nonull: true,
+        src: './' + libraryConfig.buildSystemDir + '/copy/build.README.md',
+        dest: './' + libraryConfig.buildDir + '/README.md',
+      },
+    },
+
   });
 
   // ---------------------------------------------------------------------------
@@ -142,6 +150,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-tslint');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-json-generator');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -184,7 +193,11 @@ module.exports = (grunt) => {
 
   // Push Build
 
-  grunt.registerTask('build:push', ['build', 'shell:pushBuild']);
+  grunt.registerTask('build:push', [
+    'build',
+    'copy:buildReadMe',
+    'shell:pushBuild',
+  ]);
 
   // ---------------------------------------------------------------------------
   // Documentation
