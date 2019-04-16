@@ -1,2 +1,2 @@
 export * from './index';
-export as namespace <%-nameSpace%>;
+export as namespace <%=nameSpace%>;
