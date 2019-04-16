@@ -4,16 +4,6 @@
 export class TerminalCellData {
 
   /**
-   * Height of data.
-   */
-  public height: number;
-
-  /**
-   * Width of data.
-   */
-  public width: number;
-
-  /**
    * Array of booleans to keep track of what data has been changed since last update.
    */
   protected changed: boolean[] = [];
@@ -22,6 +12,16 @@ export class TerminalCellData {
    * Array of numbers that map to a characters in a [[CharacterSet]]
    */
   protected data: number[] = [];
+
+  /**
+   * Height of data.
+   */
+  protected height: number;
+
+  /**
+   * Width of data.
+   */
+  protected width: number;
 
   /**
    * @param width 
@@ -51,6 +51,20 @@ export class TerminalCellData {
    */
   public getCell(index: number): number {
     return this.data[index];
+  }
+
+  /**
+   * @returns [[height]]
+   */
+  public getHeight(): number {
+    return this.height;
+  }
+
+  /**
+   * @returns [[width]]
+   */
+  public getWidth(): number {
+    return this.width;
   }
 
   /**

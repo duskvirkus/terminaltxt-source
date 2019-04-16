@@ -71,6 +71,14 @@ describe('CharacterSet Units: ', () => {
     expect(charSet.toString(2)).toEqual('�');
   });
 
+  it('getIndex unit', () => {
+    const charSet = new CharacterSet();
+    expect(charSet.getIndex(' ')).toEqual(0);
+    expect(charSet.getIndex('█')).toEqual(1);
+    expect(charSet.getIndex('a')).toEqual(-1);
+    expect(charSet.getIndex('A')).toEqual(-1);
+  });
+
 });
 
 describe('CharacterSet static Units: ', () => {
