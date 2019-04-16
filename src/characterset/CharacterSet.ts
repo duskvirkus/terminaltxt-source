@@ -107,6 +107,13 @@ export class CharacterSet {
   }
 
   /**
+   * @returns length of [[set]]
+   */
+  public size(): number {
+    return this.set.length;
+  }
+
+  /**
    * Like [[getValue]] just the code is converted into a string.
    * 
    * @param index 
