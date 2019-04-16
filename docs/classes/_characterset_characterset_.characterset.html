@@ -80,6 +80,11 @@
 					<h2 id="number-based-constructor">number[] based constructor</h2>
 					<p>Use a set that has already been converted to UTF-16.</p>
 					<pre><code class="language-ts"><span class="hljs-keyword">const</span> example: CharacterSet = <span class="hljs-keyword">new</span> CharacterSet([<span class="hljs-number">32</span>, <span class="hljs-number">46</span>, <span class="hljs-number">58</span>, <span class="hljs-number">45</span>, <span class="hljs-number">61</span>, <span class="hljs-number">43</span>, <span class="hljs-number">42</span>, <span class="hljs-number">35</span>, <span class="hljs-number">37</span>, <span class="hljs-number">64</span>]);</code></pre>
+					<h2 id="unknown-characters">Unknown Characters</h2>
+					<p>Characters which are not in the <a href="_characterset_characterset_.characterset.html#set">set</a> will be displayed using the <a href="_characterset_characterset_.characterset.html#unknown">unknown</a> character code.
+						By default this is &#39;�&#39; or the <a href="https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character">unicode replacement character</a>.
+						Be advised that the replacement character doesn&#39;t always displayed with the correct spacing for a monospaced font and can lead to undesirable results.
+					If you intend to use this functionality then you can set the value of <a href="_characterset_characterset_.characterset.html#unknown">unknown</a> manually or using the <a href="_characterset_characterset_.characterset.html#constructor">constructor</a>.</p>
 					<p>Notes:</p>
 					<ul>
 						<li>In some cases order matters, so keep that in mind.</li>
@@ -117,6 +122,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#getindex" class="tsd-kind-icon">get<wbr>Index</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#size" class="tsd-kind-icon">size</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_characterset_characterset_.characterset.html#getdefaultcharacterset" class="tsd-kind-icon">get<wbr>Default<wbr>Character<wbr>Set</a></li>
 							</ul>
@@ -137,7 +143,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d861868/src/characterset/CharacterSet.ts#L37">characterset/CharacterSet.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L42">characterset/CharacterSet.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -160,9 +166,11 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d861868/src/characterset/CharacterSet.ts#L49">characterset/CharacterSet.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L50">characterset/CharacterSet.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -189,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d861868/src/characterset/CharacterSet.ts#L32">characterset/CharacterSet.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L37">characterset/CharacterSet.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -204,7 +212,7 @@
 					<div class="tsd-signature tsd-kind-icon">unknown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d861868/src/characterset/CharacterSet.ts#L37">characterset/CharacterSet.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L42">characterset/CharacterSet.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -226,7 +234,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d861868/src/characterset/CharacterSet.ts#L92">characterset/CharacterSet.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L97">characterset/CharacterSet.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,7 +249,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>index || -1</p>
+							<p>index or -1</p>
 						</li>
 					</ul>
 				</section>
@@ -255,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d861868/src/characterset/CharacterSet.ts#L102">characterset/CharacterSet.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L107">characterset/CharacterSet.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -275,6 +283,26 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L117">characterset/CharacterSet.ts:117</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>length of <a href="_characterset_characterset_.characterset.html#set">set</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="tostring" class="tsd-anchor"></a>
 					<h3>to<wbr>String</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -284,7 +312,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d861868/src/characterset/CharacterSet.ts#L114">characterset/CharacterSet.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L126">characterset/CharacterSet.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -314,7 +342,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/d861868/src/characterset/CharacterSet.ts#L82">characterset/CharacterSet.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt/blob/9008fd5/src/characterset/CharacterSet.ts#L87">characterset/CharacterSet.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -382,6 +410,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_characterset_characterset_.characterset.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_characterset_characterset_.characterset.html#size" class="tsd-kind-icon">size</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_characterset_characterset_.characterset.html#tostring" class="tsd-kind-icon">to<wbr>String</a>

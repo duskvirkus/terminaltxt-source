@@ -1,5 +1,3 @@
-import { stringify } from "querystring";
-
 /**
  * For creating, loading, and saving terminal character sets.
  * 
@@ -19,11 +17,18 @@ import { stringify } from "querystring";
  * const example: CharacterSet = new CharacterSet([32, 46, 58, 45, 61, 43, 42, 35, 37, 64]);
  * ```
  * 
+ * ## Unknown Characters
+ * 
+ * Characters which are not in the [[set]] will be displayed using the [[unknown]] character code.
+ * By default this is '�' or the [unicode replacement character](https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character).
+ * Be advised that the replacement character doesn't always displayed with the correct spacing for a monospaced font and can lead to undesirable results.
+ * If you intend to use this functionality then you can set the value of [[unknown]] manually or using the [[constructor]].
+ * 
  * Notes:
  * - In some cases order matters, so keep that in mind.
  * - You must include a space (32 in UTF-16) in the constructor for it to be included in the set.
  * 
- */ // TODO add unknown example // TODO add see to set used in example
+ */ // TODO add see to set used in example // TODO fix problem with <,>,&,&nbsp;
 export class CharacterSet {
 
   /**
@@ -36,17 +41,15 @@ export class CharacterSet {
    */
   public unknown: number;
 
-  // TODO fix problem with <,>,&,&nbsp;
-  // TODO fix unknown character bug
-
   /**
    * @param characters 
    * @param unknown
-   *//**
+   */
+  constructor(characters?: string, unknown?: string | number)
+  /**
    * @param set
    * @param unknown
    */
-  constructor(characters?: string, unknown?: string | number)
   constructor(set?: number[], unknown?: string | number)
   constructor(argument: string | number[] = CharacterSet.getDefaultCharacterSet(), unknown?: string | number) {
 
@@ -87,7 +90,7 @@ export class CharacterSet {
    * Get index in set based on character. -1 if not in set.
    * 
    * @param character 
-   * @returns index || -1
+   * @returns index or -1
    */
   public getIndex(character: string): number {
     return this.set.indexOf(character.charCodeAt(0));
@@ -104,6 +107,13 @@ export class CharacterSet {
       return this.set[index];
     }
     return this.unknown;
+  }
+
+  /**
+   * @returns length of [[set]]
+   */
+  public size(): number {
+    return this.set.length;
   }
 
   /**
