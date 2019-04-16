@@ -11,8 +11,8 @@ describe('TerminalCellData Units: ', () => {
   });
 
   it('constructor unit', () => {
-    expect(cellData.width).toEqual(width);
-    expect(cellData.height).toEqual(height);
+    expect(cellData.getWidth()).toEqual(width);
+    expect(cellData.getHeight()).toEqual(height);
     // @ts-ignore
     expect(cellData.data.length).toEqual(cellData.numberOfCells());
     // @ts-ignore

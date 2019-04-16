@@ -23,7 +23,7 @@ import { stringify } from "querystring";
  * - In some cases order matters, so keep that in mind.
  * - You must include a space (32 in UTF-16) in the constructor for it to be included in the set.
  * 
- */ // TODO write class // TODO add unknown example // TODO add see to set used in example
+ */ // TODO add unknown example // TODO add see to set used in example
 export class CharacterSet {
 
   /**
@@ -37,6 +37,7 @@ export class CharacterSet {
   public unknown: number;
 
   // TODO fix problem with <,>,&,&nbsp;
+  // TODO fix unknown character bug
 
   /**
    * @param characters 
@@ -80,6 +81,16 @@ export class CharacterSet {
    */
   public static getDefaultCharacterSet(): number[] {
     return [32, 9608];
+  }
+
+  /**
+   * Get index in set based on character. -1 if not in set.
+   * 
+   * @param character 
+   * @returns index || -1
+   */
+  public getIndex(character: string): number {
+    return this.set.indexOf(character.charCodeAt(0));
   }
 
   /**
