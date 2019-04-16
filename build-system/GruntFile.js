@@ -138,6 +138,21 @@ module.exports = (grunt) => {
       },
     },
 
+    'string-replace': {
+      syncVersion: {
+        files: [{
+          src: './' + libraryConfig.buildDir + '/package.json',
+          dest: './' + libraryConfig.buildDir + '/package.json',
+        }],
+        options: {
+          replacements: [{
+            pattern: /"version": "\d.\d.\d"/g,
+            replacement: "\"version\": \"" + libraryConfig.version + "\"",
+          }],
+        },
+      },
+    },
+
   });
 
   // ---------------------------------------------------------------------------
@@ -151,6 +166,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-json-generator');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-string-replace');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -180,6 +196,7 @@ module.exports = (grunt) => {
     'json_generator:tsconfigProduction',
     'webpack:production',
     'clean:tsconfig',
+    'string-replace:syncVersion',
   ]);
 
   // Development Build

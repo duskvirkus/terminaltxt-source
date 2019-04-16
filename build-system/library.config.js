@@ -4,7 +4,7 @@ const package = require('../package');
 module.exports = () => {
   const libraryConfig = {
     name: '' || package.name,
-    version: package.version,
+    version: package.version, // Change in root package.json
     nameSpace: 'termtxt' || package.name,
 
     // File Locations
