@@ -3,7 +3,7 @@ const package = require('../package');
 
 module.exports = () => {
   const libraryConfig = {
-    name: '' || package.name,
+    name: 'terminaltxt' || package.name,
     version: package.version, // Change in root package.json
     nameSpace: 'termtxt' || package.name,
 
@@ -17,7 +17,7 @@ module.exports = () => {
     docsDir: 'docs',
     examplesDir: 'examples',
 
-    buildRepository: 'https://github.com/figraham/terminaltxt-distribution',
+    buildRepository: 'https://github.com/figraham/terminaltxt',
 
     // Examples
     examples: [
