@@ -39,7 +39,7 @@ module.exports = (grunt) => {
       },
     }, examplesConfig.shellCommands),
 
-    clean: {
+    clean: Object.assign({}, {
       oldBuild: {
         src: ['./' + libraryConfig.buildDir],
       },
@@ -52,7 +52,7 @@ module.exports = (grunt) => {
       tsconfig: {
         src: ['./src/tsconfig.json'],
       },
-    },
+    }, examplesConfig.cleanTasks),
 
     webpack: {
       // See webpack.config.js file.
