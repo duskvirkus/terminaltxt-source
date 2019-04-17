@@ -197,6 +197,7 @@ module.exports = (grunt) => {
     'webpack:production',
     'clean:tsconfig',
     'string-replace:syncVersion',
+    'copy:buildReadMe'
   ]);
 
   // Development Build
@@ -212,7 +213,6 @@ module.exports = (grunt) => {
 
   grunt.registerTask('build:push', [
     'build',
-    'copy:buildReadMe',
     'shell:pushBuild',
   ]);
 
