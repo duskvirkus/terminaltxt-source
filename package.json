@@ -1,6 +1,6 @@
 {
   "name": "terminaltxt-source",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This is a web based creative coding library / game engine for ASCII and text art reminiscent of Terminal graphics.",
   "main": "index.js",
   "scripts": {
