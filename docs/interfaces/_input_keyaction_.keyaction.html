@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;terminal/GraphicsTerminal&quot; | terminaltxt</title>
+	<title>KeyAction | terminaltxt</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,26 +56,94 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_terminal_graphicsterminal_.html">&quot;terminal/GraphicsTerminal&quot;</a>
+					<a href="../modules/_input_keyaction_.html">&quot;input/KeyAction&quot;</a>
+				</li>
+				<li>
+					<a href="_input_keyaction_.keyaction.html">KeyAction</a>
 				</li>
 			</ul>
-			<h1>External module &quot;terminal/GraphicsTerminal&quot;</h1>
+			<h1>Interface KeyAction</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Interface to enforce structure of KeyActions for <a href="../classes/_input_inputtracker_.inputtracker.html">InputTracker</a>.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">KeyAction</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_terminal_graphicsterminal_.graphicsterminal.html" class="tsd-kind-icon">Graphics<wbr>Terminal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_input_keyaction_.keyaction.html#action" class="tsd-kind-icon">action</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_input_keyaction_.keyaction.html#keyeventtype" class="tsd-kind-icon">key<wbr>Event<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_input_keyaction_.keyaction.html#keys" class="tsd-kind-icon">keys</a></li>
 							</ul>
 						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="action" class="tsd-anchor"></a>
+					<h3>action</h3>
+					<div class="tsd-signature tsd-kind-icon">action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in input/KeyAction.ts:11</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Function to be executed when listed keys are pressed.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="keyeventtype" class="tsd-anchor"></a>
+					<h3>key<wbr>Event<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">key<wbr>Event<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/_input_keyeventtype_.keyeventtype.html" class="tsd-signature-type">KeyEventType</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in input/KeyAction.ts:16</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The <a href="../enums/_input_keyeventtype_.keyeventtype.html">KeyEventType</a> attached to action.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="keys" class="tsd-anchor"></a>
+					<h3>keys</h3>
+					<div class="tsd-signature tsd-kind-icon">keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in input/KeyAction.ts:21</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A list of keys that will trigger the <a href="_input_keyaction_.keyaction.html#action">action</a> function.</p>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -87,48 +155,63 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_characterset_characterset_.html">"characterset/<wbr>Character<wbr>Set"</a>
+						<a href="../modules/_characterset_characterset_.html">"characterset/<wbr>Character<wbr>Set"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_input_inputtracker_.html">"input/<wbr>Input<wbr>Tracker"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_input_keyaction_.html">"input/<wbr>Key<wbr>Action"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_input_keyeventtype_.html">"input/<wbr>Key<wbr>Event<wbr>Type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_terminal_commandterminal_.html">"terminal/<wbr>Command<wbr>Terminal"</a>
+						<a href="../modules/_input_inputtracker_.html">"input/<wbr>Input<wbr>Tracker"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_terminal_graphicsterminal_.html">"terminal/<wbr>Graphics<wbr>Terminal"</a>
+						<a href="../modules/_input_keyaction_.html">"input/<wbr>Key<wbr>Action"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_terminal_terminal_.html">"terminal/<wbr>Terminal"</a>
+						<a href="../modules/_input_keyeventtype_.html">"input/<wbr>Key<wbr>Event<wbr>Type"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_terminal_terminalcelldom_.html">"terminal/<wbr>Terminal<wbr>CellDOM"</a>
+						<a href="../modules/_terminal_commandterminal_.html">"terminal/<wbr>Command<wbr>Terminal"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_terminal_terminalcelldata_.html">"terminal/<wbr>Terminal<wbr>Cell<wbr>Data"</a>
+						<a href="../modules/_terminal_graphicsterminal_.html">"terminal/<wbr>Graphics<wbr>Terminal"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_terminal_terminalclient_.html">"terminal/<wbr>Terminal<wbr>Client"</a>
+						<a href="../modules/_terminal_terminal_.html">"terminal/<wbr>Terminal"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_terminal_terminalconfig_.html">"terminal/<wbr>Terminal<wbr>Config"</a>
+						<a href="../modules/_terminal_terminalcelldom_.html">"terminal/<wbr>Terminal<wbr>CellDOM"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_terminal_terminaldom_.html">"terminal/<wbr>TerminalDOM"</a>
+						<a href="../modules/_terminal_terminalcelldata_.html">"terminal/<wbr>Terminal<wbr>Cell<wbr>Data"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_terminal_terminalclient_.html">"terminal/<wbr>Terminal<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_terminal_terminalconfig_.html">"terminal/<wbr>Terminal<wbr>Config"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_terminal_terminaldom_.html">"terminal/<wbr>TerminalDOM"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_terminal_graphicsterminal_.graphicsterminal.html" class="tsd-kind-icon">Graphics<wbr>Terminal</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_input_keyaction_.keyaction.html" class="tsd-kind-icon">Key<wbr>Action</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_input_keyaction_.keyaction.html#action" class="tsd-kind-icon">action</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_input_keyaction_.keyaction.html#keyeventtype" class="tsd-kind-icon">key<wbr>Event<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_input_keyaction_.keyaction.html#keys" class="tsd-kind-icon">keys</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

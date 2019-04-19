@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TerminalConfig | terminaltxt</title>
+	<title>InputTracker | terminaltxt</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_terminal_terminalconfig_.html">&quot;terminal/TerminalConfig&quot;</a>
+					<a href="../modules/_input_inputtracker_.html">&quot;input/InputTracker&quot;</a>
 				</li>
 				<li>
-					<a href="_terminal_terminalconfig_.terminalconfig.html">TerminalConfig</a>
+					<a href="_input_inputtracker_.inputtracker.html">InputTracker</a>
 				</li>
 			</ul>
-			<h1>Interface TerminalConfig</h1>
+			<h1>Class InputTracker</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for config objects passed to terminal class.</p>
+						<p>Tracks Keyboard Input from User and executes actions that have been added to <a href="_input_inputtracker_.inputtracker.html#actions">actions</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -80,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">TerminalConfig</span>
+						<span class="target">InputTracker</span>
 					</li>
 				</ul>
 			</section>
@@ -89,46 +89,173 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_input_inputtracker_.inputtracker.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_terminal_terminalconfig_.terminalconfig.html#container" class="tsd-kind-icon">container</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_terminal_terminalconfig_.terminalconfig.html#graphics" class="tsd-kind-icon">graphics</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_input_inputtracker_.inputtracker.html#actions" class="tsd-kind-icon">actions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_input_inputtracker_.inputtracker.html#logkeys" class="tsd-kind-icon">log<wbr>Keys</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_inputtracker_.inputtracker.html#addaction" class="tsd-kind-icon">add<wbr>Action</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_input_inputtracker_.inputtracker.html#handlekey" class="tsd-kind-icon">handle<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_inputtracker_.inputtracker.html#setlogkeys" class="tsd-kind-icon">set<wbr>Log<wbr>Keys</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Input<wbr>Tracker<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_input_inputtracker_.inputtracker.html" class="tsd-signature-type">InputTracker</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in input/InputTracker.ts:17</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_input_inputtracker_.inputtracker.html" class="tsd-signature-type">InputTracker</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="container" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> container</h3>
-					<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLDivElement</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="actions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> actions</h3>
+					<div class="tsd-signature tsd-kind-icon">actions<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_input_keyaction_.keyaction.html" class="tsd-signature-type">KeyAction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/8bf50ce/src/terminal/TerminalConfig.ts#L11">terminal/TerminalConfig.ts:11</a></li>
+							<li>Defined in input/InputTracker.ts:12</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Div container for <a href="../classes/_terminal_terminaldom_.terminaldom.html">TerminalDOM</a>.</p>
+							<p>List of <a href="../interfaces/_input_keyaction_.keyaction.html">KeyAction</a> to execute if certain keys have ben pressed.</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="graphics" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> graphics</h3>
-					<div class="tsd-signature tsd-kind-icon">graphics<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="logkeys" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> log<wbr>Keys</h3>
+					<div class="tsd-signature tsd-kind-icon">log<wbr>Keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/8bf50ce/src/terminal/TerminalConfig.ts#L16">terminal/TerminalConfig.ts:16</a></li>
+							<li>Defined in input/InputTracker.ts:17</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Configuration specific to <a href="../classes/_terminal_graphicsterminal_.graphicsterminal.html">GraphicsTerminal</a>.</p>
+							<p>Will log keyboard presses to console to assist with designing.</p>
 						</div>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addaction" class="tsd-anchor"></a>
+					<h3>add<wbr>Action</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Action<span class="tsd-signature-symbol">(</span>action<span class="tsd-signature-symbol">: </span><a href="../interfaces/_input_keyaction_.keyaction.html" class="tsd-signature-type">KeyAction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in input/InputTracker.ts:34</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Will add a <a href="../interfaces/_input_keyaction_.keyaction.html">KeyAction</a> to <a href="_input_inputtracker_.inputtracker.html#actions">actions</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>action: <a href="../interfaces/_input_keyaction_.keyaction.html" class="tsd-signature-type">KeyAction</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="handlekey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> handle<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Key<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in input/InputTracker.ts:52</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Connected to event listeners and will call <a href="_input_inputtracker_.inputtracker.html#actions">actions</a> if <a href="../interfaces/_input_keyaction_.keyaction.html">KeyAction</a>.keys show up in an event.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">KeyboardEvent</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setlogkeys" class="tsd-anchor"></a>
+					<h3>set<wbr>Log<wbr>Keys</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Log<wbr>Keys<span class="tsd-signature-symbol">(</span>logKeys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in input/InputTracker.ts:43</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets <a href="_input_inputtracker_.inputtracker.html#logkeys">logKeys</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>logKeys: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -141,7 +268,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_characterset_characterset_.html">"characterset/<wbr>Character<wbr>Set"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_input_inputtracker_.html">"input/<wbr>Input<wbr>Tracker"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -168,7 +295,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_terminal_terminalclient_.html">"terminal/<wbr>Terminal<wbr>Client"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_terminal_terminalconfig_.html">"terminal/<wbr>Terminal<wbr>Config"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -180,14 +307,26 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_terminal_terminalconfig_.terminalconfig.html" class="tsd-kind-icon">Terminal<wbr>Config</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_input_inputtracker_.inputtracker.html" class="tsd-kind-icon">Input<wbr>Tracker</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_terminal_terminalconfig_.terminalconfig.html#container" class="tsd-kind-icon">container</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_input_inputtracker_.inputtracker.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_terminal_terminalconfig_.terminalconfig.html#graphics" class="tsd-kind-icon">graphics</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_input_inputtracker_.inputtracker.html#actions" class="tsd-kind-icon">actions</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_input_inputtracker_.inputtracker.html#logkeys" class="tsd-kind-icon">log<wbr>Keys</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_input_inputtracker_.inputtracker.html#addaction" class="tsd-kind-icon">add<wbr>Action</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_input_inputtracker_.inputtracker.html#handlekey" class="tsd-kind-icon">handle<wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_input_inputtracker_.inputtracker.html#setlogkeys" class="tsd-kind-icon">set<wbr>Log<wbr>Keys</a>
 							</li>
 						</ul>
 					</li>
