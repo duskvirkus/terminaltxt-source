@@ -24,7 +24,7 @@ export class TerminalCellDOM extends TerminalDOM {
    * @param height 
    * @param container 
    */
-  constructor(width: number, height: number, container?: HTMLDivElement,) {
+  constructor(width: number, height: number, container?: HTMLDivElement) {
     if (container) {
       super(container);
     } else {
