@@ -74,6 +74,10 @@
 					<div class="lead">
 						<p>Terminal for taking in Text input commands from user.</p>
 					</div>
+					<p>Notes:</p>
+					<ul>
+						<li>If config.height is passed -1 no cropping will happen.</li>
+					</ul>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -102,6 +106,14 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_output_terminal_outputterminal_.outputterminal.html#width" class="tsd-kind-icon">width</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#getheight" class="tsd-kind-icon">get<wbr>Height</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#writeln" class="tsd-kind-icon">writeln</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -111,19 +123,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Output<wbr>Terminal<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_config_terminalconfig_.terminalconfig.html" class="tsd-signature-type">TerminalConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_output_terminal_outputterminal_.outputterminal.html" class="tsd-signature-type">OutputTerminal</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Output<wbr>Terminal<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_config_terminalconfig_.terminalconfig.html" class="tsd-signature-type">TerminalConfig</a>, initialText<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_output_terminal_outputterminal_.outputterminal.html" class="tsd-signature-type">OutputTerminal</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in output-terminal/OutputTerminal.ts:13</li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/0305f51/src/output-terminal/OutputTerminal.ts#L25">output-terminal/OutputTerminal.ts:25</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> config: <a href="../interfaces/_config_terminalconfig_.terminalconfig.html" class="tsd-signature-type">TerminalConfig</a><span class="tsd-signature-symbol"> =&nbsp;{} as TerminalConfig</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> initialText: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The first line displayed, won&#39;t work if larger than width.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_output_terminal_outputterminal_.outputterminal.html" class="tsd-signature-type">OutputTerminal</a></h4>
@@ -139,9 +161,14 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in output-terminal/OutputTerminal.ts:9</li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/0305f51/src/output-terminal/OutputTerminal.ts#L15">output-terminal/OutputTerminal.ts:15</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Height of OutputTerminal.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="linecontroller" class="tsd-anchor"></a>
@@ -149,9 +176,14 @@
 					<div class="tsd-signature tsd-kind-icon">line<wbr>Controller<span class="tsd-signature-symbol">:</span> <a href="_dom_controller_domlinecontroller_.domlinecontroller.html" class="tsd-signature-type">DOMLineController</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in output-terminal/OutputTerminal.ts:11</li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/0305f51/src/output-terminal/OutputTerminal.ts#L20">output-terminal/OutputTerminal.ts:20</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>[[DOMLineControl]] for this OutputTerminal.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="width" class="tsd-anchor"></a>
@@ -159,9 +191,87 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in output-terminal/OutputTerminal.ts:13</li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/0305f51/src/output-terminal/OutputTerminal.ts#L25">output-terminal/OutputTerminal.ts:25</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Width of OutputTerminal</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getheight" class="tsd-anchor"></a>
+					<h3>get<wbr>Height</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Height<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/0305f51/src/output-terminal/OutputTerminal.ts#L48">output-terminal/OutputTerminal.ts:48</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p><a href="_output_terminal_outputterminal_.outputterminal.html#height">height</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getwidth" class="tsd-anchor"></a>
+					<h3>get<wbr>Width</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Width<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/0305f51/src/output-terminal/OutputTerminal.ts#L55">output-terminal/OutputTerminal.ts:55</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p><a href="_output_terminal_outputterminal_.outputterminal.html#width">width</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="writeln" class="tsd-anchor"></a>
+					<h3>writeln</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">writeln<span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/0305f51/src/output-terminal/OutputTerminal.ts#L64">output-terminal/OutputTerminal.ts:64</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Will write a line to the OutputTerminal.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>text: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -230,6 +340,15 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_output_terminal_outputterminal_.outputterminal.html#width" class="tsd-kind-icon">width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_output_terminal_outputterminal_.outputterminal.html#getheight" class="tsd-kind-icon">get<wbr>Height</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_output_terminal_outputterminal_.outputterminal.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_output_terminal_outputterminal_.outputterminal.html#writeln" class="tsd-kind-icon">writeln</a>
 							</li>
 						</ul>
 					</li>
