@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>KeyEventType | terminaltxt</title>
+	<title>TerminalConfig | terminaltxt</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_input_keyeventtype_.html">&quot;input/KeyEventType&quot;</a>
+					<a href="../modules/_config_terminalconfig_.html">&quot;config/TerminalConfig&quot;</a>
 				</li>
 				<li>
-					<a href="_input_keyeventtype_.keyeventtype.html">KeyEventType</a>
+					<a href="_config_terminalconfig_.terminalconfig.html">TerminalConfig</a>
 				</li>
 			</ul>
-			<h1>Enumeration KeyEventType</h1>
+			<h1>Interface TerminalConfig</h1>
 		</div>
 	</div>
 </header>
@@ -72,69 +72,77 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Enum of Key Event types outlined by javascript. More information can be found in the mozilla documentation: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event">keydown</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/keyup_event">keyup</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Events/keypress">keypress</a>.</p>
+						<p>Interface for config objects passed to terminal class.</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">TerminalConfig</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_input_keyeventtype_.keyeventtype.html#keydown" class="tsd-kind-icon">KEYDOWN</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_input_keyeventtype_.keyeventtype.html#keypress" class="tsd-kind-icon">KEYPRESS</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_input_keyeventtype_.keyeventtype.html#keyup" class="tsd-kind-icon">KEYUP</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_terminalconfig_.terminalconfig.html#container" class="tsd-kind-icon">container</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_terminalconfig_.terminalconfig.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_terminalconfig_.terminalconfig.html#width" class="tsd-kind-icon">width</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="keydown" class="tsd-anchor"></a>
-					<h3>KEYDOWN</h3>
-					<div class="tsd-signature tsd-kind-icon">KEYDOWN<span class="tsd-signature-symbol">:</span> </div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="container" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> container</h3>
+					<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLDivElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/91ef7f3/src/input/KeyEventType.ts#L9">input/KeyEventType.ts:9</a></li>
+							<li>Defined in config/TerminalConfig.ts:9</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Corresponds to document.keydown event.</p>
+							<p>Div container for <a href="../classes/_dom_controller_domcontroller_.domcontroller.html">DOMController</a>.</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="keypress" class="tsd-anchor"></a>
-					<h3>KEYPRESS</h3>
-					<div class="tsd-signature tsd-kind-icon">KEYPRESS<span class="tsd-signature-symbol">:</span> </div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="height" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> height</h3>
+					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/91ef7f3/src/input/KeyEventType.ts#L19">input/KeyEventType.ts:19</a></li>
+							<li>Defined in config/TerminalConfig.ts:14</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Corresponds to document.keypress event.</p>
+							<p>Height of terminal created. May not be used depending on which flavor of terminal you are using.</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="keyup" class="tsd-anchor"></a>
-					<h3>KEYUP</h3>
-					<div class="tsd-signature tsd-kind-icon">KEYUP<span class="tsd-signature-symbol">:</span> </div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="width" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> width</h3>
+					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/91ef7f3/src/input/KeyEventType.ts#L14">input/KeyEventType.ts:14</a></li>
+							<li>Defined in config/TerminalConfig.ts:19</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Corresponds to document.keyup event.</p>
+							<p>Width of terminal created. May not be used depending on which flavor of terminal you are using.</p>
 						</div>
 					</div>
 				</section>
@@ -149,7 +157,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_characterset_characterset_.html">"characterset/<wbr>Character<wbr>Set"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_config_terminalconfig_.html">"config/<wbr>Terminal<wbr>Config"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -179,7 +187,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_input_keyaction_.html">"input/<wbr>Key<wbr>Action"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_input_keyeventtype_.html">"input/<wbr>Key<wbr>Event<wbr>Type"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -191,17 +199,17 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="_input_keyeventtype_.keyeventtype.html" class="tsd-kind-icon">Key<wbr>Event<wbr>Type</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_config_terminalconfig_.terminalconfig.html" class="tsd-kind-icon">Terminal<wbr>Config</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_input_keyeventtype_.keyeventtype.html#keydown" class="tsd-kind-icon">KEYDOWN</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_terminalconfig_.terminalconfig.html#container" class="tsd-kind-icon">container</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_input_keyeventtype_.keyeventtype.html#keypress" class="tsd-kind-icon">KEYPRESS</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_terminalconfig_.terminalconfig.html#height" class="tsd-kind-icon">height</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_input_keyeventtype_.keyeventtype.html#keyup" class="tsd-kind-icon">KEYUP</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_terminalconfig_.terminalconfig.html#width" class="tsd-kind-icon">width</a>
 							</li>
 						</ul>
 					</li>
