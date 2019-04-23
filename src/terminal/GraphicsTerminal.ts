@@ -13,6 +13,11 @@ export class GraphicsTerminal extends Terminal {
    * Cell data for this instance of GraphicsTerminal. see [[TerminalCellData]]
    */
   protected cellData: TerminalCellData;
+
+  /**
+   * [[CharacterSet]] associated with this Terminal.
+   */
+  protected characterSet: CharacterSet;
   
   /**
    * Height of graphics terminal.
@@ -28,38 +33,41 @@ export class GraphicsTerminal extends Terminal {
    * @param config [[TerminalConfig]]
    */
   constructor(config: TerminalConfig = {} as TerminalConfig, characterSet: CharacterSet = new CharacterSet()) {
-    if (!config.graphics) {
-      config.graphics = {};
+    if (!config.width) {
+      config.width = 80;
     }
-    if (!config.graphics.width) {
-      config.graphics.width = 80;
-    }
-    if (!config.graphics.height) {
-      config.graphics.height = 25;
+    if (!config.height) {
+      config.height = 25;
     }
 
     if (config.container) {
       super(
           new TerminalCellDOM(
-          config.graphics.width,
-          config.graphics.height,
+          config.width,
+          config.height,
           config.container,
         ),
-        characterSet
       );
     } else {
       super(
           new TerminalCellDOM(
-          config.graphics.width,
-          config.graphics.height,
+          config.width,
+          config.height,
         ),
-        characterSet
       );
     }
 
-    this.width = config.graphics.width;
-    this.height = config.graphics.height;
-    this.cellData = new TerminalCellData(config.graphics.width, config.graphics.height);
+    this.width = config.width;
+    this.height = config.height;
+    this.cellData = new TerminalCellData(config.width, config.height);
+    this.characterSet = characterSet;
+  }
+
+  /**
+ * @returns [[characterSet]]
+ */
+  public getCharacterSet(): CharacterSet {
+    return this.characterSet;
   }
 
   /**

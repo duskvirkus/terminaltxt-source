@@ -11,17 +11,13 @@ export interface TerminalConfig {
   container?: HTMLDivElement,
 
   /**
-   * Configuration specific to [[GraphicsTerminal]].
+   * Height of terminal created. May not be used depending on which flavor of terminal you are using.
    */
-  graphics?: {
-    /**
-     * Height of [[GraphicsTerminal]].
-     */
-    height?: number,
-    /**
-     * Width of [[GraphicsTerminal]].
-     */
-    width?: number,
-  },
+  height?: number,
+
+  /**
+   * Width of terminal created. May not be used depending on which flavor of terminal you are using.
+   */
+  width?: number,
 
 }
