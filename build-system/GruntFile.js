@@ -27,6 +27,7 @@ module.exports = (grunt) => {
         'git status && ' +
         'git commit -m \"🏗️ version: ' + libraryConfig.version + '\" &&' + 
         'git push origin master'
+        // TODO consider adding npm publish
       },
       typedoc: {
         command: 'typedoc --out ./' + libraryConfig.docsDir + 
@@ -136,6 +137,11 @@ module.exports = (grunt) => {
         src: './' + libraryConfig.buildSystemDir + '/copy/build.README.md',
         dest: './' + libraryConfig.buildDir + '/README.md',
       },
+      docs404: {
+        nonull: true,
+        src: './' + libraryConfig.buildSystemDir + '/copy/docs.404.html',
+        dest: './' + libraryConfig.docsDir + '/404.html',
+      },
     },
 
     'string-replace': {
@@ -153,6 +159,15 @@ module.exports = (grunt) => {
       },
     },
 
+    'gh-pages': {
+      docs: {
+        options: {
+          base: libraryConfig.docsDir,
+        },
+        src: '**/*'
+      },
+    },
+
   });
 
   // ---------------------------------------------------------------------------
@@ -167,6 +182,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-json-generator');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -213,13 +229,26 @@ module.exports = (grunt) => {
 
   grunt.registerTask('build:push', [
     'build',
+    'docs:deploy',
     'shell:pushBuild',
   ]);
 
   // ---------------------------------------------------------------------------
   // Documentation
 
-  grunt.registerTask('docs', 'typedoc');
+  grunt.registerTask('docs', 'docs:dev');
+
+  grunt.registerTask('docs:deploy', [
+    'typedoc',
+    'copy:docs404',
+    'gh-pages:docs',
+    // TODO clean docs
+  ]);
+
+  grunt.registerTask('docs:dev', [
+    'typedoc',
+    'copy:docs404',
+  ]);
 
   grunt.registerTask('typedoc', [
     'json_generator:tsconfigProduction',
