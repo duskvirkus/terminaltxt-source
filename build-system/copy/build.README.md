@@ -29,5 +29,5 @@ Distribution of [TerminalTXT Library](https://github.com/figraham/terminaltxt-so
 First working version of the library. Very minimal features.
 
 - Has basic GraphicsTerminal with `setCell()` and `update()`.
-- CharacterSet supports both string and number[] constructors. As well as unknown characters.
+- CharacterSet supports both `string` and `number[]` constructors. As well as unknown characters.
 - DOM elements are created with classes and ids.
