@@ -64,4 +64,45 @@ describe('CommandTerminal Units: ', () => {
     }
   });
 
+  it('newLine unit', () => {
+    term = new OutputTerminal();
+    // @ts-ignore
+    expect(term.lineController.lines.length).toEqual(1);
+
+    for (let i = 0; i < 10; i++) {
+      term.newLine();
+      // @ts-ignore
+      expect(term.lineController.lines.length).toEqual(i + 2);
+    }
+  });
+
+  it('write unit', () => {
+    term = new OutputTerminal();
+    term.write('hello');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('hello');
+    term.write(' world!');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('hello world!');
+  });
+
+  it('write unit', () => {
+    term = new OutputTerminal({width: 1});
+    term.write('h');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('h');
+    term.write('i');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('i');
+  });
+
+  it('write unit', () => {
+    term = new OutputTerminal({width: 1});
+    term.write('hi');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('h');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('i');
+  });
+
 });

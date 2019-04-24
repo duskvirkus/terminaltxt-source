@@ -57,6 +57,30 @@ export class OutputTerminal {
   }
 
   /**
+   * Adds a line break. Helpful when using [[write]].
+   */
+  public newLine(): void {
+    this.lineController.addLine();
+  }
+
+  /**
+   * Writes to current line on output terminal if space. If there is not enough space on the current line it will roll over to the next.
+   * 
+   * @param text 
+   */
+  public write(text: string): void {
+    const lastLineLength: number = this.lineController.lines[this.lineController.lines.length - 1].innerHTML.length;
+    if (lastLineLength + text.length <= this.width) {
+      this.lineController.appendCurrentLine(text);
+    } else if (lastLineLength === this.width) {
+      this.lineController.addLine(text);
+    } else {
+      this.lineController.appendCurrentLine(text.substring(0, this.width - lastLineLength));
+      this.writeln(text.substring(this.width - lastLineLength, text.length))
+    }
+  }
+
+  /**
    * Will write a line to the OutputTerminal.
    * 
    * @param text 
