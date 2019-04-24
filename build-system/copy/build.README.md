@@ -11,6 +11,11 @@ Distribution of [TerminalTXT Library](https://github.com/figraham/terminaltxt-so
 
 ## Release Notes
 
+### 0.0.4
+
+- Added OutputTerminal with write, writeln, and newLine methods.
+- Restructured src to make development easier.
+
 ### 0.0.3
 
 - Added InputTracker to handle user keyboard input.
@@ -24,5 +29,5 @@ Distribution of [TerminalTXT Library](https://github.com/figraham/terminaltxt-so
 First working version of the library. Very minimal features.
 
 - Has basic GraphicsTerminal with `setCell()` and `update()`.
-- CharacterSet supports both string and number[] constructors. As well as unknown characters.
+- CharacterSet supports both `string` and `number[]` constructors. As well as unknown characters.
 - DOM elements are created with classes and ids.
