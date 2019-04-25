@@ -1,5 +1,7 @@
 import { KeyEventType } from "./KeyEventType";
 
+export type KeyActionFunction = (key: string) => void;
+
 /**
  * Interface to enforce structure of KeyActions for [[InputTracker]].
  */
@@ -8,7 +10,7 @@ export interface KeyAction {
   /**
    * Function to be executed when listed keys are pressed.
    */
-  action: Function,
+  action: KeyActionFunction,
 
   /**
    * The [[KeyEventType]] attached to action.
