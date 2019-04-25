@@ -24,7 +24,10 @@ module.exports = () => {
       {
         name: 'hello-world',
         repository: 'https://github.com/figraham/terminaltxt-helloworld',
-      },
+      },{
+        name: '10print',
+        repository: 'https://github.com/figraham/terminaltxt-10print',
+      }
     ],
   };
   return libraryConfig;
