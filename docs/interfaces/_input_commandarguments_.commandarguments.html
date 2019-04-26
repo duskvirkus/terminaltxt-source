@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;input/KeyAction&quot; | terminaltxt</title>
+	<title>CommandArguments | terminaltxt</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,66 +56,84 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_input_keyaction_.html">&quot;input/KeyAction&quot;</a>
+					<a href="../modules/_input_commandarguments_.html">&quot;input/CommandArguments&quot;</a>
+				</li>
+				<li>
+					<a href="_input_commandarguments_.commandarguments.html">CommandArguments</a>
 				</li>
 			</ul>
-			<h1>External module &quot;input/KeyAction&quot;</h1>
+			<h1>Interface CommandArguments</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Command Arguments input by user. The argument followed by parameters.</p>
+					</div>
+					<p>Example:</p>
+					<pre><code><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">help</span> --lookup <span class="hljs-built_in">command</span>-name</span></code></pre><p>results in</p>
+					<pre><code>{
+  <span class="hljs-attribute">argument</span>: <span class="hljs-string">'lookup'</span>,
+  parameters: [<span class="hljs-string">'command-name'</span>]
+}</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">CommandArguments</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_input_keyaction_.keyaction.html" class="tsd-kind-icon">Key<wbr>Action</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_input_keyaction_.html#keyactionfunction" class="tsd-kind-icon">Key<wbr>Action<wbr>Function</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_input_commandarguments_.commandarguments.html#argument" class="tsd-kind-icon">argument</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_input_commandarguments_.commandarguments.html#parameters" class="tsd-kind-icon">parameters</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-					<a name="keyactionfunction" class="tsd-anchor"></a>
-					<h3>Key<wbr>Action<wbr>Function</h3>
-					<div class="tsd-signature tsd-kind-icon">Key<wbr>Action<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="argument" class="tsd-anchor"></a>
+					<h3>argument</h3>
+					<div class="tsd-signature tsd-kind-icon">argument<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/input/KeyAction.ts#L3">input/KeyAction.ts:3</a></li>
+							<li>Defined in input/CommandArguments.ts:21</li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>key: <span class="tsd-signature-type">string</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Argument for the command.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="parameters" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> parameters</h3>
+					<div class="tsd-signature tsd-kind-icon">parameters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in input/CommandArguments.ts:26</li>
 						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Other parameters for that argument.</p>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -127,57 +145,66 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_characterset_characterset_.html">"characterset/<wbr>Character<wbr>Set"</a>
+						<a href="../modules/_characterset_characterset_.html">"characterset/<wbr>Character<wbr>Set"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_config_terminalconfig_.html">"config/<wbr>Terminal<wbr>Config"</a>
+						<a href="../modules/_config_terminalconfig_.html">"config/<wbr>Terminal<wbr>Config"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_dom_controller_domcellcontroller_.html">"dom-<wbr>controller/DOMCell<wbr>Controller"</a>
+						<a href="../modules/_dom_controller_domcellcontroller_.html">"dom-<wbr>controller/DOMCell<wbr>Controller"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_dom_controller_domcontroller_.html">"dom-<wbr>controller/DOMController"</a>
+						<a href="../modules/_dom_controller_domcontroller_.html">"dom-<wbr>controller/DOMController"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_dom_controller_domlinecontroller_.html">"dom-<wbr>controller/DOMLine<wbr>Controller"</a>
+						<a href="../modules/_dom_controller_domlinecontroller_.html">"dom-<wbr>controller/DOMLine<wbr>Controller"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_graphics_terminal_celldata_.html">"graphics-<wbr>terminal/<wbr>Cell<wbr>Data"</a>
+						<a href="../modules/_graphics_terminal_celldata_.html">"graphics-<wbr>terminal/<wbr>Cell<wbr>Data"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_graphics_terminal_graphicsterminal_.html">"graphics-<wbr>terminal/<wbr>Graphics<wbr>Terminal"</a>
+						<a href="../modules/_graphics_terminal_graphicsterminal_.html">"graphics-<wbr>terminal/<wbr>Graphics<wbr>Terminal"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_input_command_.html">"input/<wbr>Command"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_input_commandarguments_.html">"input/<wbr>Command<wbr>Arguments"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_input_commandtracker_.html">"input/<wbr>Command<wbr>Tracker"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_input_inputtracker_.html">"input/<wbr>Input<wbr>Tracker"</a>
+						<a href="../modules/_input_command_.html">"input/<wbr>Command"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_input_keyaction_.html">"input/<wbr>Key<wbr>Action"</a>
+						<a href="../modules/_input_commandarguments_.html">"input/<wbr>Command<wbr>Arguments"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_input_keyeventtype_.html">"input/<wbr>Key<wbr>Event<wbr>Type"</a>
+						<a href="../modules/_input_commandtracker_.html">"input/<wbr>Command<wbr>Tracker"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_output_terminal_outputterminal_.html">"output-<wbr>terminal/<wbr>Output<wbr>Terminal"</a>
+						<a href="../modules/_input_inputtracker_.html">"input/<wbr>Input<wbr>Tracker"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_input_keyaction_.html">"input/<wbr>Key<wbr>Action"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_input_keyeventtype_.html">"input/<wbr>Key<wbr>Event<wbr>Type"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_output_terminal_outputterminal_.html">"output-<wbr>terminal/<wbr>Output<wbr>Terminal"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_input_keyaction_.keyaction.html" class="tsd-kind-icon">Key<wbr>Action</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_input_commandarguments_.commandarguments.html" class="tsd-kind-icon">Command<wbr>Arguments</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_input_commandarguments_.commandarguments.html#argument" class="tsd-kind-icon">argument</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_input_commandarguments_.commandarguments.html#parameters" class="tsd-kind-icon">parameters</a>
+							</li>
+						</ul>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="_input_keyaction_.html#keyactionfunction" class="tsd-kind-icon">Key<wbr>Action<wbr>Function</a>
-					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

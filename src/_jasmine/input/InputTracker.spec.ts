@@ -2,7 +2,7 @@ import { InputTracker } from '../../input/InputTracker';
 import { KeyEventType } from '../../input/KeyEventType';
 import { KeyAction } from '../../input/KeyAction';
 
-function mockKey(type: string, key: string) {
+function mockKey(type: string, key: string): void {
   let mockEvent: Event = document.createEvent('Event');
   // @ts-ignore
   mockEvent.key = key;

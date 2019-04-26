@@ -2,32 +2,59 @@ import { InputTracker } from '../input/InputTracker';
 import { KeyAction } from '../input/KeyAction';
 import { KeyEventType } from '../input/KeyEventType';
 import { OutputTerminal } from '../output-terminal/OutputTerminal';
-import { Command, CommandArguments } from './Command';
+import { Command } from './Command';
+import { CommandArguments } from './CommandArguments';
 
 /**
  * Used to track input and check against registered commands.
  */
 export class CommandTracker {
 
+  /**
+   * Keeps track of partially done command from user.
+   */
   public current: string;
 
+  /**
+   * History of commands entered.
+   */
   public history: string[];
 
+  /**
+   * The max number of commands recored by [[history]]. Defaults to 100. -1 will disable the limit.
+   */
+  public historyMax: number;
+
+  /**
+   * List of regestered commands. Add [[Command]] by using [[registerCommand]].
+   */
   protected commands: Command[];
 
+  /**
+   * Keeps track of last command loaded using history.
+   */
   protected historyCounter: number;
 
+  /**
+   * Input tracker for user keyboard input.
+   */
   protected input: InputTracker;
 
+  /**
+   * [[OutputTerminal]] that is used to display the current state of input and output.
+   */
   protected output: OutputTerminal;
 
+  /**
+   * @param outputTerminal 
+   */
   constructor(outputTerminal: OutputTerminal = new OutputTerminal()) {
     this.history = [];
     this.historyCounter = 0;
+    this.historyMax = 100;
     this.current = '';
     this.commands = [];
     this.input = new InputTracker();
-    this.input.setLogKeys(true); // TODO remove
     this.output = outputTerminal;
 
     // bindings
@@ -36,7 +63,6 @@ export class CommandTracker {
     this.backspaceCurrent = this.backspaceCurrent.bind(this);
     this.historyForwards = this.historyForwards.bind(this);
     this.historyBack = this.historyBack.bind(this);
-
     this.helpCommand = this.helpCommand.bind(this);
 
     this.setupInput();
@@ -51,22 +77,16 @@ export class CommandTracker {
       }],
     } as Command);
 
-    this.registerCommand({
-      name: 'error',
-      description: 'testing error',
-      command: (output: OutputTerminal, args: CommandArguments[]):number => {
-        output.writeln('this should have non zero return value');
-        return 1;
-      },
-      exitCodes: [{
-        code: 1,
-        description: 'intended output',
-      }],
-    } as Command);
-
     this.update();
   }
 
+  /**
+   * Return the index of CommandArguments in an array. Tool to assist in looking for arguments in [[Command]]s.
+   * 
+   * @param arg 
+   * @param args 
+   * @returns index of arg in args
+   */
   public static indexOfCommandArgument(arg: string, args: CommandArguments[]): number {
     for (let i: number = 0; i < args.length; i++) {
       if (args[i].argument === arg) {
@@ -76,6 +96,13 @@ export class CommandTracker {
     return -1;
   }
 
+  /**
+   * Bulk version of [[indexOfCommandArgument]].
+   * 
+   * @param argsToLookFor 
+   * @param args 
+   * @returns indexes of argsToLookFor in args
+   */
   public static indexOfCommandArguments(argsToLookFor: string[], args: CommandArguments[]): number[] {
     const indexes: number[] = [];
     for (let i: number = 0; i < argsToLookFor.length; i++) {
@@ -84,6 +111,11 @@ export class CommandTracker {
     return indexes;
   }
 
+  /**
+   * Function run when 'Enter' is pressed. Will handle whatever command is in current, report unknown command, and reset for the next command.
+   * 
+   * @param key 
+   */
   public finalizeCurrent(key: string): void {
     let exitCode: number = -1;
     const currentCommand: string[] = this.current.split(' ');
@@ -99,14 +131,20 @@ export class CommandTracker {
     } else if (exitCode > 0) {
       this.output.writeln(`\'${currentCommand[0]}\' exit code [${exitCode}]. Use \'help --lookup ${currentCommand[0]}\' for more information.`);
     }
-    this.history.push(this.current);
-    this.historyCounter = this.history.length;
+    this.addToHistory(this.current);
     this.output.newLine();
     this.output.resetLinesToCheck();
     this.current = '';
     this.update();
   }
 
+  /**
+   * Default help command that lists [[commands]] and allows for \'--lookup\' to get more information about specific commands.
+   * 
+   * @param output 
+   * @param args 
+   * @return exit code
+   */
   public helpCommand(output: OutputTerminal, args: CommandArguments[]): number {
     if (args.length === 0) {
       output.writeln('COMMAND HELP');
@@ -122,7 +160,7 @@ export class CommandTracker {
     if (argIndexes[0] !== -1) { // lookup
       const currentArg: CommandArguments = args[argIndexes[0]];
       if (typeof currentArg.parameters === 'undefined' || currentArg.parameters.length !== 1) {
-        output.writeln('Invalid number of arguments for help --lookup. Example: \'help --lookup command-name\'');
+        output.writeln('Invalid number of arguments for help --lookup. Example: \'help --lookup command-name\'.');
         return -2;
       } else {
         let command: Command | null = null;
@@ -163,25 +201,61 @@ export class CommandTracker {
     return -2;
   }
 
+  /**
+   * Will add [[Command]] to [[commands]].
+   * 
+   * @param command 
+   */
   public registerCommand(command: Command): void {
     // TODO check if name is already used or override if so
     this.commands.push(command);
   }
 
+  /**
+   * Updates the current line in [[output]].
+   */
   public update(): void {
     this.output.overwrite('$ ' + this.current);
   }
 
+  /**
+   * Will add the key from [[input]] to [[current]].
+   * 
+   * @param key 
+   */
   protected addToCurrent(key: string): void {
     this.current = this.current + key;
     this.update();
   }
 
+  /**
+   * Adds a command to the history and trims history if longer than [[historyMax]]. Will reset [[historyCounter]].
+   * 
+   * @param command 
+   */
+  protected addToHistory(command: string): void {
+    this.history.push(command);
+    if (this.history.length > this.historyMax) {
+      this.history.shift();
+    }
+    this.historyCounter = this.history.length;
+  }
+
+  /**
+   * Will remove the last character in [[current]].
+   * 
+   * @param key 
+   */
   protected backspaceCurrent(key: string): void {
     this.current = this.current.substring(0, this.current.length - 1);
     this.update();
   }
 
+  /**
+   * Decrements [[historyCounter]] and queries [[history]] then puts that in [[current]].
+   * 
+   * @param key 
+   */
   protected historyBack(key: string): void {
     if (this.history.length > 0) {
       if (this.historyCounter > 0) {
@@ -192,6 +266,11 @@ export class CommandTracker {
     }
   }
 
+  /**
+   * Increments [[historyCounter]] and queries [[history]] then puts that in [[current]].
+   * 
+   * @param key 
+   */
   protected historyForwards(key: string): void {
     if (this.history.length > 0) {
       if (this.historyCounter < this.history.length - 1) {
@@ -202,6 +281,11 @@ export class CommandTracker {
     }
   }
 
+  /**
+   * Helper method to parse arguments in command.
+   * 
+   * @param commandInput 
+   */
   protected parseArguments(commandInput: string[]): CommandArguments[] {
     const args: CommandArguments[] = [];
     let parseCounter: number = 1;
@@ -232,6 +316,9 @@ export class CommandTracker {
     return args;
   }
 
+  /**
+   * Sets up methods with keys in [[input]].
+   */
   protected setupInput(): void {
     this.input.addAction({
       keys: ['Backspace'],

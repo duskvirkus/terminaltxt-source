@@ -25,7 +25,7 @@ export class OutputTerminal {
   protected linesToCheck: number = 0;
 
   /**
-   * Width of OutputTerminal
+   * Width of OutputTerminal. -1 is unrestricted width.
    */
   protected width: number;
 
@@ -41,7 +41,7 @@ export class OutputTerminal {
     } else {
       this.lineController = new DOMLineController(this.height);
     }
-    if (initialText.length > this.width) {
+    if (initialText.length > this.getWidth()) {
       initialText = ''
     }
     this.lineController.setCurrentLine(initialText);
@@ -58,6 +58,9 @@ export class OutputTerminal {
    * @returns [[width]]
    */
   public getWidth(): number {
+    if (this.width < 0) {
+      return Number.MAX_VALUE;
+    }
     return this.width;
   }
 
@@ -75,13 +78,13 @@ export class OutputTerminal {
    */
   public overwrite(text: string): void {
     let lineCheck: number;
-    Math.ceil(text.length / this.width) > this.linesToCheck ? lineCheck = Math.ceil(text.length / this.width) : lineCheck = this.linesToCheck;
+    Math.ceil(text.length / this.getWidth()) > this.linesToCheck ? lineCheck = Math.ceil(text.length / this.getWidth()) : lineCheck = this.linesToCheck;
     for (let i: number = 0; i <= lineCheck; i++) {
       const index: number = this.lineController.lines.length - (i + 1);
       if (index >= 0
         && index < this.lineController.lines.length
         && this.lineController.lines[index].innerHTML.substring(0, 1) === text.substring(0, 1)) {
-        const chunks: RegExpMatchArray | null = text.match(new RegExp('.{1,' + this.width + '}', 'g'));
+        const chunks: RegExpMatchArray | null = text.match(new RegExp('.{1,' + this.getWidth() + '}', 'g'));
         if (chunks !== null) {
           for (let j: number = 0; j < chunks.length; j++) {
             if (index + j < this.lineController.lines.length) {
@@ -108,6 +111,9 @@ export class OutputTerminal {
     }
   }
 
+  /**
+   * Resets [[linesToCheck]] to 0.
+   */
   public resetLinesToCheck(): void {
     this.linesToCheck = 0;
   }
@@ -119,13 +125,13 @@ export class OutputTerminal {
    */
   public write(text: string): void {
     const lastLineLength: number = this.lineController.lines[this.lineController.lines.length - 1].innerHTML.length;
-    if (lastLineLength + text.length <= this.width) {
+    if (lastLineLength + text.length <= this.getWidth()) {
       this.lineController.appendCurrentLine(text);
-    } else if (lastLineLength === this.width) {
+    } else if (lastLineLength === this.getWidth()) {
       this.lineController.addLine(text);
     } else {
-      this.lineController.appendCurrentLine(text.substring(0, this.width - lastLineLength));
-      this.writeln(text.substring(this.width - lastLineLength, text.length))
+      this.lineController.appendCurrentLine(text.substring(0, this.getWidth() - lastLineLength));
+      this.writeln(text.substring(this.getWidth() - lastLineLength, text.length))
     }
   }
 
@@ -135,10 +141,10 @@ export class OutputTerminal {
    * @param text 
    */
   public writeln(text: string): void {
-    if (text.length <= this.width) {
+    if (text.length <= this.getWidth()) {
       this.lineController.addLine(text);
     } else {
-      const chunks: RegExpMatchArray | null = text.match(new RegExp('.{1,' + this.width + '}', 'g'));
+      const chunks: RegExpMatchArray | null = text.match(new RegExp('.{1,' + this.getWidth() + '}', 'g'));
       if (chunks !== null) {
         for (let i: number = 0; i < chunks.length; i++) {
           this.lineController.addLine(chunks[i]);

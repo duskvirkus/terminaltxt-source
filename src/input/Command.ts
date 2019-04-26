@@ -1,10 +1,9 @@
-import { OutputTerminal } from "../output-terminal/OutputTerminal";
+import { OutputTerminal } from '../output-terminal/OutputTerminal';
+import { CommandArguments } from './CommandArguments';
 
-export interface CommandArguments {
-  argument: string,
-  parameters?: string[],
-}
-
+/**
+ * Function type define for command in [[Command]].
+ */
 export type CommandFunction = (output: OutputTerminal, args: CommandArguments[]) => number;
 
 /**
@@ -22,9 +21,21 @@ export interface Command {
    */
   description: string,
 
+  /**
+   * Exit Codes associated with the command.
+   */
   exitCodes?: [{
+
+    /**
+     * Code for the exit code.
+     */
     code: number,
+
+    /**
+     * Description of what the exit code means.
+     */
     description: string,
+
   }],
 
   /**
@@ -32,9 +43,21 @@ export interface Command {
    */
   name: string,
 
+  /**
+   * Options for arguments. See [[CommandArguments]].
+   */
   options?: [{
+
+    /**
+     * Argument for the given command.
+     */
     argument: string,
+
+    /**
+     * Description of what that argument does.
+     */
     description: string,
+
   }],
 
 }

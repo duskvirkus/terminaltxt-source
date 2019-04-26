@@ -103,6 +103,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_output_terminal_outputterminal_.outputterminal.html#height" class="tsd-kind-icon">height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_output_terminal_outputterminal_.outputterminal.html#linecontroller" class="tsd-kind-icon">line<wbr>Controller</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_output_terminal_outputterminal_.outputterminal.html#linestocheck" class="tsd-kind-icon">lines<wbr>ToCheck</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_output_terminal_outputterminal_.outputterminal.html#width" class="tsd-kind-icon">width</a></li>
 							</ul>
 						</section>
@@ -112,6 +113,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#getheight" class="tsd-kind-icon">get<wbr>Height</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#newline" class="tsd-kind-icon">new<wbr>Line</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#overwrite" class="tsd-kind-icon">overwrite</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#resetlinestocheck" class="tsd-kind-icon">reset<wbr>Lines<wbr>ToCheck</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#write" class="tsd-kind-icon">write</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_output_terminal_outputterminal_.outputterminal.html#writeln" class="tsd-kind-icon">writeln</a></li>
 							</ul>
@@ -131,7 +134,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L25">output-terminal/OutputTerminal.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L30">output-terminal/OutputTerminal.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -163,7 +166,7 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L15">output-terminal/OutputTerminal.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L15">output-terminal/OutputTerminal.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -178,7 +181,7 @@
 					<div class="tsd-signature tsd-kind-icon">line<wbr>Controller<span class="tsd-signature-symbol">:</span> <a href="_dom_controller_domlinecontroller_.domlinecontroller.html" class="tsd-signature-type">DOMLineController</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L20">output-terminal/OutputTerminal.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L20">output-terminal/OutputTerminal.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -188,17 +191,32 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="linestocheck" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> lines<wbr>ToCheck</h3>
+					<div class="tsd-signature tsd-kind-icon">lines<wbr>ToCheck<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L25">output-terminal/OutputTerminal.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Record of the number of lines to check for <a href="_output_terminal_outputterminal_.outputterminal.html#overwrite">overwrite</a>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="width" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> width</h3>
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L25">output-terminal/OutputTerminal.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L30">output-terminal/OutputTerminal.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Width of OutputTerminal</p>
+							<p>Width of OutputTerminal. -1 is unrestricted width.</p>
 						</div>
 					</div>
 				</section>
@@ -215,7 +233,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L48">output-terminal/OutputTerminal.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L53">output-terminal/OutputTerminal.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L55">output-terminal/OutputTerminal.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L60">output-terminal/OutputTerminal.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -255,12 +273,64 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L62">output-terminal/OutputTerminal.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L70">output-terminal/OutputTerminal.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Adds a line break. Helpful when using <a href="_output_terminal_outputterminal_.outputterminal.html#write">write</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="overwrite" class="tsd-anchor"></a>
+					<h3>overwrite</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">overwrite<span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L79">output-terminal/OutputTerminal.ts:79</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Will overwrite last text if the first character matches. Otherwise it will <a href="_output_terminal_outputterminal_.outputterminal.html#writeln">writeln</a>. Is marginally slower than <a href="_output_terminal_outputterminal_.outputterminal.html#writeln">writeln</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>text: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="resetlinestocheck" class="tsd-anchor"></a>
+					<h3>reset<wbr>Lines<wbr>ToCheck</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">reset<wbr>Lines<wbr>ToCheck<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L117">output-terminal/OutputTerminal.ts:117</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resets <a href="_output_terminal_outputterminal_.outputterminal.html#linestocheck">linesToCheck</a> to 0.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -277,7 +347,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L71">output-terminal/OutputTerminal.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L126">output-terminal/OutputTerminal.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,7 +377,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/3ff315b/src/output-terminal/OutputTerminal.ts#L88">output-terminal/OutputTerminal.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/ffaa34d/src/output-terminal/OutputTerminal.ts#L143">output-terminal/OutputTerminal.ts:143</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -357,6 +427,15 @@
 						<a href="../modules/_graphics_terminal_graphicsterminal_.html">"graphics-<wbr>terminal/<wbr>Graphics<wbr>Terminal"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_input_command_.html">"input/<wbr>Command"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_input_commandarguments_.html">"input/<wbr>Command<wbr>Arguments"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_input_commandtracker_.html">"input/<wbr>Command<wbr>Tracker"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_input_inputtracker_.html">"input/<wbr>Input<wbr>Tracker"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -387,6 +466,9 @@
 								<a href="_output_terminal_outputterminal_.outputterminal.html#linecontroller" class="tsd-kind-icon">line<wbr>Controller</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_output_terminal_outputterminal_.outputterminal.html#linestocheck" class="tsd-kind-icon">lines<wbr>ToCheck</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_output_terminal_outputterminal_.outputterminal.html#width" class="tsd-kind-icon">width</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -397,6 +479,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_output_terminal_outputterminal_.outputterminal.html#newline" class="tsd-kind-icon">new<wbr>Line</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_output_terminal_outputterminal_.outputterminal.html#overwrite" class="tsd-kind-icon">overwrite</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_output_terminal_outputterminal_.outputterminal.html#resetlinestocheck" class="tsd-kind-icon">reset<wbr>Lines<wbr>ToCheck</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_output_terminal_outputterminal_.outputterminal.html#write" class="tsd-kind-icon">write</a>
