@@ -1,25 +1,25 @@
 import { InputTracker } from '../input/InputTracker';
-import { Command, CommandArguments } from './Command';
 import { KeyAction } from '../input/KeyAction';
 import { KeyEventType } from '../input/KeyEventType';
 import { OutputTerminal } from '../output-terminal/OutputTerminal';
+import { Command, CommandArguments } from './Command';
 
 /**
  * Used to track input and check against registered commands.
  */
 export class CommandTracker {
 
-  public history: string[];
-
   public current: string;
 
-  protected input: InputTracker;
+  public history: string[];
 
   protected commands: Command[];
 
-  protected output: OutputTerminal;
-
   protected historyCounter: number;
+
+  protected input: InputTracker;
+
+  protected output: OutputTerminal;
 
   constructor(outputTerminal: OutputTerminal = new OutputTerminal()) {
     this.history = [];
@@ -58,15 +58,13 @@ export class CommandTracker {
         output.writeln('this should have non zero return value');
         return 1;
       },
+      exitCodes: [{
+        code: 1,
+        description: 'intended output',
+      }],
     } as Command);
-  }
 
-  public static indexOfCommandArguments(argsToLookFor: string[], args: CommandArguments[]): number[] {
-    let indexes: number[] = [];
-    for (let i: number = 0; i < argsToLookFor.length; i++) {
-      indexes.push(CommandTracker.indexOfCommandArgument(argsToLookFor[i], args));
-    }
-    return indexes;
+    this.update();
   }
 
   public static indexOfCommandArgument(arg: string, args: CommandArguments[]): number {
@@ -76,6 +74,37 @@ export class CommandTracker {
       }
     }
     return -1;
+  }
+
+  public static indexOfCommandArguments(argsToLookFor: string[], args: CommandArguments[]): number[] {
+    const indexes: number[] = [];
+    for (let i: number = 0; i < argsToLookFor.length; i++) {
+      indexes.push(CommandTracker.indexOfCommandArgument(argsToLookFor[i], args));
+    }
+    return indexes;
+  }
+
+  public finalizeCurrent(key: string): void {
+    let exitCode: number = -1;
+    const currentCommand: string[] = this.current.split(' ');
+    for (let i: number = 0; i < this.commands.length; i++) {
+      if (this.commands[i].name.toLowerCase() === currentCommand[0].toLowerCase()) {
+        const args: CommandArguments[] = this.parseArguments(currentCommand);
+        exitCode = this.commands[i].command(this.output, args);
+        break;
+      }
+    }
+    if (exitCode === -1) {
+      this.output.writeln(`no \'${this.current}\' found, please try again or enter \'help\' for more information.`)
+    } else if (exitCode > 0) {
+      this.output.writeln(`\'${currentCommand[0]}\' exit code [${exitCode}]. Use \'help --lookup ${currentCommand[0]}\' for more information.`);
+    }
+    this.history.push(this.current);
+    this.historyCounter = this.history.length;
+    this.output.newLine();
+    this.output.resetLinesToCheck();
+    this.current = '';
+    this.update();
   }
 
   public helpCommand(output: OutputTerminal, args: CommandArguments[]): number {
@@ -89,9 +118,9 @@ export class CommandTracker {
       output.writeln('Use \'help --lookup command-name\' for more info on specific commands.')
       return 0;
     }
-    let argIndexes: number[] = CommandTracker.indexOfCommandArguments(['lookup'], args);
+    const argIndexes: number[] = CommandTracker.indexOfCommandArguments(['lookup'], args);
     if (argIndexes[0] !== -1) { // lookup
-      let currentArg: CommandArguments = args[argIndexes[0]];
+      const currentArg: CommandArguments = args[argIndexes[0]];
       if (typeof currentArg.parameters === 'undefined' || currentArg.parameters.length !== 1) {
         output.writeln('Invalid number of arguments for help --lookup. Example: \'help --lookup command-name\'');
         return -2;
@@ -134,6 +163,15 @@ export class CommandTracker {
     return -2;
   }
 
+  public registerCommand(command: Command): void {
+    // TODO check if name is already used or override if so
+    this.commands.push(command);
+  }
+
+  public update(): void {
+    this.output.overwrite('$ ' + this.current);
+  }
+
   protected addToCurrent(key: string): void {
     this.current = this.current + key;
     this.update();
@@ -145,24 +183,53 @@ export class CommandTracker {
   }
 
   protected historyBack(key: string): void {
-    if (this.historyCounter > 0) {
-      this.historyCounter--;
+    if (this.history.length > 0) {
+      if (this.historyCounter > 0) {
+        this.historyCounter--;
+      }
+      this.current = this.history[this.historyCounter];
+      this.update();
     }
-    this.current = this.history[this.historyCounter];
-    this.update();
   }
 
   protected historyForwards(key: string): void {
-    if (this.historyCounter < this.history.length - 1) {
-      this.historyCounter++;
+    if (this.history.length > 0) {
+      if (this.historyCounter < this.history.length - 1) {
+        this.historyCounter++;
+      }
+      this.current = this.history[this.historyCounter];
+      this.update();
     }
-    this.current = this.history[this.historyCounter];
-    this.update();
   }
 
-  public update(): void {
-    // TODO add overwrite to outputterminal
-    this.output.writeln('$ ' + this.current);
+  protected parseArguments(commandInput: string[]): CommandArguments[] {
+    const args: CommandArguments[] = [];
+    let parseCounter: number = 1;
+    while(parseCounter < commandInput.length) {
+      if (commandInput[parseCounter].substring(0, 2) === '--') {
+        let arg: string;
+        const parameters: string[] = [];
+        arg = commandInput[parseCounter].substring(2);
+        parseCounter++;
+        while(parseCounter < commandInput.length && commandInput[parseCounter].substring(0, 1) !== '-') { // TODO refactor this mess
+          parameters.push(commandInput[parseCounter]);
+          parseCounter++;
+        }
+        parseCounter--;
+        args.push({
+          argument: arg,
+          parameters: parameters,
+        } as CommandArguments);
+      } else if (commandInput[parseCounter].substring(0, 1) === '-') {
+        for (let i: number = 1; i < commandInput[parseCounter].length; i++) {
+          args.push({
+            argument: commandInput[parseCounter].substring(i, i + 1),
+          } as CommandArguments);
+        }
+      }
+      parseCounter++;
+    }
+    return args;
   }
 
   protected setupInput(): void {
@@ -195,62 +262,6 @@ export class CommandTracker {
       action: this.historyForwards,
       keyEventType: KeyEventType.KEYUP,
     } as KeyAction);
-  }
-
-  public registerCommand(command: Command): void {
-    // TODO check if name is already used or override if so
-    this.commands.push(command);
-  }
-
-  protected parseArguments(commandInput: string[]): CommandArguments[] {
-    let args: CommandArguments[] = [];
-    let parseCounter: number = 1;
-    while(parseCounter < commandInput.length) {
-      if (commandInput[parseCounter].substring(0, 2) === '--') {
-        let arg: string;
-        let parameters: string[] = [];
-        arg = commandInput[parseCounter].substring(2);
-        parseCounter++;
-        while(parseCounter < commandInput.length && commandInput[parseCounter].substring(0, 1) !== '-') { // TODO refactor this mess
-          parameters.push(commandInput[parseCounter]);
-          parseCounter++;
-        }
-        parseCounter--;
-        args.push({
-          argument: arg,
-          parameters: parameters,
-        } as CommandArguments);
-      } else if (commandInput[parseCounter].substring(0, 1) === '-') {
-        for (let i: number = 1; i < commandInput[parseCounter].length; i++) {
-          args.push({
-            argument: commandInput[parseCounter].substring(i, i + 1),
-          } as CommandArguments);
-        }
-      }
-      parseCounter++;
-    }
-    return args;
-  }
-
-  public finalizeCurrent() {
-    let exitCode: number = -1;
-    let currentCommand: string[] = this.current.split(' ');
-    for (let i: number = 0; i < this.commands.length; i++) {
-      if (this.commands[i].name.toLowerCase() === currentCommand[0].toLowerCase()) {
-        let args = this.parseArguments(currentCommand);
-        exitCode = this.commands[i].command(this.output, args);
-        break;
-      }
-    }
-    if (exitCode === -1) {
-      this.output.writeln(`no \'${this.current}\' found, please try again or enter \'help\' for more information.`)
-    } else if (exitCode > 0) {
-      this.output.writeln(`\'${currentCommand[0]}\' exit code [${exitCode}]. Use \'help --lookup ${currentCommand[0]}\' for more information.`);
-    }
-    this.history.push(this.current);
-    this.historyCounter = this.history.length;
-    this.current = '';
-    this.update();
   }
 
 }

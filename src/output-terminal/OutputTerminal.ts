@@ -20,6 +20,11 @@ export class OutputTerminal {
   protected lineController: DOMLineController;
 
   /**
+   * Record of the number of lines to check for [[overwrite]].
+   */
+  protected linesToCheck: number = 0;
+
+  /**
    * Width of OutputTerminal
    */
   protected width: number;
@@ -61,6 +66,50 @@ export class OutputTerminal {
    */
   public newLine(): void {
     this.lineController.addLine();
+  }
+
+  /**
+   * Will overwrite last text if the first character matches. Otherwise it will [[writeln]]. Is marginally slower than [[writeln]].
+   * 
+   * @param text 
+   */
+  public overwrite(text: string): void {
+    let lineCheck: number;
+    Math.ceil(text.length / this.width) > this.linesToCheck ? lineCheck = Math.ceil(text.length / this.width) : lineCheck = this.linesToCheck;
+    for (let i: number = 0; i <= lineCheck; i++) {
+      const index: number = this.lineController.lines.length - (i + 1);
+      if (index >= 0
+        && index < this.lineController.lines.length
+        && this.lineController.lines[index].innerHTML.substring(0, 1) === text.substring(0, 1)) {
+        const chunks: RegExpMatchArray | null = text.match(new RegExp('.{1,' + this.width + '}', 'g'));
+        if (chunks !== null) {
+          for (let j: number = 0; j < chunks.length; j++) {
+            if (index + j < this.lineController.lines.length) {
+              this.lineController.lines[index + j].innerHTML = chunks[j];
+            } else {
+              this.writeln(chunks[j]);
+            }
+          }
+          for (let j: number = chunks.length; j <= i; j++) { // will only run if current text is takes up more lines than last text
+            if (index + j < this.lineController.lines.length) {
+              this.lineController.lines[index + j].innerHTML = '';
+            }
+          }
+          this.linesToCheck = chunks.length + 1;
+          return;
+        }
+      }
+    }
+    if (this.lineController.lines.length === 1
+      && this.lineController.lines[0].innerHTML === '') {
+      this.write(text);
+    } else {
+      this.writeln(text);
+    }
+  }
+
+  public resetLinesToCheck(): void {
+    this.linesToCheck = 0;
   }
 
   /**

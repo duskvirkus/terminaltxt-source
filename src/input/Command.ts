@@ -13,27 +13,27 @@ export type CommandFunction = (output: OutputTerminal, args: CommandArguments[])
 export interface Command {
 
   /**
-   * Name of the command. Should not contain spaces.
+   * Function to be executed when command is invoked.
    */
-  name: string,
+  command: CommandFunction;
 
   /**
    * Description of command for that is displayed in help.
    */
   description: string,
 
-  /**
-   * Function to be executed when command is invoked.
-   */
-  command: CommandFunction;
-
-  options?: [{
-    argument: string,
+  exitCodes?: [{
+    code: number,
     description: string,
   }],
 
-  exitCodes?: [{
-    code: number,
+  /**
+   * Name of the command. Should not contain spaces.
+   */
+  name: string,
+
+  options?: [{
+    argument: string,
     description: string,
   }],
 
