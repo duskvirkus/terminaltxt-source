@@ -11,6 +11,11 @@ Distribution of [TerminalTXT Library](https://github.com/figraham/terminaltxt-so
 
 ## Release Notes
 
+### 0.0.5
+
+- Added CommandTracker support.
+- Added overwrite to OutputTerminal.
+
 ### 0.0.4
 
 - Added OutputTerminal with write, writeln, and newLine methods.
