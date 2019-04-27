@@ -105,4 +105,127 @@ describe('CommandTerminal Units: ', () => {
     expect(term.lineController.lines[1].innerHTML).toEqual('i');
   });
 
+  it('overwrite fallback unit', () => {
+    term = new OutputTerminal();
+
+    term.overwrite('hello');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('hello');
+
+    term.overwrite('world!');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('hello');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('world!');
+  });
+
+  it('overwrite fallback width unit', () => {
+    term = new OutputTerminal({width: 4});
+
+    term.overwrite('hello');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('hell');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('o');
+
+    term.overwrite('world!');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('hell');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('o');
+    // @ts-ignore
+    expect(term.lineController.lines[2].innerHTML).toEqual('worl');
+    // @ts-ignore
+    expect(term.lineController.lines[3].innerHTML).toEqual('d!');
+  });
+
+  it('overwrite one line unit', () => {
+    term = new OutputTerminal();
+
+    term.overwrite('$ hello');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$ hello');
+
+    term.overwrite('$ world!');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$ world!');
+  });
+
+  it('overwrite width shorter first unit', () => {
+    term = new OutputTerminal({width: 4});
+
+    term.overwrite('$hello');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$hel');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('lo');
+
+    term.overwrite('$something!');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$som');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('ethi');
+    // @ts-ignore
+    expect(term.lineController.lines[2].innerHTML).toEqual('ng!');
+  });
+
+  it('overwrite width longer first unit', () => {
+    term = new OutputTerminal({width: 4});
+
+    term.overwrite('$something!');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$som');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('ethi');
+    // @ts-ignore
+    expect(term.lineController.lines[2].innerHTML).toEqual('ng!');
+
+    term.overwrite('$hello');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$hel');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('lo');
+    // @ts-ignore
+    expect(term.lineController.lines[2].innerHTML).toEqual('');
+  });
+
+
+  it('overwrite linesToCheck unit', () => {
+    term = new OutputTerminal({width: 4});
+
+    term.overwrite('$something!');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$som');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('ethi');
+    // @ts-ignore
+    expect(term.lineController.lines[2].innerHTML).toEqual('ng!');
+
+    term.overwrite('$hello');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$hel');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('lo');
+    // @ts-ignore
+    expect(term.lineController.lines[2].innerHTML).toEqual('');
+
+    term.overwrite('$something!');
+    // @ts-ignore
+    expect(term.lineController.lines[0].innerHTML).toEqual('$som');
+    // @ts-ignore
+    expect(term.lineController.lines[1].innerHTML).toEqual('ethi');
+    // @ts-ignore
+    expect(term.lineController.lines[2].innerHTML).toEqual('ng!');
+    term.overwrite('$hello');
+
+    // @ts-ignore
+    expect(term.linesToCheck).toEqual(3);
+
+    term.resetLinesToCheck();
+
+    // @ts-ignore
+    expect(term.linesToCheck).toEqual(0);
+
+  });
+
 });

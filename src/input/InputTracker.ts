@@ -56,11 +56,11 @@ export class InputTracker {
     for (let i: number = 0; i < this.actions.length; i++) {
       if (this.actions[i].keys.indexOf(event.key) !== -1) {
         if (event.type === 'keydown' && this.actions[i].keyEventType === KeyEventType.KEYDOWN) {
-          this.actions[i].action();
+          this.actions[i].action(event.key);
         } else if (event.type === 'keyup' && this.actions[i].keyEventType === KeyEventType.KEYUP) {
-          this.actions[i].action();
+          this.actions[i].action(event.key);
         } else if (event.type === 'keypress' && this.actions[i].keyEventType === KeyEventType.KEYPRESS) {
-          this.actions[i].action();
+          this.actions[i].action(event.key);
         }
       }
     }
