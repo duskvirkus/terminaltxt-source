@@ -74,7 +74,6 @@ cd terminaltxt-source
 http-server
 ```
 
-**Note: That the gh-pages branch with documentation should be in sync with the latest npm version.** If you are having problems check the version of terminaltxt in you package.json.
-
-
 Then you can navigate to [http://localhost:8080](http://localhost:8080) with your favorite browser.
+
+**Note: That the gh-pages branch with documentation should be in sync with the latest npm version.** If you are having problems check the version of terminaltxt in you package.json.
