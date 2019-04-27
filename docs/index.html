@@ -68,9 +68,41 @@
 				<p><a href="https://travis-ci.org/figraham/terminaltxt-source"><img src="https://travis-ci.org/figraham/terminaltxt-source.svg?branch=master" alt="Build Status"></a>
 				<a href="https://www.npmjs.com/package/terminaltxt"><img src="https://img.shields.io/npm/v/terminaltxt.svg" alt="NPM version"></a></p>
 				<p>This is a web based creative coding library / game engine for ASCII and text art reminiscent of Terminal graphics.</p>
+				<h2 id="table-of-contents">Table of Contents</h2>
+				<ul>
+					<li><a href="https://github.com/figraham/terminaltxt-source#getting-started">Getting Started</a><ul>
+							<li><a href="https://github.com/figraham/terminaltxt-source#using-the-minimal-example">Minimal Example</a></li>
+							<li><a href="https://github.com/figraham/terminaltxt-source#installing-through-npm">NPM</a></li>
+						</ul>
+					</li>
+					<li><a href="https://github.com/figraham/terminaltxt-source#examples">Examples</a></li>
+					<li><a href="https://github.com/figraham/terminaltxt-source#documentation">Documentation</a></li>
+				</ul>
+				<h2 id="getting-started">Getting Started</h2>
+				<h3 id="using-the-minimal-example">Using the Minimal Example</h3>
+				<p>Be sure git and npm (is bundled with node.js) are installed on your machine. Then use:</p>
+				<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/figraham/terminaltxt-minimal.git
+<span class="hljs-built_in">cd</span> terminaltxt-minimal
+npm i
+npm start</code></pre>
+				<p>That&#39;s all you need to get started playing around. Check out the <a href="https://github.com/figraham/terminaltxt-source#documentation">documentation</a> and <a href="https://github.com/figraham/terminaltxt-source#examples">examples</a> below to see how to use the library.</p>
+				<h3 id="installing-through-npm">Installing Through NPM</h3>
+				<p>After <code>npm init</code> then run <code>npm i terminaltxt</code>.</p>
+				<p>I recommend also using <a href="https://parceljs.org/">parcel</a> which can be installed with <code>npm i -D parcel</code> if you plan on writing typescript. Alternatively you could use <a href="https://webpack.js.org/">webpack</a> but it requires considerably more setup.</p>
+				<p>Create index.html with:</p>
+				<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"index.ts"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+				<p>and index.ts with:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { OutputTerminal } <span class="hljs-keyword">from</span> <span class="hljs-string">'terminaltxt'</span>;
+<span class="hljs-keyword">const</span> output = <span class="hljs-keyword">new</span> OutputTerminal();
+output.write(<span class="hljs-string">'minimal example'</span>);</code></pre>
+				<p>Then you can run <code>parcel serve index.html</code> and your project will be at <a href="http://localhost:1234">http://localhost:1234</a>.</p>
 				<h2 id="examples">Examples</h2>
 				<p>Examples are hosted through github pages and you can view live examples by using the links below.</p>
-				<p>If you&#39;d like to experiment with the examples then it&#39;s recommended that you clone the individual repositories. Then run change into the root directory of the project and run <code>npm i</code> then you can run <code>npm start</code> and the example will be available through a local server at <a href="http://localhost:1234">http://localhost:1234</a>. You can change the code within the src directory and the changes will automatically reload.</p>
+				<p>If you&#39;d like to experiment with the examples then it&#39;s recommended that you clone the individual repositories. Then change into the root directory of the example and run <code>npm i</code> then you can run <code>npm start</code> and the example will be available through a local server at <a href="http://localhost:1234">http://localhost:1234</a>. You can change the code within the src directory and the changes will automatically reload.</p>
 				<p>List of Examples:</p>
 				<ul>
 					<li>Hello World - <a href="https://github.com/figraham/terminaltxt-helloworld">Repository</a> - <a href="https://figraham.github.io/terminaltxt-helloworld/">Live Example</a></li>
@@ -78,10 +110,12 @@
 				</ul>
 				<h2 id="documentation">Documentation</h2>
 				<p>Hosting documentation through github pages has been spotty so while that&#39;s being figured out the best way to view documentation is through a local server.</p>
-				<p>You&#39;ll need something like http-server which can easily be installed with npm using <code>npm i -g http-server</code> if you have npm which is included in <a href="https://nodejs.org/en/">node.js</a>.</p>
-				<pre><code>git clone http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/figraham/terminaltxt-<span class="hljs-keyword">source</span>.git
-<span class="hljs-keyword">cd</span> terminaltxt-<span class="hljs-keyword">source</span>/docs
-http-server</code></pre><p>Then you can navigate to <a href="http://localhost:8080">http://localhost:8080</a> with your favorite browser.</p>
+				<p>You&#39;ll need something like <a href="https://www.npmjs.com/package/http-server">http-server</a> which can easily be installed with npm using <code>npm i -g http-server</code> if you have npm which is included in <a href="https://nodejs.org/en/">node.js</a>.</p>
+				<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> -b gh-pages --single-branch https://github.com/figraham/terminaltxt-source.git
+<span class="hljs-built_in">cd</span> terminaltxt-source
+http-server</code></pre>
+				<p>Then you can navigate to <a href="http://localhost:8080">http://localhost:8080</a> with your favorite browser.</p>
+				<p><strong>Note: That the gh-pages branch with documentation should be in sync with the latest npm version.</strong> If you are having problems check the version of terminaltxt in you package.json.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
