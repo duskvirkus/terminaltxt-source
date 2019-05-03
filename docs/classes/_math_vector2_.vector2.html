@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CharacterSet | terminaltxt</title>
+	<title>Vector2 | terminaltxt</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_characterset_characterset_.html">&quot;characterset/CharacterSet&quot;</a>
+					<a href="../modules/_math_vector2_.html">&quot;math/Vector2&quot;</a>
 				</li>
 				<li>
-					<a href="_characterset_characterset_.characterset.html">CharacterSet</a>
+					<a href="_math_vector2_.vector2.html">Vector2</a>
 				</li>
 			</ul>
-			<h1>Class CharacterSet</h1>
+			<h1>Class Vector2</h1>
 		</div>
 	</div>
 </header>
@@ -72,31 +72,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>For creating, loading, and saving terminal character sets.</p>
+						<p>Simple vector class with two elements, x and y.</p>
 					</div>
-					<h2 id="string-based-constructor">string based constructor</h2>
-					<p>String of characters that will be converted to a set. No separator characters.</p>
-					<pre><code class="language-ts"><span class="hljs-keyword">const</span> example: CharacterSet = <span class="hljs-keyword">new</span> CharacterSet(<span class="hljs-string">' .:-=+*#%@'</span>);</code></pre>
-					<h2 id="number-based-constructor">number[] based constructor</h2>
-					<p>Use a set that has already been converted to UTF-16.</p>
-					<pre><code class="language-ts"><span class="hljs-keyword">const</span> example: CharacterSet = <span class="hljs-keyword">new</span> CharacterSet([<span class="hljs-number">32</span>, <span class="hljs-number">46</span>, <span class="hljs-number">58</span>, <span class="hljs-number">45</span>, <span class="hljs-number">61</span>, <span class="hljs-number">43</span>, <span class="hljs-number">42</span>, <span class="hljs-number">35</span>, <span class="hljs-number">37</span>, <span class="hljs-number">64</span>]);</code></pre>
-					<h2 id="unknown-characters">Unknown Characters</h2>
-					<p>Characters which are not in the <a href="_characterset_characterset_.characterset.html#set">set</a> will be displayed using the <a href="_characterset_characterset_.characterset.html#unknown">unknown</a> character code.
-						By default this is &#39;�&#39; or the <a href="https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character">unicode replacement character</a>.
-						Be advised that the replacement character doesn&#39;t always displayed with the correct spacing for a monospaced font and can lead to undesirable results.
-					If you intend to use this functionality then you can set the value of <a href="_characterset_characterset_.characterset.html#unknown">unknown</a> manually or using the <a href="_characterset_characterset_.characterset.html#constructor">constructor</a>.</p>
-					<p>Notes:</p>
-					<ul>
-						<li>In some cases order matters, so keep that in mind.</li>
-						<li>You must include a space (32 in UTF-16) in the constructor for it to be included in the set.</li>
-					</ul>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CharacterSet</span>
+						<span class="target">Vector2</span>
 					</li>
 				</ul>
 			</section>
@@ -107,24 +91,26 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#set" class="tsd-kind-icon">set</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#unknown" class="tsd-kind-icon">unknown</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#y" class="tsd-kind-icon">y</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#getindex" class="tsd-kind-icon">get<wbr>Index</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#size" class="tsd-kind-icon">size</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_characterset_characterset_.characterset.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_characterset_characterset_.characterset.html#getdefaultcharacterset" class="tsd-kind-icon">get<wbr>Default<wbr>Character<wbr>Set</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#dot" class="tsd-kind-icon">dot</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#magnitude" class="tsd-kind-icon">magnitude</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#normalize" class="tsd-kind-icon">normalize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#scale" class="tsd-kind-icon">scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_math_vector2_.vector2.html#subtract" class="tsd-kind-icon">subtract</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_math_vector2_.vector2.html#copy" class="tsd-kind-icon">copy</a></li>
 							</ul>
 						</section>
 					</div>
@@ -136,55 +122,34 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Character<wbr>Set<span class="tsd-signature-symbol">(</span>characters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, unknown<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></li>
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Character<wbr>Set<span class="tsd-signature-symbol">(</span>set<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, unknown<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Vector2<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L42">characterset/CharacterSet.ts:42</a></li>
+									<li>Defined in math/Vector2.ts:14</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Defaults x and y as 0 if no values passed.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> characters: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> x: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> unknown: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> y: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L48">characterset/CharacterSet.ts:48</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> set: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> unknown: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_characterset_characterset_.characterset.html" class="tsd-signature-type">CharacterSet</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -192,32 +157,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="set" class="tsd-anchor"></a>
-					<h3>set</h3>
-					<div class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
+					<a name="x" class="tsd-anchor"></a>
+					<h3>x</h3>
+					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L37">characterset/CharacterSet.ts:37</a></li>
+							<li>Defined in math/Vector2.ts:9</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A set of characters stored as UTF-16 numbers.</p>
+							<p>First component of the vector.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="unknown" class="tsd-anchor"></a>
-					<h3>unknown</h3>
-					<div class="tsd-signature tsd-kind-icon">unknown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="y" class="tsd-anchor"></a>
+					<h3>y</h3>
+					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L42">characterset/CharacterSet.ts:42</a></li>
+							<li>Defined in math/Vector2.ts:14</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A number representing the UTF-16 code of the character to use if not in set.</p>
+							<p>Second component of the vector.</p>
 						</div>
 					</div>
 				</section>
@@ -225,130 +190,257 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getindex" class="tsd-anchor"></a>
-					<h3>get<wbr>Index</h3>
+					<a name="add" class="tsd-anchor"></a>
+					<h3>add</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Index<span class="tsd-signature-symbol">(</span>character<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L95">characterset/CharacterSet.ts:95</a></li>
+									<li>Defined in math/Vector2.ts:40</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get index in set based on character. -1 if not in set.</p>
+									<p>Adds another vector element wise.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>character: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>index or -1</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getvalue" class="tsd-anchor"></a>
-					<h3>get<wbr>Value</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Value<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L105">characterset/CharacterSet.ts:105</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Will return unknown code if index is out of bounds.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>index: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>UTF-16 code at index</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="size" class="tsd-anchor"></a>
-					<h3>size</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L115">characterset/CharacterSet.ts:115</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>length of <a href="_characterset_characterset_.characterset.html#set">set</a></p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="tostring" class="tsd-anchor"></a>
-					<h3>to<wbr>String</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L124">characterset/CharacterSet.ts:124</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Like <a href="_characterset_characterset_.characterset.html#getvalue">getValue</a> just the code is converted into a string.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<h5>other: <a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in math/Vector2.ts:47</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds element wise, x and y as if they were another vector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="getdefaultcharacterset" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Default<wbr>Character<wbr>Set</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Character<wbr>Set<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="dot" class="tsd-anchor"></a>
+					<h3>dot</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">dot<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">dot<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/cd4a031/src/characterset/CharacterSet.ts#L85">characterset/CharacterSet.ts:85</a></li>
+									<li>Defined in math/Vector2.ts:62</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>&#39; &#39; and &#39;█&#39; in UTF-16 form.</p>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The dot product of this and the passed vector.</p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in math/Vector2.ts:68</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The dot product of this and the passed x and y as if they were another vector.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="magnitude" class="tsd-anchor"></a>
+					<h3>magnitude</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">magnitude<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in math/Vector2.ts:85</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The magnitude of the vector.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="normalize" class="tsd-anchor"></a>
+					<h3>normalize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">normalize<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in math/Vector2.ts:92</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Will normalize a non zero vector to a magnitude of 1.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="scale" class="tsd-anchor"></a>
+					<h3>scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>scalar<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in math/Vector2.ts:104</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Scales vector based on scalar passed. Multiplication if you don&#39;t know linear algebra.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>scalar: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="subtract" class="tsd-anchor"></a>
+					<h3>subtract</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in math/Vector2.ts:114</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Subtracts another vector element wise.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in math/Vector2.ts:121</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Subtracts element wise, x and y as if they were another vector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="copy" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> copy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">copy<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in math/Vector2.ts:31</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>vector: <a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_math_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h4>
+							<p>a copy of vector</p>
 						</li>
 					</ul>
 				</section>
@@ -360,7 +452,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_characterset_characterset_.html">"characterset/<wbr>Character<wbr>Set"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -399,7 +491,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_input_keyeventtype_.html">"input/<wbr>Key<wbr>Event<wbr>Type"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_math_vector2_.html">"math/<wbr>Vector2"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -415,31 +507,37 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_characterset_characterset_.characterset.html" class="tsd-kind-icon">Character<wbr>Set</a>
+						<a href="_math_vector2_.vector2.html" class="tsd-kind-icon">Vector2</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_characterset_characterset_.characterset.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_math_vector2_.vector2.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_characterset_characterset_.characterset.html#set" class="tsd-kind-icon">set</a>
+								<a href="_math_vector2_.vector2.html#x" class="tsd-kind-icon">x</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_characterset_characterset_.characterset.html#unknown" class="tsd-kind-icon">unknown</a>
+								<a href="_math_vector2_.vector2.html#y" class="tsd-kind-icon">y</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_characterset_characterset_.characterset.html#getindex" class="tsd-kind-icon">get<wbr>Index</a>
+								<a href="_math_vector2_.vector2.html#add" class="tsd-kind-icon">add</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_characterset_characterset_.characterset.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a>
+								<a href="_math_vector2_.vector2.html#dot" class="tsd-kind-icon">dot</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_characterset_characterset_.characterset.html#size" class="tsd-kind-icon">size</a>
+								<a href="_math_vector2_.vector2.html#magnitude" class="tsd-kind-icon">magnitude</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_characterset_characterset_.characterset.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+								<a href="_math_vector2_.vector2.html#normalize" class="tsd-kind-icon">normalize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_math_vector2_.vector2.html#scale" class="tsd-kind-icon">scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_math_vector2_.vector2.html#subtract" class="tsd-kind-icon">subtract</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_characterset_characterset_.characterset.html#getdefaultcharacterset" class="tsd-kind-icon">get<wbr>Default<wbr>Character<wbr>Set</a>
+								<a href="_math_vector2_.vector2.html#copy" class="tsd-kind-icon">copy</a>
 							</li>
 						</ul>
 					</li>
