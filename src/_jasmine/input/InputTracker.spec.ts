@@ -12,10 +12,15 @@ function mockKey(type: string, key: string): void {
 
 describe('InputTracker Units: ', () => {
 
-  let input: InputTracker;
+  let input: InputTracker | null;
 
   beforeEach(() => {
     input = new InputTracker();
+  });
+
+  afterEach(() => {
+    input.setLogKeys(false);
+    input = null;
   });
 
   it('keypress unit', () => {
