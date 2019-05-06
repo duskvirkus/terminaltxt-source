@@ -159,14 +159,14 @@ module.exports = (grunt) => {
       },
     },
 
-    'gh-pages': {
-      docs: {
-        options: {
-          base: libraryConfig.docsDir,
-        },
-        src: '**/*'
-      },
-    },
+    // 'gh-pages': {
+    //   docs: {
+    //     options: {
+    //       base: libraryConfig.docsDir,
+    //     },
+    //     src: '**/*'
+    //   },
+    // },
 
   });
 
@@ -182,7 +182,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-json-generator');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-string-replace');
-  grunt.loadNpmTasks('grunt-gh-pages');
+  // grunt.loadNpmTasks('grunt-gh-pages');
 
   // ---------------------------------------------------------------------------
   // Builds
@@ -241,8 +241,8 @@ module.exports = (grunt) => {
   grunt.registerTask('docs:deploy', [
     'typedoc',
     'copy:docs404',
-    'gh-pages:docs',
-    // TODO clean docs
+    // 'gh-pages:docs',
+    // // TODO clean docs
   ]);
 
   grunt.registerTask('docs:dev', [
