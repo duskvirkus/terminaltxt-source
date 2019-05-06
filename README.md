@@ -11,6 +11,7 @@ This is a web based creative coding library / game engine for ASCII and text art
   - [Minimal Example](https://github.com/figraham/terminaltxt-source#using-the-minimal-example)
   - [NPM](https://github.com/figraham/terminaltxt-source#installing-through-npm)
 - [Examples](https://github.com/figraham/terminaltxt-source#examples)
+- [Projects](https://github.com/figraham/terminaltxt-source#projects)
 - [Documentation](https://github.com/figraham/terminaltxt-source#documentation)
 
 ## Getting Started
@@ -58,9 +59,15 @@ If you'd like to experiment with the examples then it's recommended that you clo
 
 List of Examples:
 
+- Minimal Project - [Repository](https://github.com/figraham/terminaltxt-minimal) - [See, Using the Minimal Example](https://github.com/figraham/terminaltxt-source#using-the-minimal-example)
 - Hello World - [Repository](https://github.com/figraham/terminaltxt-helloworld) - [Live Example](https://figraham.github.io/terminaltxt-helloworld/)
 - 10PRINT - [Repository](https://github.com/figraham/terminaltxt-10print) - [Live Example](https://figraham.github.io/terminaltxt-10print/index.html)
 
+## Projects
+
+Below are some projects that use TerminalTXT. Please feel free to add you own projects to this list by submitting a pull request with your changes to this `README.md` file.
+
+- Caterpillar AKA clone of Snake - [Repository](https://github.com/figraham/caterpillar) - [Live Example](https://figraham.github.io/caterpillar/)
 
 ## Documentation
 
