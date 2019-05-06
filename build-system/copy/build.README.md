@@ -11,19 +11,24 @@ Distribution of [TerminalTXT Library](https://github.com/figraham/terminaltxt-so
 
 ## Release Notes
 
+### 0.0.6
+
+- Added Math module with `map()`, `cmap()`, `clamp()`, `random()`, and `Vector2`.
+- Added `Loop` class to help with timing games.
+
 ### 0.0.5
 
-- Added CommandTracker support.
-- Added overwrite to OutputTerminal.
+- Added `CommandTracker` support.
+- Added overwrite to `OutputTerminal`.
 
 ### 0.0.4
 
-- Added OutputTerminal with write, writeln, and newLine methods.
+- Added `OutputTerminal` with `write()`, `writeln()`, and `newLine()` methods.
 - Restructured src to make development easier.
 
 ### 0.0.3
 
-- Added InputTracker to handle user keyboard input.
+- Added `InputTracker` to handle user keyboard input.
 
 ### 0.0.2
 

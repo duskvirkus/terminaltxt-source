@@ -11,6 +11,7 @@ This is a web based creative coding library / game engine for ASCII and text art
   - [Minimal Example](https://github.com/figraham/terminaltxt-source#using-the-minimal-example)
   - [NPM](https://github.com/figraham/terminaltxt-source#installing-through-npm)
 - [Examples](https://github.com/figraham/terminaltxt-source#examples)
+- [Projects](https://github.com/figraham/terminaltxt-source#projects)
 - [Documentation](https://github.com/figraham/terminaltxt-source#documentation)
 
 ## Getting Started
@@ -58,9 +59,15 @@ If you'd like to experiment with the examples then it's recommended that you clo
 
 List of Examples:
 
+- Minimal Project - [Repository](https://github.com/figraham/terminaltxt-minimal) - [See, Using the Minimal Example](https://github.com/figraham/terminaltxt-source#using-the-minimal-example)
 - Hello World - [Repository](https://github.com/figraham/terminaltxt-helloworld) - [Live Example](https://figraham.github.io/terminaltxt-helloworld/)
 - 10PRINT - [Repository](https://github.com/figraham/terminaltxt-10print) - [Live Example](https://figraham.github.io/terminaltxt-10print/index.html)
 
+## Projects
+
+Below are some projects that use TerminalTXT. Please feel free to add you own projects to this list by submitting a pull request with your changes to this `README.md` file.
+
+- Caterpillar AKA clone of Snake - [Repository](https://github.com/figraham/caterpillar) - [Live Example](https://figraham.github.io/caterpillar/)
 
 ## Documentation
 
@@ -69,11 +76,11 @@ Hosting documentation through github pages has been spotty so while that's being
 You'll need something like [http-server](https://www.npmjs.com/package/http-server) which can easily be installed with npm using `npm i -g http-server` if you have npm which is included in [node.js](https://nodejs.org/en/).
 
 ```bash
-git clone -b gh-pages --single-branch https://github.com/figraham/terminaltxt-source.git
-cd terminaltxt-source
+git clone https://github.com/figraham/terminaltxt-source.git
+cd terminaltxt-source/docs
 http-server
 ```
 
 Then you can navigate to [http://localhost:8080](http://localhost:8080) with your favorite browser.
 
-**Note: That the gh-pages branch with documentation should be in sync with the latest npm version.** If you are having problems check the version of terminaltxt in you package.json.
+**Note: That the gh-pages branch with documentation is not in sync with the npm package. You may need to refer to the latest documentation which is likely to be ahead of the npm package.** Sorry about this mess hopefully it will be resolved soon. If you are having problems check the version of terminaltxt in you package.json.
