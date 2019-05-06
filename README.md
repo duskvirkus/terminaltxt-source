@@ -76,11 +76,11 @@ Hosting documentation through github pages has been spotty so while that's being
 You'll need something like [http-server](https://www.npmjs.com/package/http-server) which can easily be installed with npm using `npm i -g http-server` if you have npm which is included in [node.js](https://nodejs.org/en/).
 
 ```bash
-git clone -b gh-pages --single-branch https://github.com/figraham/terminaltxt-source.git
-cd terminaltxt-source
+git clone https://github.com/figraham/terminaltxt-source.git
+cd terminaltxt-source/docs
 http-server
 ```
 
 Then you can navigate to [http://localhost:8080](http://localhost:8080) with your favorite browser.
 
-**Note: That the gh-pages branch with documentation should be in sync with the latest npm version.** If you are having problems check the version of terminaltxt in you package.json.
+**Note: That the gh-pages branch with documentation is not in sync with the npm package. You may need to refer to the latest documentation which is likely to be ahead of the npm package.** Sorry about this mess hopefully it will be resolved soon. If you are having problems check the version of terminaltxt in you package.json.
