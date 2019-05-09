@@ -89,6 +89,18 @@ export class DOMCellController extends DOMController {
     this.cells[index].innerHTML = value;
   }
 
+  // TODO test
+  /**
+   * Set the color via css of a cell.
+   * 
+   * @param column 
+   * @param row 
+   * @param color 
+   */
+  public setColor(column: number, row: number, color: string): void {
+    this.cells[this.index(column, row)].style.color = color;
+  }
+
   /**
    * Initializes cells as empty span elements with line breaks.
    */

@@ -60,4 +60,9 @@ describe('DOMCellController Units: ', () => {
     }
   });
 
+  it('setColor unit', () => {
+    dom.setColor(0, 0, '#ff0000');
+    expect(dom.cells[0]).toHaveComputedStyle('color', 'rgb(255, 0, 0)');
+  });
+
 });

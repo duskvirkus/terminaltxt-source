@@ -5,3 +5,6 @@ export * from './output-terminal/index';
 export * from './config/index';
 export * from './math/index';
 export * from './loop/index';
+export * from './color/index';
+
+export * from './dom-controller/DOMCellController';
