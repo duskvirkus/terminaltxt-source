@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TerminalConfig | terminaltxt</title>
+	<title>Indexable | terminaltxt</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_config_terminalconfig_.html">&quot;config/TerminalConfig&quot;</a>
+					<a href="../modules/_utils_get_index_.html">&quot;utils/get-index&quot;</a>
 				</li>
 				<li>
-					<a href="_config_terminalconfig_.terminalconfig.html">TerminalConfig</a>
+					<a href="_utils_get_index_.indexable.html">Indexable</a>
 				</li>
 			</ul>
-			<h1>Interface TerminalConfig</h1>
+			<h1>Interface Indexable</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for config objects passed to terminal class.</p>
+						<p>Interface to enforce a getWidth method for use in <a href="../modules/_utils_get_index_.html#getindex">getIndex</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -80,8 +80,16 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">TerminalConfig</span>
+						<span class="target">Indexable</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_graphics_terminal_celldata_.celldata.html" class="tsd-signature-type">CellData</a></li>
+					<li><a href="../classes/_dom_controller_domcellcontroller_.domcellcontroller.html" class="tsd-signature-type">DOMCellController</a></li>
+					<li><a href="../classes/_graphics_terminal_graphicsterminal_.graphicsterminal.html" class="tsd-signature-type">GraphicsTerminal</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -91,9 +99,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_terminalconfig_.terminalconfig.html#container" class="tsd-kind-icon">container</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_terminalconfig_.terminalconfig.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_terminalconfig_.terminalconfig.html#width" class="tsd-kind-icon">width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_utils_get_index_.indexable.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,48 +108,28 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="container" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> container</h3>
-					<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLDivElement</span></div>
+					<a name="getwidth" class="tsd-anchor"></a>
+					<h3>get<wbr>Width</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/7671cf7/src/config/TerminalConfig.ts#L9">config/TerminalConfig.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/7671cf7/src/utils/get-index.ts#L5">utils/get-index.ts:5</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Div container for <a href="../classes/_dom_controller_domcontroller_.domcontroller.html">DOMController</a>.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="height" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> height</h3>
-					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/7671cf7/src/config/TerminalConfig.ts#L14">config/TerminalConfig.ts:14</a></li>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+									</li>
+								</ul>
+							</li>
 						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Height of terminal created. May not be used depending on which flavor of terminal you are using.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="width" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> width</h3>
-					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/figraham/terminaltxt-source/blob/7671cf7/src/config/TerminalConfig.ts#L19">config/TerminalConfig.ts:19</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Width of terminal created. May not be used depending on which flavor of terminal you are using.</p>
-						</div>
 					</div>
 				</section>
 			</section>
@@ -157,7 +143,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_characterset_characterset_.html">"characterset/<wbr>Character<wbr>Set"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_config_terminalconfig_.html">"config/<wbr>Terminal<wbr>Config"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -205,7 +191,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_output_terminal_outputterminal_.html">"output-<wbr>terminal/<wbr>Output<wbr>Terminal"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_utils_get_index_.html">"utils/get-<wbr>index"</a>
 					</li>
 				</ul>
@@ -215,21 +201,18 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_config_terminalconfig_.terminalconfig.html" class="tsd-kind-icon">Terminal<wbr>Config</a>
+						<a href="_utils_get_index_.indexable.html" class="tsd-kind-icon">Indexable</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_config_terminalconfig_.terminalconfig.html#container" class="tsd-kind-icon">container</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_config_terminalconfig_.terminalconfig.html#height" class="tsd-kind-icon">height</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_config_terminalconfig_.terminalconfig.html#width" class="tsd-kind-icon">width</a>
+								<a href="_utils_get_index_.indexable.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_utils_get_index_.html#getindex" class="tsd-kind-icon">get<wbr>Index</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

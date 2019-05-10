@@ -11,6 +11,11 @@ Distribution of [TerminalTXT Library](https://github.com/figraham/terminaltxt-so
 
 ## Release Notes
 
+### 0.0.7
+
+- Added Indexable interface and `getIndex()`.
+- Added `setCellColor()`, `fill()`, and `fillColor()` to graphics terminal.
+
 ### 0.0.6
 
 - Added Math module with `map()`, `cmap()`, `clamp()`, `random()`, and `Vector2`.

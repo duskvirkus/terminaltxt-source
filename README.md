@@ -61,13 +61,14 @@ List of Examples:
 
 - Minimal Project - [Repository](https://github.com/figraham/terminaltxt-minimal) - [See, Using the Minimal Example](https://github.com/figraham/terminaltxt-source#using-the-minimal-example)
 - Hello World - [Repository](https://github.com/figraham/terminaltxt-helloworld) - [Live Example](https://figraham.github.io/terminaltxt-helloworld/)
-- 10PRINT - [Repository](https://github.com/figraham/terminaltxt-10print) - [Live Example](https://figraham.github.io/terminaltxt-10print/index.html)
 
 ## Projects
 
 Below are some projects that use TerminalTXT. Please feel free to add you own projects to this list by submitting a pull request with your changes to this `README.md` file.
 
 - Caterpillar AKA clone of Snake - [Repository](https://github.com/figraham/caterpillar) - [Live Example](https://figraham.github.io/caterpillar/)
+- 10PRINT - [Repository](https://github.com/figraham/terminaltxt-10print) - [Live Example](https://figraham.github.io/terminaltxt-10print/index.html)
+- Unicode Print - [Repository](https://github.com/figraham/unicode-print)
 
 ## Documentation
 
