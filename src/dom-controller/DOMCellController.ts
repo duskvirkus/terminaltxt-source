@@ -1,9 +1,10 @@
+import { getIndex, Indexable } from "../utils/get-index";
 import { DOMController } from "./DOMController";
 
 /**
  * Creates and has methods to update a Terminal DOM that contains cells in a grid pattern.
  */
-export class DOMCellController extends DOMController {
+export class DOMCellController extends DOMController implements Indexable {
 
   /**
    * Span elements that hold characters.
@@ -54,17 +55,6 @@ export class DOMCellController extends DOMController {
   }
 
   /**
-   * Get index of cell in cells array based on column and row values.
-   * 
-   * @param column 
-   * @param row 
-   * @returns index
-   */
-  public index(column: number, row: number): number {
-    return column + row * this.width;
-  }
-
-  /**
    * Will set single cell innerHTML to a string based on cell index.
    * 
    * @param value 
@@ -82,23 +72,20 @@ export class DOMCellController extends DOMController {
   public setCellValue(value: string, indexOrColumn: number, row?: number): void {
     let index: number;
     if (row) {
-      index = this.index(indexOrColumn, row);
+      index = getIndex(indexOrColumn, row, this);
     } else {
       index = indexOrColumn;
     }
     this.cells[index].innerHTML = value;
   }
 
-  // TODO test
   /**
    * Set the color via css of a cell.
    * 
-   * @param column 
-   * @param row 
    * @param color 
    */
-  public setColor(column: number, row: number, color: string): void {
-    this.cells[this.index(column, row)].style.color = color;
+  public setColor(index: number, color: string): void {
+    this.cells[index].style.color = color;
   }
 
   /**

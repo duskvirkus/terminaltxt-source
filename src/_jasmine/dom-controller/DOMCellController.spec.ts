@@ -1,5 +1,6 @@
 import { DOMCellController } from '../../dom-controller/DOMCellController';
 import 'jasmine-dom-custom-matchers';
+import { getIndex } from '../../utils';
 
 describe('DOMCellController Units: ', () => {
 
@@ -38,11 +39,11 @@ describe('DOMCellController Units: ', () => {
     // column & number
     for (let i = 0; i < dom.getWidth(); i++) {
       for (let j = 0; j < dom.getHeight(); j++) {
-        dom.setCellValue(String.fromCharCode((i + j) % 96 + 63), i, j);
+        dom.setCellValue(String.fromCharCode((i + j) % 26 + 65), i, j);
       }
     }
     for (let i = 0; i < dom.cells.length; i++) {
-      expect(dom.cells[i].innerHTML).toEqual(String.fromCharCode(((i % dom.getWidth()) + (i / dom.getWidth())) % 96 + 63));
+      expect(dom.cells[i].innerHTML).toEqual(String.fromCharCode(((i % dom.getWidth()) + (i / dom.getWidth())) % 26 + 65));
     }
     // index
     for (let i = 0; i < dom.cells.length; i++) {
@@ -61,7 +62,7 @@ describe('DOMCellController Units: ', () => {
   });
 
   it('setColor unit', () => {
-    dom.setColor(0, 0, '#ff0000');
+    dom.setColor(0, '#ff0000');
     expect(dom.cells[0]).toHaveComputedStyle('color', 'rgb(255, 0, 0)');
   });
 

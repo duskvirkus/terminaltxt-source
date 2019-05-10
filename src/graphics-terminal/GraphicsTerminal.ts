@@ -1,12 +1,13 @@
 import { CharacterSet } from '../characterset/CharacterSet';
 import { TerminalConfig } from '../config/TerminalConfig';
 import { DOMCellController } from '../dom-controller/DOMCellController';
+import { getIndex, Indexable } from '../utils/get-index';
 import { CellData } from './CellData';
 
 /**
  * Graphical Terminal for text art rendering.
  */
-export class GraphicsTerminal {
+export class GraphicsTerminal implements Indexable {
 
   /**
    * [[DOMCellController]] associated with this GraphicsTerminal.
@@ -47,6 +48,47 @@ export class GraphicsTerminal {
 
     this.cellData = new CellData(this.width, this.height);
     this.characterSet = characterSet;
+  }
+
+  /**
+   * Set all cells with character string containing a character. If string has multiple characters only the first one will be used.
+   * 
+   * @param character 
+   */
+  public fill(character: string): void
+  /**
+   * Set cells with index into [[CharacterSet]].
+   * 
+   * @param index 
+   * @param column 
+   * @param row 
+   */
+  public fill(index: number): void
+  public fill(value: string | number): void {
+    let setValue: number;
+    if (typeof value === 'string') {
+      setValue = this.characterSet.getIndex(value);
+    } else {
+      if (value >= 0 && value < this.characterSet.set.length) {
+        setValue = value;
+      } else {
+        setValue = -1;
+      }
+    }
+    for (let i: number = 0; i < this.width * this.height; i++) {
+      this.cellData.setCell(setValue, i);
+    }
+  }
+
+  /**
+   * Sets the color of all cells. If permanent consider using css as it's less overhead.
+   * 
+   * @param value 
+   */
+  public fillColor(color: string): void {
+    for (let i: number = 0; i < this.width * this.height; i++) {
+      this.cellController.setColor(i, color);
+    }
   }
 
   /**
@@ -97,7 +139,18 @@ export class GraphicsTerminal {
         setValue = -1;
       }
     }
-    this.cellData.setCell(setValue, this.cellData.index(column, row));
+    this.cellData.setCell(setValue, getIndex(column, row, this));
+  }
+
+  /**
+   * Sets the color of a cell.
+   * 
+   * @param color Valid style trait for color.
+   * @param column 
+   * @param row 
+   */
+  public setCellColor(color: string, column: number, row: number): void {
+    this.cellController.setColor(getIndex(column, row, this), color);
   }
 
   /**

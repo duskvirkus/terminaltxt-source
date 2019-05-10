@@ -1,7 +1,9 @@
+import { Indexable } from "../utils";
+
 /**
  * Used to keep track of the data behind a [[GraphicsTerminal]].
  */
-export class CellData {
+export class CellData implements Indexable {
 
   /**
    * Array of booleans to keep track of what data has been changed since last update.
@@ -74,16 +76,6 @@ export class CellData {
    */
   public hasBeenChanged(index: number): boolean {
     return this.changed[index];
-  }
-
-  /**
-   * Get index of cell based on column and row values.
-   * 
-   * @param column 
-   * @param row 
-   */
-  public index(column: number, row: number): number {
-    return column + row * this.width;
   }
 
   /**

@@ -1,4 +1,5 @@
 import { CellData } from '../../graphics-terminal/CellData';
+import { getIndex } from '../../utils';
 
 describe('CellData Units: ', () => {
   
@@ -37,10 +38,10 @@ describe('CellData Units: ', () => {
       });
     }
     for (let i = 0; i < randoms.length; i++) {
-      cellData.doneChange(cellData.index(randoms[i].col, randoms[i].row));
+      cellData.doneChange(getIndex(randoms[i].col, randoms[i].row, cellData));
     }
     for (let i = 0; i < randoms.length; i++) {
-      expect(cellData.hasBeenChanged(cellData.index(randoms[i].col, randoms[i].row))).toEqual(false);
+      expect(cellData.hasBeenChanged(getIndex(randoms[i].col, randoms[i].row, cellData))).toEqual(false);
     }
   });
 
@@ -53,10 +54,10 @@ describe('CellData Units: ', () => {
       });
     }
     for (let i = 0; i < randoms.length; i++) {
-      cellData.setCell(1, cellData.index(randoms[i].col, randoms[i].row));
+      cellData.setCell(1, getIndex(randoms[i].col, randoms[i].row, cellData));
     }
     for (let i = 0; i < randoms.length; i++) {
-      expect(cellData.getCell(cellData.index(randoms[i].col, randoms[i].row))).toEqual(1);
+      expect(cellData.getCell(getIndex(randoms[i].col, randoms[i].row, cellData))).toEqual(1);
     }
   });
 
