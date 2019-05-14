@@ -73,16 +73,6 @@ Below are some projects that use TerminalTXT. Please feel free to add you own pr
 
 ## Documentation
 
-Hosting documentation through github pages has been spotty so while that's being figured out the best way to view documentation is through a local server.
+Documentation is generated with [typedoc](https://typedoc.org/) and is available at [terminaltxt.createdby.fi](http://terminaltxt.createdby.fi).
 
-You'll need something like [http-server](https://www.npmjs.com/package/http-server) which can easily be installed with npm using `npm i -g http-server` if you have npm which is included in [node.js](https://nodejs.org/en/).
-
-```bash
-git clone https://github.com/figraham/terminaltxt-source.git
-cd terminaltxt-source/docs
-http-server
-```
-
-Then you can navigate to [http://localhost:8080](http://localhost:8080) with your favorite browser.
-
-**Note: That the gh-pages branch with documentation is not in sync with the npm package. You may need to refer to the latest documentation which is likely to be ahead of the npm package.** Sorry about this mess hopefully it will be resolved soon. If you are having problems check the version of terminaltxt in you package.json.
+**Note that documentation isn't always in sync with the npm package.** Please refer to release notes and be mindful of the version that you are using. I'm working to include versioning in documentation.
