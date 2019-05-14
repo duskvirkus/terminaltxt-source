@@ -66,9 +66,10 @@ List of Examples:
 
 Below are some projects that use TerminalTXT. Please feel free to add you own projects to this list by submitting a pull request with your changes to this `README.md` file.
 
-- Caterpillar AKA clone of Snake - [Repository](https://github.com/figraham/caterpillar) - [Live Example](https://figraham.github.io/caterpillar/)
-- 10PRINT - [Repository](https://github.com/figraham/terminaltxt-10print) - [Live Example](https://figraham.github.io/terminaltxt-10print/index.html)
-- Unicode Print - [Repository](https://github.com/figraham/unicode-print)
+- 10PRINT - [Repository](https://github.com/figraham/terminaltxt-10print) - [Live Example](http://10print.createdby.fi)
+- Caterpillar AKA clone of Snake - [Repository](https://github.com/figraham/caterpillar) - [Live Example](http://caterpillar.createdby.fi)
+- Unicode Print - [Repository](https://github.com/figraham/unicode-print) - [Live Example](http://unicodeprint.createdby.fi)
+- Tron - [Repository](https://github.com/figraham/tron) - [Live Example](http://tron.createdby.fi)
 
 ## Documentation
 
