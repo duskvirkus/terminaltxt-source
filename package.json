@@ -33,7 +33,7 @@
   "homepage": "https://github.com/figraham/terminaltxt-source#readme",
   "devDependencies": {
     "@types/jasmine": "^3.3.12",
-    "electron": "^4.1.4",
+    "electron": "^9.4.0",
     "gh-pages": "^2.0.1",
     "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
