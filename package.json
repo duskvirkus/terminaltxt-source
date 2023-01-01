@@ -62,11 +62,11 @@
     "karma-safari-launcher": "^1.0.0",
     "karma-safaritechpreview-launcher": "^2.0.2",
     "karma-typescript": "^4.0.0",
-    "ts-loader": "^5.3.3",
+    "ts-loader": "^9.4.2",
     "tslint": "^5.15.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.4.1",
-    "webpack": "^4.29.6",
+    "webpack": "^5.75.0",
     "webpack-dev-server": "^3.2.1"
   }
 }
